@@ -4,6 +4,8 @@
 <h1>{{post.title}}</h1>
 <span class="pubinfo">发布时间:{{post.pubdate|date:"Y年m月d日 H:i:s"}}</span>
 <div>
+    {% autoescape off %}
     {{post.content}}
+    {% endautoescape %}
 </div>
 {% endblock %}

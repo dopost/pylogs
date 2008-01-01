@@ -1,7 +1,12 @@
 {% extends "base.html" %}
+ 
 {% block title %}{{post.title}} - {{ block.super }} {% endblock %}
 {% block body %}
+
 <h1>{{post.title}}</h1>
+
+<span class="pubinfo">发布时间:{{post.pubdate|date:"Y年m月d日 H:i:s"}}</span>
+
 <span class="pubinfo">分类: 
 
 {% for cat in post.category.all %}
@@ -13,6 +18,8 @@
 
 </span>
 <div>
+    {% autoescape off %}
     {{post.content}}
+    {% endautoescape %}
 </div>
 {% endblock %}
