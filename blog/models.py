@@ -23,14 +23,14 @@ COMMENT_APPROVE_STATUS = (
     
 class Category(models.Model):
     '''category entity'''    
-    name = models.CharField('类别名',maxlength=255,unique=True)
-    desc = models.CharField('类别描述',maxlength=1024)
-    enname = models.CharField('类别英文名',maxlength=255,unique=True,blank=True,help_text='作为url路径')
+    name = models.CharField('类别名',max_length=255,unique=True)
+    desc = models.CharField('类别描述',max_length=1024)
+    enname = models.CharField('类别英文名',max_length=255,unique=True,blank=True,help_text='作为url路径')
     def save(self):
         #override save
         if not self.enname:
             self.enname = encoding.iri_to_uri(self.name)
-        super(Post,self).save()
+        super(Category,self).save()
     def __unicode__(self):
         return self.name
     #def __str__(self):
@@ -55,18 +55,18 @@ class Author(models.Model):
     '''
     Blog Author Entity
     '''
-    name = models.CharField('用户名',maxlength=255,unique=True)
-    password = models.CharField('密码',maxlength=64)
+    name = models.CharField('用户名',max_length=255,unique=True)
+    password = models.CharField('密码',max_length=64)
     email = models.EmailField('Email')
     
 class Post(models.Model):    
     '''Post Entity'''
-    title = models.CharField('标题',maxlength=255)
+    title = models.CharField('标题',max_length=255)
     content = models.TextField('内容')
-    category = models.ManyToManyField(Category,verbose_name='分类')
-    post_name = models.CharField('文章缩略名',maxlength=255,unique=True,blank=True,help_text='作为文章url路径,勿使用中文,不填则使用url编码后的文章标题')
-    post_type = models.CharField('类型',maxlength=10,default='post',choices=POST_TYPES)
-    post_status = models.CharField('文章状态',maxlength=10,default='publish',choices = POST_STATUS)
+    category = models.ManyToManyField(Category,null=True,blank=True,verbose_name='分类')
+    post_name = models.CharField('文章缩略名',max_length=255,unique=True,blank=True,help_text='作为文章url路径,勿使用中文,不填则使用url编码后的文章标题')
+    post_type = models.CharField('类型',max_length=10,default='post',choices=POST_TYPES)
+    post_status = models.CharField('文章状态',max_length=10,default='publish',choices = POST_STATUS)
     post_parent = models.ForeignKey('self',null=True, blank=True,related_name='child_set',verbose_name='上级页面')
     pubdate = models.DateTimeField('发布时间',auto_now_add=True,editable=False)
     hits = models.IntegerField('点击数',default=0,editable=False)
@@ -136,7 +136,7 @@ class Comments(models.Model):
         if self.post.post_name:
             return '/%d/%d/%d/%s/#comment' % (self.post.pubdate.year,self.post.pubdate.month,self.post.pubdate.day,self.post_name)
         else:
-            return '/%d/%d/%d/%i/' % (self.post.pubdate.year,self.post.pubdate.month,self.post.pubdate.day,self.id)
+            return '/%d/%d/%d/%i/#comment' % (self.post.pubdate.year,self.post.pubdate.month,self.post.pubdate.day,self.id)
     
     class Meta:
         ordering = ['-comment_date']
@@ -146,3 +146,27 @@ class Comments(models.Model):
     class Admin:
         #list_display = ('title','get_cat_str','pubdate','hits')
         search_fields = ['comment_author']
+
+class Links(models.Model):
+    '''Friend links entity'''
+    link_url = models.URLField('链接地址')
+    link_title = models.CharField('链接标题',unique=True,max_length=32)
+    link_desc = models.CharField('链接说明',null=True,blank=True,max_length=255)
+    link_image = models.CharField('链接图片',null=True,blank=True,max_length=255)
+    link_order = models.IntegerField('链接排序',default=0,help_text='值小的靠前')
+    link_updated = models.DateTimeField('链接添加时间',auto_now=True,editable=False)
+    
+    def __unicode__(self):
+        return self.title
+   
+    def get_absolute_url(self):        
+        self.link_url
+    class Meta:
+        ordering = ['link_order']
+        verbose_name='链接'
+        verbose_name_plural = '链接'
+
+    class Admin:
+        pass
+        #list_display = ('title','get_cat_str','pubdate','hits')
+        #search_fields = ['link_tit']
