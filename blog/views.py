@@ -1,6 +1,7 @@
 #coding=utf-8
 from pylogs.blog.models import Post
 from django.template import loader,Context
+from django.utils import encoding
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import get_object_or_404,get_list_or_404,render_to_response
 
@@ -18,11 +19,12 @@ def post(request,postname=None,postid=0):
     '''get post by post name'''
     if postname:
         #get by postname
-        post = get_object_or_404(Post,post_name__exact=postname,post_type__iexact='post')
-        return process('blog/post.html',post)
+        postname = encoding.iri_to_uri(postname)
+        post = get_object_or_404(Post,post_name__exact=postname,post_type__iexact='post')        
     elif int(postid)>0:
         #get by postid
         post = get_object_or_404(Post,id__exact=postid,post_type__iexact='post')
+    if post:
         return process('blog/post.html',post)
     else:
         return HttpResponse(_('Sorry! This post not found!'))
@@ -31,6 +33,7 @@ def post(request,postname=None,postid=0):
 def page(request,pagename):
     '''get page by page name'''
     if pagename:
+        pagename = encoding.iri_to_uri(pagename)
         page = get_object_or_404(Post,post_name__exact=pagename,post_type__iexact='page')
         return process('blog/page.html',page)        
     else:
@@ -104,9 +107,8 @@ import re
 r = re.compile(r'\b(([A-Z]+[a-z]+){2,})\b')
 def process(template,post):
     """处理页面链接，并且将回车符转为<br>"""
-    t = loader.get_template(template)
-    content = r.sub(r'<a href="/wiki/\1">\1</a>', post.content)
-    content = re.sub(r'[\n\r]+', '<br>', content)
+    t = loader.get_template(template)    
+    post.content = re.sub(r'[\n\r]+', '<br>', post.content)
     #c = Context({'pageid':page.id,'pagetitle':page.title, 'content':content,'categories':page.category.all()})
     c = Context({'post':post})    
     return HttpResponse(t.render(c))
