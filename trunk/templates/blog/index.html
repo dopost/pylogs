@@ -1,0 +1,21 @@
+{% load i18n categorytags menu %} 
+{% extends "base.html" %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+
+{% block title %}{% trans "Index" %} - {{ block.super }} {% endblock %}
+{% block body %}
+<div id="topmenu">
+    {% get_menus %}
+</div>
+<ul>
+{% for post in posts %}
+    <li><a href="{{post.get_absolute_url}}">{{post.title}}</a>     <span class="pubinfo">发表时间:{{post.pubdate|date:"Y年m月d日 H:i:s"}}</span></li>
+{% endfor %}
+</ul>
+{% trans "This is Sky's first Django site." %}
+<div id="category">
+    {% get_categories %}
+</div>
+{% endblock %}

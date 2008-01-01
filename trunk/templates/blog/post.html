@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{post.title}} - {{ block.super }} {% endblock %}
+{% block body %}
+<h1>{{post.title}}</h1>
+<span class="pubinfo">分类: 
+
+{% for cat in post.category.all %}
+<a href="{{cat.get_absolute_url}}">{{cat.name}}</a>
+{% if not forloop.last %}
+,
+{% endif %}
+{% endfor %}
+
+</span>
+<div>
+    {{post.content}}
+</div>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block title %}通讯录 - {{ block.super }} {% endblock %}
+{% block body %}
+<h2>通讯录</h2>
+<table border="1">
+    <tr>
+    <th>序号</th>
+    <th>姓名</th>
+    <th>地址</th>
+    </tr>
+    
+    {% for user in address %}
+    <tr class="{% cycle row1,row2 %}">
+        <td>{{forloop.counter}}</td>
+        <td>{{user.name}}</td>
+        <td>{{user.address}}</td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
+</html>
