@@ -1,0 +1,11 @@
+<h2>分类</h2>
+<div>
+{% if cats %}
+<ul>
+{% for cat in cats %}
+    <li><a href="{{cat.get_absolute_url}}">{{cat.name}}</a>
+{% endfor %}
+</ul>
+{% else %}
+No Category Now!
+{% endif %}

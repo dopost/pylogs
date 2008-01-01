@@ -1,0 +1,7 @@
+body, th, td { font-size:12px; font-family:宋体,Verdana,sans-serif; }
+.row1{}
+.row2{background-color:#f00;}
+.pubinfo{color:#666;}
+
+#topmenu ul{list-style:none;}
+#topmenu li{display:inline; margin:0 1em;}

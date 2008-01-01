@@ -1,0 +1,7 @@
+{% if menus %}
+<ul>
+{% for menu in menus %}
+    <li><a href="{{menu.get_page_url}}">{{menu.title}}</a>
+{% endfor %}
+</ul>
+{% endif %}
