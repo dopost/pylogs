@@ -1,11 +1,19 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
+from pylogs.blog import feeds
+# Info for feeds.
+feed_dict = {    
+    'rss': feeds.RssLatestPosts,
+    'atom': feeds.AtomLatestPosts,
+    }
+
 urlpatterns = patterns('',
     # Example:
-    # (r'^pylogs/', include('pylogs.foo.urls')),
-    # Uncomment this for admin:
+    # (r'^pylogs/', include('pylogs.foo.urls')),    
     (r'^admin/', include('django.contrib.admin.urls')),
     (r'^admin/r/', include('django.conf.urls.shortcut')),
+    (r'^feeds/(?P<url>.*)/$','django.contrib.syndication.views.feed',
+            {'feed_dict':feed_dict}),
     (r'^$', 'pylogs.blog.views.index'),  
     #(r'^login/$','pylogs.login.login'),
     #(r'^logout/$','pylogs.login.logout'),  
