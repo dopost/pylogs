@@ -2,25 +2,22 @@
  
 {% block title %}{{post.title}} - {{ block.super }} {% endblock %}
 {% block body %}
-<div class="singlepost">
+
 <h1>{{post.title}}</h1>
-
+<div class="singlepost">
 <span class="pubinfo">发布时间:{{post.pubdate|date:"Y年m月d日 H:i:s"}}</span>
-
 <span class="pubinfo">分类: 
-
 {% for cat in post.category.all %}
 <a href="{{cat.get_absolute_url}}">{{cat.name}}</a>
 {% if not forloop.last %}
 ,
 {% endif %}
 {% endfor %}
-
 </span>
 <div>
     {% autoescape off %}
     {{post.content}}
     {% endautoescape %}
-</div>
+<div>
 </div>
 {% endblock %}
