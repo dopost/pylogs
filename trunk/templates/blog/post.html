@@ -2,7 +2,7 @@
  
 {% block title %}{{post.title}} - {{ block.super }} {% endblock %}
 {% block body %}
-
+<div class="singlepost">
 <h1>{{post.title}}</h1>
 
 <span class="pubinfo">发布时间:{{post.pubdate|date:"Y年m月d日 H:i:s"}}</span>
@@ -21,5 +21,6 @@
     {% autoescape off %}
     {{post.content}}
     {% endautoescape %}
+</div>
 </div>
 {% endblock %}

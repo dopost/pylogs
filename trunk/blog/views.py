@@ -4,16 +4,14 @@ from django.template import loader,Context
 from django.utils import encoding
 from django.http import HttpResponse,HttpResponseRedirect
 from django.shortcuts import get_object_or_404,get_list_or_404,render_to_response
-
-def index(request,postid=0):
-    postid=int(postid)
-#    return HttpResponse(encoding.iri_to_uri('中国'))
-    if postid==0:
-        posts = Post.objects.all().exclude(post_type__iexact = 'page')[:5] #.values('id','title','pubdate')
-        return render_to_response('blog/index.html',{'posts':posts})
-    else:
-        postInfo = get_object_or_404(Post,id__exact=postid)
-        return process('blog/post.html',postInfo)
+from utils import html
+def index(request):
+    '''site index view,show 10 latest post.'''
+    posts = Post.objects.all().filter(post_type__iexact = 'post')[:10] #.values('id','title','pubdate')
+    for post in posts:
+        post.content = html.htmlDecode(post.content)
+    return render_to_response('blog/index.html',{'posts':posts})
+    
     
 def post(request,postname=None,postid=0):
     '''get post by post name'''

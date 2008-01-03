@@ -1,18 +1,42 @@
+{% load i18n categorytags %} 
 {% extends "base.html" %}
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+
 {% block title %}{{catInfo.name}} - {{ block.super }} {% endblock %}
 {% block body %}
-<h1>分类:{{catInfo.name}}</h1>
-<span class="pubinfo">{{catInfo.desc}}</span>
-<div>
+<!--Start of content-->
+<div id="content">
 {% if posts %}
-<ul>
+{% autoescape off %}
 {% for post in posts %}
-    <li><a href="{{post.get_absolute_url}}">{{post.title}}</a>     <span style="font-size:9pt; color:#aaa;">发表时间:{{post.pubdate|date:"Y年m月d日"}}</span></li>
+    <div class="post">
+        <h2><a href="{{post.get_absolute_url}}">{{post.title}}</a></h2>
+        <span class="pubinfo">发表时间:{{post.pubdate|date:"Y年m月d日 H:i:s"}}</span>        
+        {{post.content|truncatewords_html:"20"}}
+        <br/><br/>
+        <span class="pubinfo">
+        {% for cat in post.category.all %}
+        <a href="{{cat.get_absolute_url}}">{{cat.name}}</a>
+        {% if not forloop.last %},{% endif %}
+        {% endfor %}
+        </span>
+    </div>
 {% endfor %}
-</ul>
+{% endautoescape %}
 {% else %}
 该分类暂时还没有任何文章
 {% endif %}
 </div>
+<!--End of content-->
+<!--Start of right bar-->
+<div id="right">   
+    <ul class="menuul">
+      <li>
+         {% get_categories %}
+      </li>       
+    </ul>
+  </div>
+<!--End of right bar-->
 {% endblock %}
-

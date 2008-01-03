@@ -1,14 +1,30 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
-	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html>
-	<head>
-		<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-		<title>{% block title %}pylogs v0.1beta{% endblock %}</title>
-     <link href="/media/css/screen.css" rel="stylesheet" type="text/css" media="screen" />
-	</head>
-
+{% load i18n categorytags menu %} 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>{% block title %}Pylogs v1.0beta{% endblock %}</title>
+<style type="text/css" media="screen">
+<!--
+@import url("/media/css/screen.css");
+-->
+</style>
+<link rel="alternate" type="application/rss+xml" title="Pylogs Latest Posts Feed" href="/feeds/rss/" />
+</head>
 <body>
-{% block body %}
-{% endblock %}
+<div id="header">
+  <div id="navi">
+    {% get_menus %}
+  </div>
+  <div id="topbg">
+    <div id="logo"> <img src="/media/images/pylogs.png" alt="pylogs" width="200" height="81" /> </div>
+    <div id="toptext"> Simple is beautiful... </div>
+  </div>
+</div>
+<div id="wrapper">
+  {% block body %} 
+  {% endblock %}
+</div>
+<div id="footer"> <a href="#">Pylogs</a> v1.0beta Copyright &copy; Sky 2008 </div>
 </body>
-</hrml>
+</html>
