@@ -24,14 +24,17 @@ UL#nav {
 }
 UL#nav LI{display:inline; margin:0 1em 0 0;}
 
-#wrapper{text-align:left;
+#wrapper{
+	padding:0;
+padding-top:1em;
+text-align:left;
 clear:both;
 min-height:350px;
 height:350px;
-padding:0;
-padding-top:1em;
 }
-[class]#wrapper{height:auto;} 
+[class]#wrapper{
+	height:auto;
+	} 
 
 DIV#content{
 width:70%;
@@ -48,8 +51,8 @@ border-bottom:1px solid #eee;
 	display:block;
 	text-align:right;
 }
-.singlepost{
-	margin:1em;
+.singlepost{	
+	float:left;	
 }
 DIV#right{
 padding:0;
