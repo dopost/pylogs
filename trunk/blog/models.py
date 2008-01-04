@@ -75,7 +75,10 @@ class Post(models.Model):
     def save(self):
         #override save
         if not self.post_name:
-            self.post_name = encoding.iri_to_uri(self.title)
+            #replace the space of title
+            self.post_name = self.title.replace(' ','-')
+            self.post_name = self.title.replace(u'　','-')
+            self.post_name = encoding.iri_to_uri(self.post_name)
         super(Post,self).save()
     
     def __unicode__(self):
