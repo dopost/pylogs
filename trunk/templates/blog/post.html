@@ -1,23 +1,34 @@
 {% extends "base.html" %}
- 
+{% load i18n categorytags %} 
 {% block title %}{{post.title}} - {{ block.super }} {% endblock %}
-{% block body %}
-
-<h1>{{post.title}}</h1>
-<div class="singlepost">
-<span class="pubinfo">发布时间:{{post.pubdate|date:"Y年m月d日 H:i:s"}}</span>
-<span class="pubinfo">分类: 
-{% for cat in post.category.all %}
-<a href="{{cat.get_absolute_url}}">{{cat.name}}</a>
-{% if not forloop.last %}
-,
-{% endif %}
-{% endfor %}
-</span>
-<div>
+{% block body %}   
+<!--Start of content-->
+<div id="content">
+<h1>{{post.title}}</h1>           
+    <span class="pubinfo">发布时间:{{post.pubdate|date:"Y年m月d日 H:i:s"}}</span>
+    <span class="pubinfo">分类: 
+    {% for cat in post.category.all %}
+    <a href="{{cat.get_absolute_url}}">{{cat.name}}</a>
+    {% if not forloop.last %}
+    ,
+    {% endif %}
+    {% endfor %}
+    </span>
+    <div class="singlepost"> 
     {% autoescape off %}
     {{post.content}}
-    {% endautoescape %}
-<div>
+    {% endautoescape %}       
+    </div>
+
 </div>
+<!--End of content-->
+<!--Start of right bar-->
+<div id="right">   
+    <ul class="menuul">
+      <li>
+         {% get_categories %}
+      </li>       
+    </ul>
+  </div>
+<!--End of right bar-->
 {% endblock %}
