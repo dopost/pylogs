@@ -1,5 +1,6 @@
 #coding=utf-8
 from pylogs.blog.models import Post
+from pylogs.blog import models
 from django.template import loader,Context
 from django.utils import encoding
 from django.http import HttpResponse,HttpResponseRedirect
@@ -7,7 +8,8 @@ from django.shortcuts import get_object_or_404,get_list_or_404,render_to_respons
 from utils import html
 def index(request):
     '''site index view,show 10 latest post.'''
-    posts = Post.objects.all().filter(post_type__iexact = 'post')[:10] #.values('id','title','pubdate')
+    posts = Post.objects.all().filter(post_type__iexact = 'post',
+                                      post_status__iexact = models.POST_STATUS[0][0])[:10] #.values('id','title','pubdate')
     for post in posts:
         post.content = html.htmlDecode(post.content)
     return render_to_response('blog/index.html',{'posts':posts})
