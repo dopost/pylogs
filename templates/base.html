@@ -4,9 +4,10 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 <title>{% block title %}Pylogs v1.0beta{% endblock %}</title>
+{% load media %}
 <style type="text/css" media="screen">
 <!--
-@import url("/media/css/screen.css");
+@import url("{% media_url %}css/screen.css");
 -->
 </style>
 <link rel="alternate" type="application/rss+xml" title="Pylogs Latest Posts Feed" href="/feeds/rss/" />
@@ -21,6 +22,13 @@
     <div id="toptext"> Simple is beautiful... </div>
   </div>
 </div>
+<!--Start of messagebox-->
+         {% if messages %}
+         <div id="messages">
+        <ul class="messagelist">{% for message in messages %}<li>{{ message|escape }}</li>{% endfor %}</ul>
+        </div>
+        {% endif %}
+<!--End of messagebox-->
 <div id="wrapper">
   {% block body %} 
   {% endblock %}
