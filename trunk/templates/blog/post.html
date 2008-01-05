@@ -19,7 +19,25 @@
     {{post.content}}
     {% endautoescape %}       
     </div>
-
+    <!--End of comments-->
+    <div id="comments">
+        <span class="commenttitle"><a name="comments"></a>评论</span>
+        <ul>
+        {% for cmt in post.get_comments%}
+           <li>{{cmt.comment_author}} 发表于 {{cmt.comment_date|date:"Y年m月d日 H:i:s"}}          
+           <br/>
+           {% autoescape off %}
+            {{cmt.comment_content}}
+            {% endautoescape %}       
+           </li>
+        {% endfor %}
+        </ul>
+    </div>
+   
+    
+        {% include "blog/comment_form.html" %}
+     
+    
 </div>
 <!--End of content-->
 <!--Start of right bar-->

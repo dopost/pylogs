@@ -3,6 +3,8 @@ from django.db import models
 from datetime import datetime
 from django.utils import encoding
 from django.utils.http import urlquote
+import django.utils.html
+from pylogs.utils import html
 #文章类型选项
 POST_TYPES = (    
     ('post', '文章'),
@@ -64,7 +66,8 @@ class Post(models.Model):
     title = models.CharField('标题',max_length=255)
     content = models.TextField('内容')
     category = models.ManyToManyField(Category,null=True,blank=True,verbose_name='分类')
-    post_name = models.CharField('文章缩略名',max_length=255,unique=True,blank=True,help_text='作为文章url路径,勿使用中文,不填则使用url编码后的文章标题')
+    post_name = models.CharField('文章缩略名',max_length=255,unique=True,blank=True,
+                                 help_text='作为文章url路径,勿使用中文,不填则使用url编码后的文章标题')
     post_type = models.CharField('类型',max_length=10,default='post',choices=POST_TYPES)
     post_status = models.CharField('文章状态',max_length=10,default='publish',choices = POST_STATUS)
     post_parent = models.ForeignKey('self',null=True, blank=True,related_name='child_set',verbose_name='上级页面')
@@ -87,9 +90,15 @@ class Post(models.Model):
     #    return self.title
     def get_absolute_url(self):        
         if self.post_name:
-            return '/%d/%d/%d/%s/' % (self.pubdate.year,self.pubdate.month,self.pubdate.day,self.post_name)
+            return '/%d/%d/%d/%s/' % (self.pubdate.year,
+                                      self.pubdate.month,
+                                      self.pubdate.day,
+                                      self.post_name)
         else:
-            return '/%d/%d/%d/%i/' % (self.pubdate.year,self.pubdate.month,self.pubdate.day,self.id)
+            return '/%d/%d/%d/%i/' % (self.pubdate.year,
+                                      self.pubdate.month,
+                                      self.pubdate.day,
+                                      self.id)
     def get_page_url(self):
         '''if post is page,get the page url link'''
         if str(self.post_name).find('http://')==0:
@@ -108,6 +117,14 @@ class Post(models.Model):
         return cat_strs
     get_cat_str.short_description = '文章类别'
     
+    def get_comments(self):
+        '''Get post or page approved comments'''
+        comments = self.comments_set.all()
+        approved_comments = []
+        for cmt in comments:
+            if cmt.comment_approved == str(COMMENT_APPROVE_STATUS[1][0]):
+                approved_comments.append(cmt)
+        return approved_comments
     
     
     class Meta:
@@ -118,13 +135,14 @@ class Post(models.Model):
     class Admin:
         list_display = ('title','get_cat_str','pubdate','hits')
         search_fields = ['title']
+        list_filter =('post_type','category')
 
 class Comments(models.Model):
     '''user comments'''
-    post = models.ForeignKey(Post,verbose_name='文章')
+    post = models.ForeignKey(Post,verbose_name='文章',related_name='comments_set')
     comment_author = models.CharField('作者名',max_length=32)
     comment_author_email = models.EmailField(verbose_name='Email')
-    comment_author_url = models.URLField('网址',verify_exists=False)
+    comment_author_url = models.URLField('网址',null=True,blank=True,verify_exists=False)
     comment_author_IP = models.IPAddressField(verbose_name='IP',null=True,editable=False)
     comment_date = models.DateTimeField(verbose_name='发表时间',auto_now_add=True,editable=False)
     comment_content = models.TextField(verbose_name='评论内容')
@@ -132,14 +150,26 @@ class Comments(models.Model):
     comment_agent = models.CharField('用户浏览器信息',editable=False,max_length=255,null=True)
     user_id = models.IntegerField('用户id',editable=False,null=True)
     
+    def save(self):
+        #decode html code
+        self.comment_content = django.utils.html.escape(self.comment_content)
+        self.comment_content = html.htmlDecode(self.comment_content) 
+        super(Comments,self).save()
+        
     def __unicode__(self):
-        return self.comment_author
+        return self.comment_content
    
     def get_absolute_url(self):        
         if self.post.post_name:
-            return '/%d/%d/%d/%s/#comment' % (self.post.pubdate.year,self.post.pubdate.month,self.post.pubdate.day,self.post_name)
+            return '/%d/%d/%d/%s/#comment' % (self.post.pubdate.year,
+                                              self.post.pubdate.month,
+                                              self.post.pubdate.day,
+                                              self.post_name)
         else:
-            return '/%d/%d/%d/%i/#comment' % (self.post.pubdate.year,self.post.pubdate.month,self.post.pubdate.day,self.id)
+            return '/%d/%d/%d/%i/#comment' % (self.post.pubdate.year,
+                                              self.post.pubdate.month,
+                                              self.post.pubdate.day,
+                                              self.id)
     
     class Meta:
         ordering = ['-comment_date']
@@ -147,6 +177,7 @@ class Comments(models.Model):
         verbose_name_plural = '评论'
 
     class Admin:
+        list_filter =('comment_approved',)
         #list_display = ('title','get_cat_str','pubdate','hits')
         search_fields = ['comment_author']
 

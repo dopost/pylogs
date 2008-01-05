@@ -112,6 +112,98 @@ margin:.5em 0 0 1em;
 padding:0;}
 .innerul li{margin:0 0 .5em 0}
 
+#comments{
+	margin-top:1em;
+	clear:both;
+	border-top:1px solid #BFC8CF;
+	background:#F5F5F5;
+}
+.commenttitle{color:#E55B02; font-size:120%;font-weight:bold;}
+#comments ul{list-style:none;}
+#comments li{margin-bottom:1em; border-bottom:1px dashed #BFC8CF;}
+#commentform{clear:both;margin-top:1em;}
+.form-row {
+border-bottom:1px solid #EEEEEE;
+font-size:100%;
+overflow:hidden;
+padding:8px 12px;
+}
+label{
+	display:block;
+float:left;
+padding:0pt 1em 3px 0pt;
+width:6em;
+}
+input.button{
+	border:1px solid #4084B5;
+	background:#fff;
+	color:#4084B5;
+	font-weight:bold;
+	width:auto;
+	
+}
+input:hover, select:hover, textarea:hover {
+background:#F8F8F8 none repeat scroll 0%;
+}
+input:focus, select:focus, textarea:focus {
+background:#FFFFFF none repeat scroll 0%;
+border-color:#7D7D7D rgb(210, 210, 210) rgb(210, 210, 210) rgb(125, 125, 125);
+border-style:solid;
+border-width:1px;
+}
+
+input,
+textarea,
+input.textbox{
+background:#F1F1F1 none repeat scroll 0%;
+border-color:#7D7D7D rgb(232, 232, 232) rgb(232, 232, 232) rgb(125, 125, 125);
+border-style:solid;
+border-width:1px;
+color:#333333;
+font-family:verdana,arial,sans-serif;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+line-height:normal;
+margin:1px 0pt;
+padding:2px 2px 3px;
+width:20em;
+}
+
+.short{width:10em;}
+.long{width:30em;}
+.textarea{width:30em; height:10em;}
+
+.submit-row {
+
+margin:5px 0pt;
+padding:5px 7px;
+text-align:center;
+}
+/*error*/
+.errornote {
+background:#FFFFCC url(../img/admin/icon_error.gif) no-repeat scroll 5px 0.3em;
+border:1px solid red;
+color:red;
+display:block;
+font-size:12px !important;
+margin:0pt 0pt 3px;
+padding:4px 5px 4px 25px;
+}
+.error{
+background:red url(../img/admin/icon_alert.gif) no-repeat scroll 5px 0.3em;
+border:1px solid red;
+color:white;
+display:block;
+font-size:12px !important;
+margin:0pt 0pt 3px;
+padding:4px 5px 4px 25px;
+}
+label.required{
+	font-weight:bold;
+}
 DIV#footer{
 width:80%;
 text-align:center; 
