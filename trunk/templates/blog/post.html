@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n categorytags %} 
+{% load i18n %} 
 {% block title %}{{post.title}} - {{ block.super }} {% endblock %}
 {% block content %}   
 <!--Start of content-->
@@ -19,7 +19,8 @@
     {{post.content}}
     {% endautoescape %}       
     </div>
-    <!--End of comments-->
+ {% ifnotequal 0 post.comment_count %}   
+    <!--Start of comments-->    
     <div id="comments">
         <span class="commenttitle"><a name="comments"></a>评论</span>
         <ul>
@@ -33,19 +34,10 @@
         {% endfor %}
         </ul>
     </div>
-   
-    
+ {% endifnotequal %}   
+ 
         {% include "blog/comment_form.html" %}
-     
-    
+
+    <!--End of comments-->
 {% endblock %}
 <!--End of content-->
-<!--Start of right bar-->
-{% block right %}
-    <ul class="menuul">
-      <li>
-         {% get_categories %}
-      </li>       
-    </ul>
-<!--End of right bar-->
-{% endblock %}

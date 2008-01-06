@@ -1,4 +1,4 @@
-{% load i18n categorytags menu %} 
+{% load i18n categorytags menu links%} 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
@@ -39,6 +39,14 @@
 <!--Start of right bar-->
 <div id="right">   
     {% block right %}
+    <ul class="menuul">
+      <li>
+         {% get_categories %}
+      </li>
+      <li>
+        {% get_links %}
+      </li>
+    </ul>
     {% endblock %}
   </div>
 <!--End of right bar-->

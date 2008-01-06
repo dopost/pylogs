@@ -22,7 +22,44 @@ COMMENT_APPROVE_STATUS = (
     (1,'审核通过'),
     ('spam','垃圾评论')
 )
+#文章允许评论状态
+POST_COMMENT_STATUS = (
+    ('open','允许评论'),
+    ('closed','不允许评论'),
+    ('registered','只允许注册用户评论')
+)
+class Tags(models.Model):
+    '''Tag entity'''
+    name = models.CharField('标签',max_length=64)
+    slug = models.CharField('标签缩略名',max_length=255,unique=True,blank=True,help_text='作为友好url')
+    reference_count = models.IntegerField('被引用次数',default=0,editable=False)
     
+    def save(self):
+        #override save
+        if not self.slug:
+            #replace the special char of name as slug
+            self.slug = self.name.replace(' ','-')
+            self.slug = self.slug.replace(u'　','-')
+            self.slug = self.slug.replace('.','')
+            self.slug = encoding.iri_to_uri(self.slug)
+        super(Tags,self).save()
+    
+    def __unicode__(self):
+        return self.name
+    
+    def get_absolute_url(self): 
+        return '/tags/%s/' % self.slug      
+    
+    class Meta:
+        #ordering = ['-pubdate']
+        verbose_name='标签'
+        verbose_name_plural = '标签'
+
+    class Admin:
+        list_display = ('name','slug','reference_count')
+        search_fields = ['name']
+        #list_filter =('post_type','category')
+        
 class Category(models.Model):
     '''category entity'''    
     name = models.CharField('类别名',max_length=255,unique=True)
@@ -47,7 +84,7 @@ class Category(models.Model):
     class Meta:
         ordering=['name']
         verbose_name='分类'
-        verbose_name_plural = '分类列表'
+        verbose_name_plural = '分类'
     
     class Admin:
         list_display = ('name','desc')
@@ -71,17 +108,26 @@ class Post(models.Model):
     post_type = models.CharField('类型',max_length=10,default='post',choices=POST_TYPES)
     post_status = models.CharField('文章状态',max_length=10,default='publish',choices = POST_STATUS)
     post_parent = models.ForeignKey('self',null=True, blank=True,related_name='child_set',verbose_name='上级页面')
-    pubdate = models.DateTimeField('发布时间',auto_now_add=True,editable=False)
+    pubdate = models.DateTimeField('发布时间',auto_now_add=True)
     hits = models.IntegerField('点击数',default=0,editable=False)
     menu_order = models.IntegerField('菜单排序',default=0)
+    comment_status = models.CharField('允许评论状态',default= POST_COMMENT_STATUS[0][0],max_length=10,choices = POST_COMMENT_STATUS)
+    comment_count = models.IntegerField('评论数',default=0,editable=False)
+    tags = models.ManyToManyField(Tags,null=True,blank=True,verbose_name='标签',related_name='post_set')
     
     def save(self):
         #override save
         if not self.post_name:
             #replace the space of title
             self.post_name = self.title.replace(' ','-')
-            self.post_name = self.title.replace(u'　','-')
+            self.post_name = self.post_name.replace(u'　','-')
+            self.post_name = self.post_name.replace('.','')
             self.post_name = encoding.iri_to_uri(self.post_name)
+        #update tags reference_count
+        all_tags =  self.tags.all()
+        for tag in all_tags:
+            tag.reference_count = len(tag.post_set.all())
+            tag.save()                
         super(Post,self).save()
     
     def __unicode__(self):
@@ -130,7 +176,7 @@ class Post(models.Model):
     class Meta:
         ordering = ['-pubdate']
         verbose_name='文章'
-        verbose_name_plural = '文章列表'
+        verbose_name_plural = '文章'
 
     class Admin:
         list_display = ('title','get_cat_str','pubdate','hits')
@@ -153,7 +199,11 @@ class Comments(models.Model):
     def save(self):
         #decode html code
         self.comment_content = django.utils.html.escape(self.comment_content)
-        self.comment_content = html.htmlDecode(self.comment_content) 
+        self.comment_content = html.htmlDecode(self.comment_content)
+        #if comment is approved,update related post comment count
+        if self.comment_approved == str(COMMENT_APPROVE_STATUS[1][0]):
+            self.post.comment_count = len(self.post.comments_set.all())
+            self.post.save()            
         super(Comments,self).save()
         
     def __unicode__(self):
@@ -191,16 +241,16 @@ class Links(models.Model):
     link_updated = models.DateTimeField('链接添加时间',auto_now=True,editable=False)
     
     def __unicode__(self):
-        return self.title
+        return self.link_title
    
     def get_absolute_url(self):        
-        self.link_url
+        return self.link_url
     class Meta:
         ordering = ['link_order']
         verbose_name='链接'
         verbose_name_plural = '链接'
 
     class Admin:
-        pass
-        #list_display = ('title','get_cat_str','pubdate','hits')
+        #pass
+        list_display = ('link_title','link_url')
         #search_fields = ['link_tit']

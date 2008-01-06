@@ -3,8 +3,8 @@ from pylogs.blog.models import Category,Post
 from pylogs.blog import models
 from django.template import loader,Context
 from django.utils import encoding
-from django.http import HttpResponse,HttpResponseRedirect
-from django.shortcuts import get_object_or_404,get_list_or_404,render_to_response
+from django.http import HttpResponse
+from django.shortcuts import get_object_or_404
 from django.core.paginator import ObjectPaginator, InvalidPage
 
 PAGE_SIZE = 10
