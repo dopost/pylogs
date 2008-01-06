@@ -30,8 +30,18 @@
         {% endif %}
 <!--End of messagebox-->
 <div id="wrapper">
-  {% block body %} 
-  {% endblock %}
+ <!--Start of content-->
+<div id="content">
+{% block content %}
+{% endblock %}
+</div>
+<!--End of content-->
+<!--Start of right bar-->
+<div id="right">   
+    {% block right %}
+    {% endblock %}
+  </div>
+<!--End of right bar-->
 </div>
 <div id="footer"> <a href="#">Pylogs</a> v1.0beta Copyright &copy; Sky 2008 </div>
 </body>

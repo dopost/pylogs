@@ -1,0 +1,37 @@
+{% if form %}
+{% if form.errors %}
+<p class="errornote">Please correct the errors below:</p>
+{% endif %}   
+<div id="commentform">
+<span class="commenttitle"><a name="newcomments"></a>发表评论</span>
+<form method="post" action="" name="comment-form">
+<div class="form-row" >
+{% if form.comment_author.errors %}<span class="error">{{ form.comment_author.errors|join:", " }}</span>{% endif %}
+  <label for="id_comment_author" class="required">作者名:</label>
+  
+  {{form.comment_author}}
+</div>
+<div class="form-row" >
+{% if form.comment_author_email.errors %}<span class="error">{{ form.comment_author_email.errors|join:", " }}</span>{% endif %}
+  <label for="id_comment_author_email" class="required">Email:</label>   
+  {{form.comment_author_email}}
+  
+</div>
+<div class="form-row" >
+{% if form.comment_author_url.errors %}<span class="error">{{ form.comment_author_url.errors|join:", " }}</span>{% endif %}
+  <label for="id_comment_author_url" class="required">网址:</label> 
+
+  {{form.comment_author_url}}
+</div>
+<div class="form-row" >
+{% if form.comment_content.errors %}<span class="error">{{ form.comment_content.errors|join:", " }}</span>{% endif %}
+  <label for="id_comment_content" class="required">评论内容:</label> 
+  {{form.comment_content}}
+</div>
+<div class="submit-row" >
+  <input type="submit" value="发表评论" class="button" />
+</div>
+</form>
+  </div>
+ 
+    {%endif%}

@@ -1,6 +1,6 @@
 # Django settings for pylogs project.
 
-DEBUG = True
+DEBUG = False
 TEMPLATE_DEBUG = DEBUG
 
 ADMINS = (
