@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     (r'^\d{4}/\d{1,2}/\d{1,2}/(?P<postname>[^/]+)/$','pylogs.blog.views.post'),
     
     (r'^category/(?P<catid>\d+)/$','pylogs.blog.category_view.index'),
-    (r'^category/(?P<catname>\S+)/$','pylogs.blog.category_view.index'),
+    (r'^category/(?P<catname>[^/]+)/$','pylogs.blog.category_view.index'),
     
     (r'^(?P<year>\d{4})/(?P<month>(\d{1,2})?)/?(?P<date>(\d{1,2})?)/?$','pylogs.blog.views.dateposts'),
     (r'^(?P<pagename>\w+)/$','pylogs.blog.views.page'),

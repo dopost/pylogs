@@ -204,6 +204,9 @@ padding:4px 5px 4px 25px;
 label.required{
 	font-weight:bold;
 }
+#pagger{
+	text-align:right;
+}
 DIV#footer{
 width:80%;
 text-align:center; 
