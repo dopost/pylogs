@@ -5,9 +5,8 @@
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 
 {% block title %}{{ block.super }} {% endblock %}
-{% block body %}
-<!--Start of content-->
-<div id="content">
+
+{% block content %}
 {% autoescape off %}
 {% for post in posts %}
     <div class="post">
@@ -26,15 +25,15 @@
     </div>
 {% endfor %}
 {% endautoescape %}
-</div>
-<!--End of content-->
+{% endblock %}
+
+
 <!--Start of right bar-->
-<div id="right">   
+{% block right %} 
     <ul class="menuul">
       <li>
          {% get_categories %}
       </li>       
     </ul>
-  </div>
-<!--End of right bar-->
 {% endblock %}
+<!--End of right bar-->

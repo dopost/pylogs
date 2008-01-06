@@ -5,9 +5,9 @@
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 
 {% block title %}{{catInfo.name}} - {{ block.super }} {% endblock %}
-{% block body %}
+{% block content %}
 <!--Start of content-->
-<div id="content">
+
 {% if posts %}
 {% autoescape off %}
 {% for post in posts %}
@@ -30,15 +30,14 @@
 {% else %}
 该分类暂时还没有任何文章
 {% endif %}
-</div>
+{% endblock %}
 <!--End of content-->
 <!--Start of right bar-->
-<div id="right">   
+{% block right %}  
     <ul class="menuul">
       <li>
          {% get_categories %}
       </li>       
     </ul>
-  </div>
 <!--End of right bar-->
 {% endblock %}
