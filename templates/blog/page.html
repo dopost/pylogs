@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n categorytags %} 
+{% load i18n %} 
 {% block title %}{{post.title}} - {{ block.super }} {% endblock %}
     
 <!--Start of content-->
@@ -11,16 +11,26 @@
     {{post.content}}
     {% endautoescape %}       
     </div>
-
+<!--Start of comments-->
+{% ifnotequal 0 post.comment_count %}
+    <div id="comments">
+        <span class="commenttitle"><a name="comments"></a>评论</span>
+        <ul>
+        {% for cmt in post.get_comments%}
+           <li><strong>{{cmt.comment_author}}</strong> 发表于 {{cmt.comment_date|date:"Y年m月d日 H:i:s"}}          
+           <br/>
+           {% autoescape off %}
+            {{cmt.comment_content}}
+            {% endautoescape %}       
+           </li>
+        {% endfor %}
+        </ul>
+    </div>
+{% endifnotequal %} 
+    {% ifequal "open" post.comment_status %}
+        {% include "blog/comment_form.html" %}
+    {% endifequal %} 
+    <!--End of comments-->
 {% endblock %}
 <!--End of content-->
-<!--Start of right bar-->
-{% block right %}  
-    <ul class="menuul">
-      <li>
-         {% get_categories %}
-      </li>       
-    </ul>
-{% endblock %}
-<!--End of right bar-->
 

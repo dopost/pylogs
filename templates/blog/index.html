@@ -1,4 +1,4 @@
-{% load i18n categorytags %} 
+{% load i18n %} 
 {% extends "base.html" %}
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}
@@ -27,13 +27,3 @@
 {% endautoescape %}
 {% endblock %}
 
-
-<!--Start of right bar-->
-{% block right %} 
-    <ul class="menuul">
-      <li>
-         {% get_categories %}
-      </li>       
-    </ul>
-{% endblock %}
-<!--End of right bar-->

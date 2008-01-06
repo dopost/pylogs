@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n categorytags %} 
+{% load i18n %} 
 {% block title %}Sorry! - {{ block.super }} {% endblock %}
 {% block content %}
 <h1>Sorry! Our Server Down?! Let me check it,Will be back momently!</h1> 
@@ -30,12 +30,4 @@
 <br/>000000<span class="b">0</span><span class="b">0</span><span class="b">0</span>000000000000000<span class="b">0</span><span class="b">0</span><span class="b">0</span>00000000000000<span class="b">0</span><span class="b">0</span><span class="b">0</span>0000000
 <br/>000000000000000000000000000000000000000000000000000
 </div>
-{% endblock %}
-{% block right %}  
-    <ul class="menuul">
-      <li>
-         {% get_categories %}
-      </li>       
-    </ul>
-
 {% endblock %}

@@ -1,0 +1,10 @@
+<h2>链接</h2>
+{% if links %}
+<ul class="innerul">
+{% for link in links %}
+    <li><a href="{{link.get_absolute_url}}">{{link.link_title}}</a>
+{% endfor %}
+</ul>
+{% else %}
+No Links Now!
+{% endif %}

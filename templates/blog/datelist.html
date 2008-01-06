@@ -1,5 +1,5 @@
 {% extends "base.html" %}
-{% load i18n categorytags %} 
+{% load i18n %} 
 {% block title %}{{year}}年{% if month %}{{month}}月{% endif %}{% if day %}{{day}}日 {% endif %} - {{ block.super }} {% endblock %}
 {% block content %}
 <h1>{{year}}年{% if month %}{{month}}月{% endif %}{% if day %}{{day}}日 {% endif %}</h1>
@@ -13,12 +13,11 @@
 </ul>
 {% endif %}
 </div>
-{% endblock %}
-{% block right %}  
-    <ul class="menuul">
-      <li>
-         {% get_categories %}
-      </li>       
-    </ul>
 
+<!--Start of pagger-->
+<div id="pagger">
+    {% if prev_page %}<a href="?page={{prev_page}}">上一页</a>{% endif %}
+    {% if next_page%}<a href="?page={{next_page}}">下一页</a>{% endif %}    
+</div>
+<!--End of pagger-->
 {% endblock %}
