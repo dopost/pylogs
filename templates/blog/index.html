@@ -9,21 +9,24 @@
 {% block content %}
 {% autoescape off %}
 {% for post in posts %}
-    <div class="post">
-        <h2><a href="{{post.get_absolute_url}}">{{post.title}}</a></h2>
-        <span class="pubinfo">发表时间:{{post.pubdate|date:"Y年m月d日 H:i:s"}}</span>        
-        {{post.content|truncatewords_html:"20"}}
-        <br/><br/>
-        {% comment %}
-        <span class="pubinfo">
-        {% for cat in post.category.all %}
-        <a href="{{cat.get_absolute_url}}">{{cat.name}}</a>
-        {% if not forloop.last %},{% endif %}        
-        {% endfor %}
-        </span>
-        {% endcomment %}
+    <div class="entry">
+      <h1>
+        <a href="{{post.get_absolute_url}}">{{post.title}}</a>
+      </h1>
+      <div class="byline">
+        发表时间:{{post.pubdate|date:"Y年m月d日 H:i:s"}}
+      </div>
+      <div class="body">
+        <p>
+         {{post.content|truncatewords_html:"20"}}
+        </p>
+      </div>
+      <div class="byline" style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 40px; PADDING-TOP: 20px">
+      <img title="Comments" height="16" src="/media/images/comment.gif" width="16" align="middle">
+        <a href="#comments">Comments</a> | {{post.hits}} Views
+      </div>
     </div>
-{% endfor %}
+    {% endfor %}
 {% endautoescape %}
 {% endblock %}
 
