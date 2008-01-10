@@ -1,65 +1,123 @@
 {% load i18n categorytags menu links%} 
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<title>{% block title %}Pylogs v1.0beta{% endblock %}</title>
-{% load media %}
+  <head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8">   
+    <title>
+      {% block title %}Pylogs v1.0beta{% endblock %}
+    </title>
+    {% block script %}{% endblock %}
+    {% load media %}
 <style type="text/css" media="screen">
 <!--
 @import url("{% media_url %}css/screen.css");
 -->
 </style>
-<link rel="alternate" type="application/rss+xml" title="Pylogs Latest Posts Feed" href="/feeds/rss/" />
-</head>
-<body>
-<div id="header">
-  <div id="navi">
-    {% get_menus %}
-  </div>
-  <div id="topbg">
-    <div id="logo"> <img src="/media/images/pylogs.png" alt="pylogs" width="200" height="81" /> </div>
-    <div id="toptext"> Simple is beautiful... </div>
-  </div>
-</div>
-<!--Start of messagebox-->
-         {% if messages %}
-         <div id="messages">
-        <ul class="messagelist">{% for message in messages %}<li>{{ message|escape }}</li>{% endfor %}</ul>
+  </head>
+  <body onload="if(top != self) top.location.replace(self.location.href);">
+    <div id="container">
+      <div id="header">
+        <h1 id="logo">
+          <a href="http://pylog.struct.cn/"></a>
+        </h1>
+        <div id="headmenu">
+          <div style="margin-left: 2em">
+            <ul>
+              <li class="head_mob">
+                <a href="http://code.google.com/p/pylogs/">Pylogs v1.0beta</a>
+              </li>
+              <li class="head_phone">Jan 9,2008
+              </li>
+              <li class="head_mail">
+                <a onmouseover=
+                "this.href='mai' + 'lto:' + 'info' + '@' + 'vkistudios.com'"
+                href="http://blog.vkistudios.com/contact.cfm"><noscript>Contact
+                Us</noscript></a>
+              </li>
+            </ul>
+          </div>
         </div>
-        {% endif %}
-<!--End of messagebox-->
-<div id="wrapper">
- <!--Start of content-->
-<div id="content">
-{% block content %}
-{% endblock %}
-</div>
-<!--End of content-->
-<!--Start of right bar-->
-<div id="right">   
-    {% block right %}
-    <ul class="menuul">
-      <li>
-         {% get_categories %}
-      </li>
-      <li>
-        {% get_links %}
-      </li>
-    </ul>
-    {% endblock %}
-  </div>
-<!--End of right bar-->
-</div>
-<div id="footer"> <a href="#">Pylogs</a> v1.0beta Copyright &copy; Sky 2008 </div>
-<script type="text/javascript">
-var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
-document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
-</script>
-<script type="text/javascript">
-var pageTracker = _gat._getTracker("UA-399570-9");
-pageTracker._initData();
-pageTracker._trackPageview();
-</script>
-</body>
+      </div>
+      <div id="nav">
+        {% get_menus %}
+      </div>
+      <div id="content">
+        <div id="blogText">
+        {% block content %}
+        {% endblock %}
+          
+         
+        </div>
+      </div>
+      <div id="rightmenu">
+        <div class="clear"></div>
+        {% block right %}   
+        <div class="sidebar">
+          <div class="sbtop"></div>
+          <div class="sbinfo">
+            <h3>
+              Categories
+            </h3>            
+              <div class="sbinner">
+                {% get_categories %}                
+                
+              </div>         
+          </div>
+          <div class="sbbottom"></div>
+        </div>
+        
+        
+        <div class="sidebar">
+          <div class="sbtop"></div>
+          <div class="sbinfo">
+            <h3>
+              Links
+            </h3>            
+              <div class="sbinner">
+                {% get_links %}
+              </div>         
+          </div>
+          <div class="sbbottom"></div>
+        </div>
+        {% endblock %}
+        
+        <div class="clear"></div>
+        <div class="sidebar">
+          <div class="sbtop"></div>
+          <div class="sbinfo">
+            <h3>
+              Syndication
+            </h3>
+            <div class="sbinner">
+            <a href="/feeds/rss/" rel="noindex,nofollow"><img src="{% media_url %}images/rss2.gif" border="0"></a>&nbsp;
+            <a href="/feeds/atom/" rel="noindex,nofollow"><img src="{% media_url %}images/atom1.gif" border="0"></a><br>
+            </div>
+          </div>
+          <div class="sbbottom"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="clear"></div>
+        <div class="clear"></div>
+      </div>
+      <div id="footer">
+        <div id="footmenu">
+          <ul>
+            <li>
+              <a href="http://code.google.com/p/pylogs/">Pyblogs Project</a>
+            </li>           
+            <li class="last">
+              <a href="mailto:denghaibo+pylogs@gmail.com">Contact Me</a>
+            </li>
+          </ul>
+        </div>
+        <div id="copyright">
+         Powered by  <a href="http://code.google.com/p/pylogs/">Pylogs</a> v1.0beta.<br>
+          Copyright &copy; 2008 Sky<br>          
+          All rights reserved.
+        </div>
+        <div class="clear"></div>
+      </div>
+    </div>
+  </body>
 </html>
+

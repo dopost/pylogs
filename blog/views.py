@@ -9,8 +9,8 @@ from django.template import RequestContext
 from django.http import HttpResponse,HttpResponseRedirect,Http404
 from django.shortcuts import get_object_or_404,get_list_or_404,render_to_response
 from django.core.paginator import ObjectPaginator, InvalidPage
-
-from utils import html
+import re
+from utils import html,codehighlight
 
 PAGE_SIZE = 10
 def index(request):
@@ -54,13 +54,15 @@ def post(request,postname=None,postid=0):
         #update hits count
         post.hits = post.hits + 1
         post.save()
+        post.content = codehighlight.highlight_code(post.content)
         return render_to_response('blog/post.html',
                                   {'post':post,'form':form},
                                   context_instance=RequestContext(request))
         #return process('blog/post.html',post)
     else:
         return HttpResponse(_('Sorry! This post not found!'))
-    
+
+
 def post_comment(request,postname=None,postid=0):
     '''post new comment'''
     if postname:
@@ -112,6 +114,7 @@ def page(request,pagename):
         #update hits count
         page.hits = page.hits + 1
         page.save()
+        page.content = codehighlight.highlight_code(page.content)
         return render_to_response('blog/page.html',
                                   {'post':page,'form':form},
                                   context_instance=RequestContext(request))
@@ -197,15 +200,14 @@ def save(request,postid=0):
             return HttpResponse(_('Sorry! This post not found!'))
     return HttpResponseRedirect("/blog/article/%s" % postid)
         
-import time
+
 def currentTime():
     '''
     取得当前时间(yyyy-MM-dd HH:mm:ss)格式
     '''
     n = time.localtime()
-    return '%d-%d-%d %d:%d:%d' % (n.tm_year,n.tm_mon,n.tm_mday,n.tm_hour,n.tm_min,n.tm_sec)
+    return '%d-%d-%d %d:%d:%d' % (n.tm_year,n.tm_mon,n.tm_mday,n.tm_hour,n.tm_min,n.tm_sec)    
 
-import re
 r = re.compile(r'\b(([A-Z]+[a-z]+){2,})\b')
 def process(template,post):
     """处理页面链接，并且将回车符转为<br>"""
