@@ -1,24 +1,39 @@
 {% extends "base.html" %}
 {% load i18n %} 
 {% block title %}{{post.title}} - {{ block.super }} {% endblock %}
+{% block script %}
+{% load media %}
+<link rel="stylesheet" href="{% media_url %}css/code.css" type="text/css" media="screen" charset="utf-8">
+{% endblock %}
 {% block content %}   
 <!--Start of content-->
-
-<h1>{{post.title}}</h1>           
-    <span class="pubinfo">发布时间:{{post.pubdate|date:"Y年m月d日 H:i:s"}}</span>
-    <span class="pubinfo">分类: 
+<div class="entry">
+      <h1>
+        {{post.title}}
+      </h1>
+      <div class="byline">
+        发表时间:{{post.pubdate|date:"Y年m月d日 H:i:s"}}<br/>
+        分类: 
     {% for cat in post.category.all %}
     <a href="{{cat.get_absolute_url}}">{{cat.name}}</a>
     {% if not forloop.last %}
     ,
     {% endif %}
     {% endfor %}
-    </span>
-    <div class="singlepost"> 
-    {% autoescape off %}
+      </div>
+      <div class="body">
+        <p>
+          {% autoescape off %}
     {{post.content}}
-    {% endautoescape %}       
-    </div>
+    {% endautoescape %}    
+        </p>
+      </div>
+      <div class="byline" style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 40px; PADDING-TOP: 20px">
+      <img title="Comments" height="16" src="/media/images/comment.gif" width="16" align="middle">
+        <a href="#comments">Comments</a> | 68 Views
+      </div>
+    </div>     
+
  {% ifnotequal 0 post.comment_count %}   
     <!--Start of comments-->    
     <div id="comments">
