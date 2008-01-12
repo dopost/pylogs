@@ -68,7 +68,11 @@ class Category(models.Model):
     def save(self):
         #override save
         if not self.enname:
-            self.enname = encoding.iri_to_uri(self.name)
+			#replace the space of title
+            self.enname = self.name.replace(' ','-')
+            self.enname = self.enname.replace(u'　','-')
+            self.enname = self.enname.replace('.','')
+            self.enname = encoding.iri_to_uri(self.enname)            
         super(Category,self).save()
     def __unicode__(self):
         return self.name
