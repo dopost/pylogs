@@ -15,7 +15,7 @@ def index(request,catname=None,catid=0):
     if catname:
         #get by cat name
         catname = encoding.iri_to_uri(catname)        
-        catInfo = get_object_or_404(Category,enname__exact=catname)        
+        catInfo = get_object_or_404(Category,enname__iexact=catname)        
     elif catid > 0:       
         #get by id      
         catInfo = get_object_or_404(Category,id__exact=catid)        

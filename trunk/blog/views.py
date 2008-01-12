@@ -25,9 +25,10 @@ def post(request,postname=None,postid=0):
     '''get post by post name'''
     
     if postname:
-        #get by postname
+        #get by postname        
         postname = encoding.iri_to_uri(postname)
-        post = get_object_or_404(Post,post_name__exact=postname,post_type__iexact='post')        
+        #return HttpResponse(postname)
+        post = get_object_or_404(Post,post_name__iexact=postname,post_type__iexact='post')        
     elif int(postid)>0:
         #get by postid
         post = get_object_or_404(Post,id__exact=postid,post_type__iexact='post')
