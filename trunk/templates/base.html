@@ -6,15 +6,17 @@
     <title>
       {% block title %}Pylogs v1.0beta{% endblock %}
     </title>
+    
     {% block script %}{% endblock %}
     {% load media %}
+<script type="text/javascript" src="{% media_url %}js/highslide.packed.js"></script>
 <style type="text/css" media="screen">
 <!--
 @import url("{% media_url %}css/screen.css");
 -->
 </style>
   </head>
-  <body onload="if(top != self) top.location.replace(self.location.href);">
+  <body>
     <div id="container">
       <div id="header">
         <h1 id="logo">
@@ -26,11 +28,10 @@
               <li class="head_mob">
                 <a href="http://code.google.com/p/pylogs/">Pylogs v1.0beta</a>
               </li>
-              <li class="head_phone">Jan 9,2008
+              <li class="head_phone">Jan 12,2008
               </li>
-              <li class="head_mail">
-                <a href="#"><noscript>Contact Us</noscript></a>
-              </li>
+              <li>&nbsp;</li>
+              <li>&nbsp;</li>
             </ul>
 	</div>
 	</div>
@@ -84,7 +85,7 @@
               Syndication
             </h3>
             <div class="sbinner">
-            <a href="http://feed.feedsky.com/pylogs_rss"><img src="{% media_url %}images/rss2.gif" border="0"></a>&nbsp;
+            <a href="http://feed.feedsky.com/pylogs_rss" rel="noindex,nofollow" ><img src="{% media_url %}images/rss2.gif" border="0"></a>&nbsp;
             <a href="http://feed.feedsky.com/pylogs_atom" rel="noindex,nofollow"><img src="{% media_url %}images/atom1.gif" border="0"></a><br>
             </div>
           </div>
@@ -113,7 +114,7 @@
         <div class="clear"></div>
       </div>
     </div>
-    <!--Start google analytics-->
+    <!--Start google analytics
     <script type="text/javascript">
 var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
 document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
@@ -123,7 +124,7 @@ var pageTracker = _gat._getTracker("UA-399570-9");
 pageTracker._initData();
 pageTracker._trackPageview();
 </script>
- <!--Start google analytics-->
+ Start google analytics-->
   </body>
 </html>
 

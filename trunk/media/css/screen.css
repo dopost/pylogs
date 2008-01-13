@@ -42,19 +42,21 @@ A {
 	DISPLAY: block; WIDTH: 280px; HEIGHT: 89px
 }
 #headmenu {
-	RIGHT: 21px; FLOAT: right; POSITION: relative; TOP: 6px
+	RIGHT: 21px; FLOAT: right; POSITION: relative; TOP: 2px;
+	text-align:left;
 }
+
 #headmenu UL {
 	PADDING-RIGHT: 0px; PADDING-LEFT: 0px; FONT-WEIGHT: bold; FONT-SIZE: 0.9em; PADDING-BOTTOM: 0px; MARGIN: 0px; COLOR: #c3d7eb; PADDING-TOP: 0px; FONT-FAMILY: Tahoma, Arial, Helvetica, sans-serif; TEXT-ALIGN: center
 }
 #headmenu UL LI.head_mob {
-	PADDING-RIGHT: 0px; DISPLAY: inline; PADDING-LEFT: 12px; BACKGROUND: url(/images/header-mob.gif) no-repeat 0px 0px; PADDING-BOTTOM: 0px; MARGIN-LEFT: 20px; PADDING-TOP: 0px
+	PADDING-RIGHT: 0px; DISPLAY: inline; PADDING-LEFT: 12px; PADDING-BOTTOM: 0px; MARGIN-LEFT: 20px; PADDING-TOP: 0px
 }
 #headmenu UL LI.head_phone {
-	PADDING-RIGHT: 0px; DISPLAY: inline; PADDING-LEFT: 13px; BACKGROUND: url(/images/header-phone.gif) no-repeat 0px 0px; PADDING-BOTTOM: 0px; MARGIN-LEFT: 18px; PADDING-TOP: 0px
+	PADDING-RIGHT: 0px; DISPLAY: inline; PADDING-LEFT: 13px; PADDING-BOTTOM: 0px; MARGIN-LEFT: 18px; PADDING-TOP: 0px
 }
 #headmenu UL LI.head_mail {
-	PADDING-RIGHT: 0px; DISPLAY: inline; PADDING-LEFT: 15px; BACKGROUND: url(/images/header-mail.gif) no-repeat 0px 0px; PADDING-BOTTOM: 0px; MARGIN-LEFT: 18px; PADDING-TOP: 0px
+	PADDING-RIGHT: 0px; DISPLAY: inline; PADDING-LEFT: 15px; PADDING-BOTTOM: 0px; MARGIN-LEFT: 18px; PADDING-TOP: 0px
 }
 #headmenu UL LI.head_mail A {
 	DISPLAY: inline-block
@@ -63,7 +65,7 @@ A {
 	PADDING-RIGHT: 15px; DISPLAY: inline; PADDING-LEFT: 15px; PADDING-BOTTOM: 3px; MARGIN: 0px; PADDING-TOP: 3px
 }
 #headmenu UL LI A {
-	COLOR: #c3d7eb; TEXT-DECORATION: underline
+	COLOR: #c3d7eb; TEXT-DECORATION: none
 }
 #headmenu UL LI A:hover {
 	COLOR: #d3e9ff; TEXT-DECORATION: underline
