@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 #coding=utf-8
+from django.utils.translation import ugettext as _
 from django.core.exceptions import ObjectDoesNotExist
 from django.utils.feedgenerator import Atom1Feed
 from django.contrib.auth.models import User
@@ -12,8 +13,8 @@ current_site = Site.objects.get_current().name
 global_title_template = 'blog/feeds/title.html'
 global_description_template = 'blog/feeds/description.html'
 global_item_copyright = 'Pylogs v1.0beta by Sky'
-global_title = "Pylogs: Latest Posts"
-global_description = "logging you life..."
+global_title = _("Pylogs: Latest Posts")
+global_description = _("logging you life...")
 class RssLatestPosts(Feed):
     """
     RSS Feed of the most recently published posts.    

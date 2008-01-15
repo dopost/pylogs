@@ -1,5 +1,5 @@
-{% load i18n %} 
 {% extends "base.html" %}
+{% load i18n %} 
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
@@ -16,7 +16,7 @@
         <a href="{{post.get_absolute_url}}">{{post.title}}</a>
       </h1>
       <div class="byline">
-        发表时间:{{post.pubdate|date:"Y年m月d日 H:i:s"}}
+        {% trans "Pubdate" %}:{{post.pubdate|date:"Y-m-d H:i:s"}}
       </div>
       <div class="body">
         <p>
@@ -25,18 +25,18 @@
       </div>
       <div class="byline" style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 40px; PADDING-TOP: 20px">
       <img title="Comments" height="16" src="/media/images/comment.gif" width="16" align="middle">
-        <a href="#comments">Comments</a> | {{post.hits}} Views
+        <a href="{{post.get_absolute_url}}#newcomments">{% trans "Comments" %}</a> | {{post.hits}} {% trans "Views" %}
       </div>
     </div>      
 {% endfor %}
 {% endautoescape %}
 {% else %}
-该分类暂时还没有任何文章
+{% trans "No post in this category." %}
 {% endif %}
 <!--Start of pagger-->
 <div id="pagger">
-    {% if prev_page %}<a href="{{catInfo.get_absolute_url}}?page={{prev_page}}">上一页</a>{% endif %}
-    {% if next_page%}<a href="{{catInfo.get_absolute_url}}?page={{next_page}}">下一页</a>{% endif %}    
+    {% if prev_page %}<a href="{{catInfo.get_absolute_url}}?page={{prev_page}}">{% trans "Prev" %}</a>{% endif %}
+    {% if next_page%}<a href="{{catInfo.get_absolute_url}}?page={{next_page}}">{% trans "Next" %}</a>{% endif %}    
 </div>
 <!--End of pagger-->
 {% endblock %}

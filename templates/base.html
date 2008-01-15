@@ -1,12 +1,14 @@
-﻿{% load i18n categorytags menu links%} 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load i18n categorytags menu links archivelist %} 
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">   
     <title>
       {% block title %}Pylogs v1.0beta{% endblock %}
-    </title>
-    
+    </title>    
     {% block script %}{% endblock %}
     {% load media %}
 <script type="text/javascript" src="{% media_url %}js/highslide.packed.js"></script>
@@ -52,7 +54,7 @@
           <div class="sbtop"></div>
           <div class="sbinfo">
             <h3>
-              Categories
+              {% trans "Categories" %}
             </h3>            
               <div class="sbinner">
                 {% get_categories %}                
@@ -62,12 +64,24 @@
           <div class="sbbottom"></div>
         </div>
         
+        <div class="sidebar">
+          <div class="sbtop"></div>
+          <div class="sbinfo">
+            <h3>
+              {% trans "Archives" %}
+            </h3>            
+              <div class="sbinner">
+                {% get_archivelist %}
+              </div>         
+          </div>
+          <div class="sbbottom"></div>
+        </div>
         
         <div class="sidebar">
           <div class="sbtop"></div>
           <div class="sbinfo">
             <h3>
-              Links
+               {% trans "Links" %}
             </h3>            
               <div class="sbinner">
                 {% get_links %}
@@ -75,6 +89,8 @@
           </div>
           <div class="sbbottom"></div>
         </div>
+        
+                
         {% endblock %}
         
         <div class="clear"></div>
@@ -82,7 +98,7 @@
           <div class="sbtop"></div>
           <div class="sbinfo">
             <h3>
-              Syndication
+               {% trans "Syndication" %}
             </h3>
             <div class="sbinner">
             <a href="http://feed.feedsky.com/pylogs_rss" rel="noindex,nofollow" ><img src="{% media_url %}images/rss2.gif" border="0"></a>&nbsp;
@@ -99,10 +115,10 @@
         <div id="footmenu">
           <ul>
             <li>
-              <a href="http://code.google.com/p/pylogs/">Pyblogs Project</a>
+              <a href="http://code.google.com/p/pylogs/"> {% trans "Pyblogs Project" %}</a>
             </li>           
             <li class="last">
-              <a href="mailto:denghaibo+pylogs@gmail.com">Contact Me</a>
+              <a href="mailto:denghaibo+pylogs@gmail.com"> {% trans "Contact Me" %}</a>
             </li>
           </ul>
         </div>
