@@ -2,7 +2,7 @@
 #coding=utf-8
 from django.template import Library
 from django.db import connection, transaction
-class archives():
+class archive:
     link = ''
     title = ''
     
@@ -15,7 +15,7 @@ def get_archivelist(context):
     months = cursor.execute("select distinct strftime('%%Y/%%m',pubdate) as mon from blog_post order by mon desc")
     archive_months = []
     for mon in months:
-        m = archives()
+        m = archive()
         m.link = "/" + mon[0] + "/"
         m.title = mon[0].replace('/',u'年')
         m.title += u'月'
