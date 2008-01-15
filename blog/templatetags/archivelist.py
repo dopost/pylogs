@@ -1,8 +1,11 @@
 #!/usr/bin/env python
 #coding=utf-8
-from django.utils.translation import ugettext as _
 from django.template import Library
 from django.db import connection, transaction
+class archives():
+    link = ''
+    title = ''
+    
 register = Library()
 def get_archivelist(context):
     '''
@@ -14,13 +17,11 @@ def get_archivelist(context):
     for mon in months:
         m = archives()
         m.link = "/" + mon[0] + "/"
-        m.title = mon[0].replace('/','年')
-        m.title += '月'
+        m.title = mon[0].replace('/',u'年')
+        m.title += u'月'
         archive_months.append(m)
     return {'archive_months':archive_months}
-
-class archives():
-    link = ''
-    title = ''
-    
 register.inclusion_tag('blog/tags/archivelist.html', takes_context=True)(get_archivelist)
+
+    
+
