@@ -20,8 +20,7 @@ def get_archivelist(context):
         m.title = mon[0].replace('/',u'年')
         m.title += u'月'
         archive_months.append(m)
-    cursor.close()
-    connection.close()
+    cursor.close()    
     return {'archive_months':archive_months}
 register.inclusion_tag('blog/tags/archivelist.html', takes_context=True)(get_archivelist)
 
