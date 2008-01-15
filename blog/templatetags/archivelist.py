@@ -14,8 +14,8 @@ def get_archivelist(context):
     for mon in months:
         m = archives()
         m.link = "/" + mon[0] + "/"
-        m.title = mon[0].replace('/',_(u'年'))
-        m.title += _(u'月')
+        m.title = mon[0].replace('/','年')
+        m.title += '月'
         archive_months.append(m)
     return {'archive_months':archive_months}
 
