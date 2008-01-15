@@ -1,17 +1,21 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
 from pylogs.blog import feeds
+from pylogs.blog.models import Post
 
 # Info for feeds.
 feed_dict = {    
     'rss': feeds.RssLatestPosts,
     'atom': feeds.AtomLatestPosts,
     }
-
+info_dict = {    
+    'queryset': Post.objects.all(),
+    'date_field': 'pubdate',
+}
 urlpatterns = patterns('',
     # Example:
     # (r'^pylogs/', include('pylogs.foo.urls')),
-    #(r'^$', 'pylogs.index.index'),  
+    #(r'^(?P<year>\d{4})/$', 'django.views.generic.date_based.archive_year',info_dict),  
     (r'^admin/', include('django.contrib.admin.urls')),
     (r'^admin/r/', include('django.conf.urls.shortcut')),
     (r'^feeds/(?P<url>.*)/$','django.contrib.syndication.views.feed',

@@ -1,0 +1,238 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-01-15 21:35+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: .\blog\category_view.py:42
+msgid "Sorry! No such Category!"
+msgstr ""
+#: .\blog\feeds.py:16
+msgid "Pylogs: Latest Posts"
+msgstr ""
+
+#: .\blog\feeds.py:17
+msgid "logging you life..."
+msgstr ""
+#: .\blog\models.py:11 .\blog\models.py:185 .\blog\models.py:195
+msgid "Post"
+msgstr ""
+
+#: .\blog\models.py:12
+msgid "Page"
+msgstr ""
+
+#: .\blog\models.py:16
+msgid "Published"
+msgstr ""
+
+#: .\blog\models.py:17
+msgid "Draft"
+msgstr ""
+
+#: .\blog\models.py:18
+msgid "Private"
+msgstr ""
+
+#: .\blog\models.py:22
+msgid "UnApproved"
+msgstr ""
+
+#: .\blog\models.py:23
+msgid "Approved"
+msgstr ""
+
+#: .\blog\models.py:24
+msgid "Spam"
+msgstr ""
+
+#: .\blog\models.py:28
+msgid "Allow Comments"
+msgstr ""
+
+#: .\blog\models.py:29
+msgid "Disallow Comments"
+msgstr ""
+
+#: .\blog\models.py:30
+msgid "Allow Register Comments"
+msgstr ""
+
+#: .\blog\models.py:34 .\blog\models.py:66
+msgid "Name"
+msgstr ""
+
+#: .\blog\models.py:35
+msgid "Slug"
+msgstr ""
+
+#: .\blog\models.py:35 .\blog\models.py:68 .\blog\models.py:112
+msgid "Use as url"
+msgstr ""
+
+#: .\blog\models.py:36
+msgid "Reference count"
+msgstr ""
+
+#: .\blog\models.py:56
+msgid "Tag"
+msgstr ""
+
+#: .\blog\models.py:57 .\blog\models.py:121
+msgid "Tags"
+msgstr ""
+
+#: .\blog\models.py:67 .\blog\models.py:245
+msgid "Description"
+msgstr ""
+
+#: .\blog\models.py:68
+msgid "English name"
+msgstr ""
+
+#: .\blog\models.py:91 .\blog\models.py:104 .\blog\models.py:110
+msgid "Category"
+msgstr ""
+
+#: .\blog\models.py:92
+msgid "Categories"
+msgstr ""
+
+#: .\blog\models.py:102
+msgid "UserName"
+msgstr ""
+
+#: .\blog\models.py:103
+msgid "Password"
+msgstr ""
+
+#: .\blog\models.py:108 .\blog\models.py:244
+msgid "Title"
+msgstr ""
+
+#: .\blog\models.py:109 .\blog\models.py:201
+msgid "Content"
+msgstr ""
+
+#: .\blog\models.py:111
+msgid "Post name"
+msgstr ""
+
+#: .\blog\models.py:113
+msgid "Post type"
+msgstr ""
+
+#: .\blog\models.py:114
+msgid "Post status"
+msgstr ""
+
+#: .\blog\models.py:115
+msgid "Parent page"
+msgstr ""
+
+#: .\blog\models.py:116 .\blog\models.py:200 .\blog\models.py:248
+msgid "Pubdate"
+msgstr ""
+
+#: .\blog\models.py:117
+msgid "Hits"
+msgstr ""
+
+#: .\blog\models.py:118
+msgid "Menu order"
+msgstr ""
+
+#: .\blog\models.py:119
+msgid "Comment status"
+msgstr ""
+
+#: .\blog\models.py:120
+msgid "Comment count"
+msgstr ""
+
+#: .\blog\models.py:171
+msgid "Post categories"
+msgstr ""
+
+#: .\blog\models.py:186
+msgid "Posts"
+msgstr ""
+
+#: .\blog\models.py:196
+msgid "Author"
+msgstr ""
+
+#: .\blog\models.py:197
+msgid "Email"
+msgstr ""
+
+#: .\blog\models.py:198 .\blog\models.py:243
+msgid "URL"
+msgstr ""
+
+#: .\blog\models.py:199
+msgid "IP"
+msgstr ""
+
+#: .\blog\models.py:202
+msgid "Approve status"
+msgstr ""
+
+#: .\blog\models.py:203
+msgid "User agent info"
+msgstr ""
+
+#: .\blog\models.py:204
+msgid "UserId"
+msgstr ""
+
+#: .\blog\models.py:233
+msgid "Comment"
+msgstr ""
+
+#: .\blog\models.py:234
+msgid "Comments"
+msgstr ""
+
+#: .\blog\models.py:246
+msgid "Image"
+msgstr ""
+
+#: .\blog\models.py:247
+msgid "Order"
+msgstr ""
+
+#: .\blog\models.py:247
+msgid "Minimal at front"
+msgstr ""
+
+#: .\blog\models.py:257
+msgid "Link"
+msgstr ""
+
+#: .\blog\models.py:258
+msgid "Links"
+msgstr ""
+#: .\blog\views.py:64 .\blog\views.py:181 .\blog\views.py:205
+msgid "Sorry! This post not found!"
+msgstr ""
+
+#: .\blog\views.py:124
+msgid "Sorry! This page not found!"
+msgstr ""
+
+#: .\blog\views.py:191
+msgid "Title and content can not be null."
+msgstr ""

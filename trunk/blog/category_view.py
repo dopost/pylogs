@@ -39,4 +39,4 @@ def index(request,catname=None,catid=0):
             c = Context(data)            
             return HttpResponse(t.render(c))
     else:
-        return HttpResponse('Sorry! No such Category!')
+        return HttpResponse(_('Sorry! No such Category!'))

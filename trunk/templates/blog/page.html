@@ -7,12 +7,16 @@
 {% endblock %}    
 <!--Start of content-->
 {% block content %}
+{% load i18n %} 
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
 <div class="entry">
       <h1>
         {{post.title}}
       </h1>
       <div class="byline">
-        发表时间:{{post.pubdate|date:"Y年m月d日 H:i:s"}}
+        {% trans "Pubdate" %}:{{post.pubdate|date:"Y-m-d H:i:s"}} | {{post.hits}} {% trans "Views" %}
       </div>
       <div class="body">
         <p>
@@ -21,19 +25,16 @@
     {% endautoescape %}    
         </p>
       </div>
-      <div class="byline" style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 40px; PADDING-TOP: 20px">
-      <img title="Comments" height="16" src="/media/images/comment.gif" width="16" align="middle">
-        <a href="#comments">Comments</a> | {{post.hits}} Views
-      </div>
+     
     </div>  
     
 <!--Start of comments-->
 {% ifnotequal 0 post.comment_count %}
     <div id="comments">
-        <span class="commenttitle"><a name="comments"></a>评论</span>
+        <span class="commenttitle"><a name="comments"></a>{% trans "Comments" %}</span>
         <ul>
         {% for cmt in post.get_comments%}
-           <li><strong>{{cmt.comment_author}}</strong> 发表于 {{cmt.comment_date|date:"Y年m月d日 H:i:s"}}          
+           <li><strong>{{cmt.comment_author}}</strong> {% trans "Post at" %} {{cmt.comment_date|date:"Y-m-d H:i:s"}}          
            <br/>
            {% autoescape off %}
             {{cmt.comment_content}}

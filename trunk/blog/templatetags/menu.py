@@ -2,7 +2,6 @@
 from django import template
 from django.template import Library
 from pylogs.blog.models import Post
-from pylogs import settings
 
 register = Library()
 def get_menus(context):
@@ -10,7 +9,7 @@ def get_menus(context):
     get the top nav menus
     '''
     pages = Post.objects.filter(post_type__exact='page').order_by('menu_order')
-    homepage = Post(title='Home',post_name=settings.SITE_URL)
+    homepage = Post(title='Home',post_name='/')
     menus = [homepage] #{'/':'Home',}
     if pages:
         for page in pages:

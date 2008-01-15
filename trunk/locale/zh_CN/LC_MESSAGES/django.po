@@ -1,0 +1,354 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Pylogs v1.0beta\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-01-15 21:12+0800\n"
+"PO-Revision-Date: 2008-01-15 21:25+0800\n"
+"Last-Translator: Sky <denghaibo@gmail.com>\n"
+"Language-Team: Sky <denghaibo+pylogs@gmail.com>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=utf-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Chinese\n"
+"X-Poedit-Country: CHINA\n"
+
+#: .\blog\category_view.py:42
+msgid "Sorry! No such Category!"
+msgstr "对不起！没有这个分类！"
+
+#: .\blog\feeds.py:16
+msgid "Pylogs: Latest Posts"
+msgstr "Pylogs:最新文章"
+
+#: .\blog\feeds.py:17
+msgid "logging you life..."
+msgstr "logging you life..."
+
+#: .\blog\models.py:11
+#: .\blog\models.py:185
+#: .\blog\models.py:195
+msgid "Post"
+msgstr "文章"
+
+#: .\blog\models.py:12
+msgid "Page"
+msgstr "页面"
+
+#: .\blog\models.py:16
+msgid "Published"
+msgstr "已发布"
+
+#: .\blog\models.py:17
+msgid "Draft"
+msgstr "草稿"
+
+#: .\blog\models.py:18
+msgid "Private"
+msgstr "私人"
+
+#: .\blog\models.py:22
+msgid "UnApproved"
+msgstr "未审核"
+
+#: .\blog\models.py:23
+msgid "Approved"
+msgstr "已审核"
+
+#: .\blog\models.py:24
+msgid "Spam"
+msgstr "垃圾"
+
+#: .\blog\models.py:28
+msgid "Allow Comments"
+msgstr "允许评论"
+
+#: .\blog\models.py:29
+msgid "Disallow Comments"
+msgstr "不允许评论"
+
+#: .\blog\models.py:30
+msgid "Allow Register Comments"
+msgstr "只允许注册用户评论"
+
+#: .\blog\models.py:34
+#: .\blog\models.py:66
+msgid "Name"
+msgstr "名称"
+
+#: .\blog\models.py:35
+msgid "Slug"
+msgstr "简称"
+
+#: .\blog\models.py:35
+#: .\blog\models.py:68
+#: .\blog\models.py:112
+msgid "Use as url"
+msgstr "作为链接使用"
+
+#: .\blog\models.py:36
+msgid "Reference count"
+msgstr "引用次数"
+
+#: .\blog\models.py:56
+msgid "Tag"
+msgstr "标签"
+
+#: .\blog\models.py:57
+#: .\blog\models.py:121
+msgid "Tags"
+msgstr "标签"
+
+#: .\blog\models.py:67
+#: .\blog\models.py:245
+msgid "Description"
+msgstr "描述"
+
+#: .\blog\models.py:68
+msgid "English name"
+msgstr "英文名"
+
+#: .\blog\models.py:91
+#: .\blog\models.py:104
+#: .\blog\models.py:110
+msgid "Category"
+msgstr "分类"
+
+#: .\blog\models.py:92
+#: .\templates\base.html.py:57
+#: .\templates\blog\post.html.py:19
+msgid "Categories"
+msgstr "分类"
+
+#: .\blog\models.py:102
+msgid "UserName"
+msgstr "用户名"
+
+#: .\blog\models.py:103
+msgid "Password"
+msgstr "密码"
+
+#: .\blog\models.py:108
+#: .\blog\models.py:244
+msgid "Title"
+msgstr "标题"
+
+#: .\blog\models.py:109
+#: .\blog\models.py:201
+#: .\templates\blog\comment_form.html.py:32
+msgid "Content"
+msgstr "内容"
+
+#: .\blog\models.py:111
+msgid "Post name"
+msgstr "文章缩略名"
+
+#: .\blog\models.py:113
+msgid "Post type"
+msgstr "文章类别"
+
+#: .\blog\models.py:114
+msgid "Post status"
+msgstr "文章状态"
+
+#: .\blog\models.py:115
+msgid "Parent page"
+msgstr "上级页面"
+
+#: .\blog\models.py:116
+#: .\blog\models.py:200
+#: .\blog\models.py:248
+#: .\templates\blog\category.html.py:19
+#: .\templates\blog\datelist.html.py:15
+#: .\templates\blog\index.html.py:15
+#: .\templates\blog\page.html.py:19
+msgid "Pubdate"
+msgstr "发表时间"
+
+#: .\blog\models.py:117
+msgid "Hits"
+msgstr "点击"
+
+#: .\blog\models.py:118
+msgid "Menu order"
+msgstr "菜单排序"
+
+#: .\blog\models.py:119
+msgid "Comment status"
+msgstr "评论状态"
+
+#: .\blog\models.py:120
+msgid "Comment count"
+msgstr "评论数"
+
+#: .\blog\models.py:171
+msgid "Post categories"
+msgstr "文章类别"
+
+#: .\blog\models.py:186
+msgid "Posts"
+msgstr "文章"
+
+#: .\blog\models.py:196
+#: .\templates\blog\comment_form.html.py:14
+msgid "Author"
+msgstr "作者"
+
+#: .\blog\models.py:197
+#: .\templates\blog\comment_form.html.py:20
+msgid "Email"
+msgstr "Email"
+
+#: .\blog\models.py:198
+#: .\blog\models.py:243
+#: .\templates\blog\comment_form.html.py:26
+msgid "URL"
+msgstr "URL"
+
+#: .\blog\models.py:199
+msgid "IP"
+msgstr "IP"
+
+#: .\blog\models.py:202
+msgid "Approve status"
+msgstr "审核状态"
+
+#: .\blog\models.py:203
+msgid "User agent info"
+msgstr "用户浏览器信息"
+
+#: .\blog\models.py:204
+msgid "UserId"
+msgstr "用户ID"
+
+#: .\blog\models.py:233
+msgid "Comment"
+msgstr "评论"
+
+#: .\blog\models.py:234
+#: .\templates\blog\category.html.py:28
+#: .\templates\blog\datelist.html.py:24
+#: .\templates\blog\index.html.py:24
+#: .\templates\blog\page.html.py:30
+#: .\templates\blog\page.html.py:37
+#: .\templates\blog\post.html.py:18
+#: .\templates\blog\post.html.py:36
+#: .\templates\blog\post.html.py:43
+msgid "Comments"
+msgstr "评论"
+
+#: .\blog\models.py:246
+msgid "Image"
+msgstr "图片"
+
+#: .\blog\models.py:247
+msgid "Order"
+msgstr "排序"
+
+#: .\blog\models.py:247
+msgid "Minimal at front"
+msgstr "值小的靠前"
+
+#: .\blog\models.py:257
+msgid "Link"
+msgstr "链接"
+
+#: .\blog\models.py:258
+#: .\templates\base.html.py:84
+msgid "Links"
+msgstr "链接"
+
+#: .\blog\views.py:64
+#: .\blog\views.py:181
+#: .\blog\views.py:205
+msgid "Sorry! This post not found!"
+msgstr "对不起！没有这篇文章！"
+
+#: .\blog\views.py:124
+msgid "Sorry! This page not found!"
+msgstr "对不起！没有这个页面！"
+
+#: .\blog\views.py:191
+msgid "Title and content can not be null."
+msgstr "标题和内容不能为空"
+
+#: .\templates\base.html.py:71
+msgid "Archives"
+msgstr "存档"
+
+#: .\templates\base.html.py:101
+msgid "Syndication"
+msgstr "聚合"
+
+#: .\templates\base.html.py:118
+msgid "Pyblogs Project"
+msgstr "Pyblogs Project"
+
+#: .\templates\base.html.py:121
+msgid "Contact Me"
+msgstr "联系我"
+
+#: .\templates\blog\category.html.py:28
+#: .\templates\blog\datelist.html.py:24
+#: .\templates\blog\index.html.py:24
+#: .\templates\blog\page.html.py:30
+#: .\templates\blog\post.html.py:18
+#: .\templates\blog\post.html.py:36
+msgid "Views"
+msgstr "阅读"
+
+#: .\templates\blog\category.html.py:34
+msgid "No post in this category."
+msgstr "这个分类暂时还没有文章。"
+
+#: .\templates\blog\category.html.py:38
+#: .\templates\blog\datelist.html.py:30
+msgid "Prev"
+msgstr "上一页"
+
+#: .\templates\blog\category.html.py:39
+#: .\templates\blog\datelist.html.py:31
+msgid "Next"
+msgstr "下一页"
+
+#: .\templates\blog\comment_form.html.py:10
+msgid "Leave You Comment"
+msgstr "评论这篇文章"
+
+#: .\templates\blog\comment_form.html.py:36
+msgid "Submit Comment"
+msgstr "发表评论"
+
+#: .\templates\blog\datelist.html.py:6
+msgid "year"
+msgstr "年"
+
+#: .\templates\blog\datelist.html.py:6
+msgid "month"
+msgstr "月"
+
+#: .\templates\blog\datelist.html.py:6
+msgid "day"
+msgstr "日"
+
+#: .\templates\blog\page.html.py:40
+#: .\templates\blog\post.html.py:46
+msgid "Post at"
+msgstr "发表于"
+
+#: .\templates\blog\tags\archivelist.html.py:12
+msgid "No Archive Now"
+msgstr "暂时没有存档"
+
+#: .\templates\blog\tags\category.html.py:12
+msgid "No Category Now"
+msgstr "暂时没有分类"
+
+#: .\templates\blog\tags\links.html.py:12
+msgid "No Links Now"
+msgstr "暂时没有链接"
+
