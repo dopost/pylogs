@@ -92,6 +92,7 @@ A {
 	BACKGROUND: url(../images/divider.gif) no-repeat center bottom; MARGIN-BOTTOM: 30px; PADDING-BOTTOM: 13px;
 	
 }
+div.body{padding-bottom:1em;}
 #nav {
 	PADDING-LEFT: 11px; Z-INDEX: 1; BACKGROUND: url(../images/menu-bg.jpg) no-repeat 50% top; WIDTH: 767px; TOP: 107px; HEIGHT: 28px
 }
@@ -125,7 +126,7 @@ color:#1E486C;
 }
 
 .byline {
-	FONT-SIZE: 0.9em; MARGIN: 0px; COLOR: #000; LINE-HEIGHT: 135%
+	FONT-SIZE: 0.9em; MARGIN: 0px; COLOR: #999; LINE-HEIGHT: 135%
 }
 
 #rightmenu {
@@ -200,8 +201,17 @@ PADDING-RIGHT: 10px; PADDING-LEFT: 10px; PADDING-BOTTOM: 10px; PADDING-TOP: 10px
 	
 }
 .commenttitle{color:#E55B02; font-size:120%;font-weight:bold;}
-#comments ul{list-style:none;}
-#comments li{margin-bottom:1em; border-bottom:1px dashed #BFC8CF;}
+#comments ul{list-style:none; margin:0; padding:0;}
+#comments li{margin:0; margin-bottom:1em; border-bottom:1px dashed #BFC8CF;}
+#comments li.alt1{
+	border-left:5px solid rgb(195, 217, 255); background:#F6F9FE;
+}
+#comments li.alt2{
+	border-left:5px solid rgb(205, 235, 139); background:#F6F9FE;
+}
+#comments li.alt3{
+	border-left:5px solid #FFFFCC; background:#F6F9FE;
+}
 #commentform{clear:both;margin-top:1em;}
 .form-row {
 border-bottom:1px solid #EEEEEE;
