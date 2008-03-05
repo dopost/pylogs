@@ -7,6 +7,11 @@
 {% endblock %}    
 <!--Start of content-->
 {% block content %}
+<!--Start of prompt-->
+ {% if msg %}
+ <div class="message">{{msg}}</div>
+ {% endif %}
+ <!--End of prompt--> 
 {% load i18n %} 
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}

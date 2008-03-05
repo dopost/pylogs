@@ -23,7 +23,7 @@ def index(request):
     
 def post(request,postname=None,postid=0):
     '''get post by post name'''
-    
+    msg = None
     if postname:
         #get by postname        
         postname = encoding.iri_to_uri(postname)
@@ -46,7 +46,9 @@ def post(request,postname=None,postid=0):
                            comment_approved=str(models.COMMENT_APPROVE_STATUS[0][0]),
                            comment_agent=request.META['HTTP_USER_AGENT'])
                 comment.save()
-                return HttpResponseRedirect(post.get_absolute_url()+ '#comments')
+                msg = _('Comment post successful!')
+                form = blog_forms.CommentForm()
+                #return HttpResponseRedirect(post.get_absolute_url()+ '#comments')
         #if allow comment,show the comment form
         elif post.comment_status == models.POST_COMMENT_STATUS[0][0]:
             form = blog_forms.CommentForm()
@@ -58,7 +60,7 @@ def post(request,postname=None,postid=0):
         post.content = html.htmlDecode(post.content)
         post.content = codehighlight.highlight_code(post.content)
         return render_to_response('blog/post.html',
-                                  {'post':post,'form':form},
+                                  {'post':post,'form':form,'msg':msg},
                                   context_instance=RequestContext(request))
         #return process('blog/post.html',post)
     else:
@@ -90,6 +92,7 @@ def post(request,postname=None,postid=0):
         
 def page(request,pagename):
     '''get page by page name'''
+    msg = None
     if pagename:
         pagename = encoding.iri_to_uri(pagename)
         page = get_object_or_404(Post,post_name__exact=pagename,post_type__iexact='page')
@@ -107,7 +110,9 @@ def page(request,pagename):
                            comment_approved=str(models.COMMENT_APPROVE_STATUS[0][0]),
                            comment_agent=request.META['HTTP_USER_AGENT'])
                 comment.save()
-                return HttpResponseRedirect(page.get_page_url()+ '#comments')
+                msg = _('Comment post successful!')
+                form = blog_forms.CommentForm()                
+                #return HttpResponseRedirect(page.get_page_url()+ '#comments')
         #if allow comment,show the comment form
         elif page.comment_status == models.POST_COMMENT_STATUS[0][0]:
             form = blog_forms.CommentForm()
@@ -119,7 +124,7 @@ def page(request,pagename):
         page.content = html.htmlDecode(page.content)
         page.content = codehighlight.highlight_code(page.content)
         return render_to_response('blog/page.html',
-                                  {'post':page,'form':form},
+                                  {'post':page,'form':form,'msg':msg},
                                   context_instance=RequestContext(request))
         #return process('blog/post.html',post)
     else:

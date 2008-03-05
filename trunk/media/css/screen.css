@@ -345,6 +345,8 @@ padding:0pt;
 #copyright A:hover {
 	COLOR: #154670
 }
+/* prompt message */
+.message{background:#33ff66; color:#003300 font-weight:bold;}
 /*highslide*/
 .highslide {
 	cursor: url(../images/highslide/zoomin.cur), pointer;
