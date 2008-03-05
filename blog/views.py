@@ -55,6 +55,7 @@ def post(request,postname=None,postid=0):
         #update hits count
         post.hits = post.hits + 1
         post.save()
+        post.content = html.htmlDecode(post.content)
         post.content = codehighlight.highlight_code(post.content)
         return render_to_response('blog/post.html',
                                   {'post':post,'form':form},
@@ -115,6 +116,7 @@ def page(request,pagename):
         #update hits count
         page.hits = page.hits + 1
         page.save()
+        page.content = html.htmlDecode(page.content)
         page.content = codehighlight.highlight_code(page.content)
         return render_to_response('blog/page.html',
                                   {'post':page,'form':form},
