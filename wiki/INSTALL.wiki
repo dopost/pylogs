@@ -3,7 +3,7 @@
 
 = 安装指南 =
 
-Pylogs是一个基于Python和Django开发的个人blog系统（至少暂时是这样:)）,本系统使用了[http://pygments.org/]Pygments代码着色模块，所以您在安装pylogs之前，需要先安装该模块。
+Pylogs是一个基于Python和Django开发的个人blog系统（至少暂时是这样:)）,本系统使用了[http://pygments.org/ Pygments]代码着色模块，所以您在安装pylogs之前，需要先安装该模块。
 
 
 = 安装 =
