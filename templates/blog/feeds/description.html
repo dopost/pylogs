@@ -1,1 +1,1 @@
-{{ obj.content|truncatewords_html:"100" }}
+{% autoescape off %}{{ obj.content|truncatewords_html:"100" }}{% endautoescape %} 

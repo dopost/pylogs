@@ -5,6 +5,11 @@
 <link rel="stylesheet" href="{% media_url %}css/code.css" type="text/css" media="screen" charset="utf-8">
 {% endblock %}
 {% block content %}
+<!--Start of prompt-->
+ {% if msg %}
+ <div class="message">{{msg}}</div>
+ {% endif %}
+ <!--End of prompt--> 
 {% load i18n %} 
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}
