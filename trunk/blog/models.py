@@ -172,7 +172,7 @@ class Post(models.Model):
     
     def get_comments(self):
         '''Get post or page approved comments'''
-        comments = self.comments_set.all()
+        comments = self.comments_set.order_by('id')
         approved_comments = []
         for cmt in comments:
             if cmt.comment_approved == str(COMMENT_APPROVE_STATUS[1][0]):
