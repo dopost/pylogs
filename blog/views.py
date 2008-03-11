@@ -47,7 +47,7 @@ def post(request,postname=None,postid=0):
                            comment_agent=request.META['HTTP_USER_AGENT'])
                 comment.save()
                 msg = _('Comment post successful!')
-                #form = blog_forms.CommentForm()
+                form = blog_forms.CommentForm()
                 #return HttpResponseRedirect(post.get_absolute_url()+ '#comments')
         #if allow comment,show the comment form
         elif post.comment_status == models.POST_COMMENT_STATUS[0][0]:
@@ -111,7 +111,7 @@ def page(request,pagename):
                            comment_agent=request.META['HTTP_USER_AGENT'])
                 comment.save()
                 msg = _('Comment post successful!')
-                #form = blog_forms.CommentForm()                
+                form = blog_forms.CommentForm()                
                 #return HttpResponseRedirect(page.get_page_url()+ '#comments')
         #if allow comment,show the comment form
         elif page.comment_status == models.POST_COMMENT_STATUS[0][0]:
