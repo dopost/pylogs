@@ -12,7 +12,8 @@ def get_archivelist(context):
     get the month list which have posts
     ''' 
     cursor = connection.cursor()
-    cursor.execute("select distinct strftime('%%Y/%%m',pubdate) as mon from blog_post order by mon desc")
+    #cursor.execute("select distinct strftime('%%Y/%%m',pubdate) as mon from blog_post order by mon desc")
+    cursor.execute("select distinct DATE_FORMAT(pubdate,'%%Y/%%m') as mon from blog_post order by mon desc")
     months = cursor.fetchall()
     cursor.close()
     archive_months = []
