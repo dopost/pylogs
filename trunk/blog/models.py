@@ -214,7 +214,7 @@ class Comments(models.Model):
             self.post.save() 
         
     def __unicode__(self):
-        return self.comment_content
+        return self.comment_author_email
    
     def get_absolute_url(self):        
         if self.post.post_name:
