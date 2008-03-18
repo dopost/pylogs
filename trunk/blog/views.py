@@ -56,9 +56,9 @@ def post(request,postname=None,postid=0):
             form = None
         #update hits count
         post.hits = post.hits + 1
-        post.save()
-        post.content = html.htmlDecode(post.content)
+        post.save()        
         post.content = codehighlight.highlight_code(post.content)
+        post.content = html.htmlDecode(post.content)
         return render_to_response('blog/post.html',
                                   {'post':post,'form':form,'msg':msg},
                                   context_instance=RequestContext(request))
@@ -120,9 +120,9 @@ def page(request,pagename):
             form = None
         #update hits count
         page.hits = page.hits + 1
-        page.save()
-        page.content = html.htmlDecode(page.content)
+        page.save()        
         page.content = codehighlight.highlight_code(page.content)
+        page.content = html.htmlDecode(page.content)
         return render_to_response('blog/page.html',
                                   {'post':page,'form':form,'msg':msg},
                                   context_instance=RequestContext(request))

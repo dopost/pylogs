@@ -184,11 +184,15 @@ class Post(models.Model):
         ordering = ['-pubdate']
         verbose_name=_('Post')
         verbose_name_plural = _('Posts')
-
+       
     class Admin:
         list_display = ('title','get_cat_str','pubdate','hits')
         search_fields = ['title']
         list_filter =('post_type','category')
+        js = (
+                '/media/js/tiny_mce/tiny_mce.js',
+                '/media/js/admin_textarea.js',
+            )
 
 class Comments(models.Model):
     '''user comments'''
