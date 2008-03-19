@@ -17,5 +17,5 @@ def hl(lang,code):
     le = lexers.get_lexer_by_name(lang)
     highlightedStr =  highlight(code,
                          le,
-                         formatters.HtmlFormatter(linenos=True))
+                         formatters.HtmlFormatter())
     return highlightedStr

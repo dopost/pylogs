@@ -38,11 +38,11 @@ USE_I18N = True
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = ''
 
-# URL that handles the media served from MEDIA_ROOT.
-# Example: "http://media.lawrence.com"
-MEDIA_URL = '/media/'
-# the theme name
-THEME_NAME = 'techicon'
+# URL that handles the media served from MEDIA_URL.
+# Don't set the '/' at the end
+MEDIA_URL = '/media'
+# the theme name 'techicon, default'
+THEME_NAME = 'default'
 
 STATIC_PATH = './media'
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a

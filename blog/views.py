@@ -11,6 +11,7 @@ from django.shortcuts import get_object_or_404,get_list_or_404,render_to_respons
 from django.core.paginator import ObjectPaginator, InvalidPage
 import re
 from utils import html,codehighlight
+from pylogs.blog.templatetags.themes import theme_template_url
 
 PAGE_SIZE = 10
 def index(request):
@@ -19,7 +20,7 @@ def index(request):
                                       post_status__iexact = models.POST_STATUS[0][0])[:10]
     for post in posts:
         post.content = html.htmlDecode(post.content)    
-    return render_to_response('blog/index.html',{'posts':posts})    
+    return render_to_response(theme_template_url()+ '/blog/index.html',{'posts':posts})    
     
 def post(request,postname=None,postid=0):
     '''get post by post name'''
@@ -59,37 +60,13 @@ def post(request,postname=None,postid=0):
         post.save()        
         post.content = codehighlight.highlight_code(post.content)
         post.content = html.htmlDecode(post.content)
-        return render_to_response('blog/post.html',
+        return render_to_response(theme_template_url()+ '/blog/post.html',
                                   {'post':post,'form':form,'msg':msg},
                                   context_instance=RequestContext(request))
         #return process('blog/post.html',post)
     else:
         return HttpResponse(_('Sorry! This post not found!'))
 
-
-#def post_comment(request,postname=None,postid=0):
-#    '''post new comment'''
-#    if postname:
-#        #get by postname
-#        postname = encoding.iri_to_uri(postname)
-#        post = get_object_or_404(Post,post_name__exact=postname,post_type__iexact='post')        
-#    elif int(postid)>0:
-#        #get by postid
-#        post = get_object_or_404(Post,id__exact=postid,post_type__iexact='post')
-#    if post:
-#        comment = Comments(post = post,
-#                           comment_author=request.POST['comment_author'],
-#                           comment_author_email=request.POST['comment_author_email'],
-#                           comment_author_url=request.POST['comment_author_url'],
-#                           comment_author_IP=request.META['REMOTE_ADDR'],
-#                           comment_content=request.POST['comment_content'],
-#                           comment_approved=str(models.COMMENT_APPROVE_STATUS[0][0]),
-#                           comment_agent=request.META['HTTP_USER_AGENT'])
-#        comment.save()
-#        msg = _('Post comment successfully.')
-#        request.user.message_set.create(message=msg)
-#        return HttpResponseRedirect(post.get_absolute_url()+ '#comments')
-        
 def page(request,pagename):
     '''get page by page name'''
     msg = None
@@ -123,7 +100,7 @@ def page(request,pagename):
         page.save()        
         page.content = codehighlight.highlight_code(page.content)
         page.content = html.htmlDecode(page.content)
-        return render_to_response('blog/page.html',
+        return render_to_response(theme_template_url()+ '/blog/page.html',
                                   {'post':page,'form':form,'msg':msg},
                                   context_instance=RequestContext(request))
         #return process('blog/post.html',post)
@@ -169,7 +146,7 @@ def dateposts(request,year,month,date):
     if pagedPosts.has_previous_page(pageid-1):
         data["prev_page"] = pageid -1
     c = Context(data)
-    t = loader.get_template('blog/datelist.html')
+    t = loader.get_template(theme_template_url()+ '/blog/datelist.html')
     return HttpResponse(t.render(c))
 
 def edit(request,postid=0):
@@ -178,12 +155,12 @@ def edit(request,postid=0):
     """
     postid=int(postid)
     if postid<=0:
-        return render_to_response('blog/edit.html',None)
+        return render_to_response(theme_template_url()+ '/blog/edit.html',None)
         #return HttpResponse('Sorry! No such article')
     else:
         postInfo = Post.objects.filedter(id__exact=postid)
         if postInfo:
-            return process('blog/edit.html',postInfo[0])
+            return process(theme_template_url()+ '/blog/edit.html',postInfo[0])
         else:
             return HttpResponse(_('Sorry! This post not found!'))
 
@@ -210,5 +187,5 @@ def save(request,postid=0):
             postInfo[0].save()            
         else:
             return HttpResponse(_('Sorry! This post not found!'))
-    return HttpResponseRedirect("/blog/article/%s" % postid)  
+    return HttpResponseRedirect(theme_template_url()+ "/blog/article/%s" % postid)  
     
