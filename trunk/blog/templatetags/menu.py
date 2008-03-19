@@ -1,9 +1,10 @@
 #coding=utf-8
-from django import template
 from django.template import Library
 from pylogs.blog.models import Post
+from django.conf import settings
 
 register = Library()
+
 def get_menus(context):
     '''
     get the top nav menus
@@ -17,4 +18,5 @@ def get_menus(context):
             menus.append(page)
     return {'menus':menus}
     #return AllCategoriesNode(cats)
-register.inclusion_tag('blog/tags/menu.html', takes_context=True)(get_menus)
+register.inclusion_tag(settings.THEME_NAME + '/blog/tags/menu.html', 
+                        takes_context=True)(get_menus)

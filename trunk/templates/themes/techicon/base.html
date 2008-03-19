@@ -1,0 +1,124 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+{% load i18n categorytags menu links archivelist %} 
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>{% block title %}Pylogs v1.01beta{% endblock %}
+</title>
+{% block script %}{% endblock %}
+{% load media %}
+<link rel="stylesheet" href="{% theme_media_url %}/css/style.css" type="text/css" media="screen">
+<link rel="alternate" type="application/rss+xml" title="Pylogs Rss Feed" href="/feeds/rss/">
+<link rel="alternate" type="application/rss+xml" title="Pylogs Atom Feed" href="/feeds/atom/">
+</head>
+<body>
+<div id="wrapper">
+
+<div id="topbar">
+
+<div id="topbarleft">
+    <div id="navigation">
+        {% get_menus %}        
+    </div>
+</div>
+
+<div id="topbarright">
+<div id="topsearch">
+<form action="" method="post">
+  <input value="Search..." name="s" id="ls" onfocus="if (this.value == 'Search...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search...';}" class="swap_value" type="text" />
+</form>
+</div>
+
+</div>
+
+</div>
+
+<div id="header"><h1>Pylogs</h1><h2>Logging you life...</h2></div>
+
+<div id="recent" style="display:none;">
+<div id="titles">
+<div id="title1">Latest Posts »</div>
+<div id="title2">Latest Comments »</div>
+<div id="title3">Popular Posts »</div>
+</div>
+<div id="values">
+<div id="value1">	» <a href="http://wpthemes.blogohblog.net/?p=6" title="More About Theme">More About Theme</a><br>
+	» <a href="http://wpthemes.blogohblog.net/?p=5" title="How About An Unordered List">How About An Unordered List</a><br>
+	» <a href="http://wpthemes.blogohblog.net/?p=4" title="Here’s Another Test Post">Here’s Another Test Post</a><br>
+	» <a href="http://wpthemes.blogohblog.net/?p=1" title="Hello world! Sample Post with Picture">Hello world! Sample Post with Picture</a><br>
+</div>
+<div id="value2">» <a href="http://wpthemes.blogohblog.net/?p=4#comment-4" title="on Here’s Another Test Post">One Response to “Here’s Another Test Pos...</a><br>» <a href="http://wpthemes.blogohblog.net/?p=4#comment-3" title="on Here’s Another Test Post">This is an example of a WordPress page,...</a><br>» <a href="http://wpthemes.blogohblog.net/?p=6#comment-2" title="on More About Theme">This is an example of a WordPress page,...</a><br>» <a href="http://wpthemes.blogohblog.net/?p=1#comment-1" title="on Hello world! Sample Post with Picture">Hi, this is a comment.To delete a...</a><br></div>
+<div id="value3">» <a href="http://wpthemes.blogohblog.net/?p=4" title="Here’s Another Test Post">Here’s Another Test Post</a> (2)<br>» <a href="http://wpthemes.blogohblog.net/?p=1" title="Hello world! Sample Post with Picture">Hello world! Sample Post with Picture</a> (1)<br>» <a href="http://wpthemes.blogohblog.net/?p=6" title="More About Theme">More About Theme</a> (1)<br></div>
+</div>
+</div>
+
+
+<div id="main">
+    <div class="entry">	
+            {% block content %}
+            {% endblock %}		
+            <div class="navigation">
+            <div class="alignleft"><a href="http://wpthemes.blogohblog.net/?paged=2">« Older Entries</a></div>
+            <div class="alignright"></div>
+    </div>	
+</div>
+
+<div id="sidebar">
+<div id="subscribe"><img src="images/feed.gif" style="padding-right: 10px;" alt="FEED" align="left"><a href="http://feeds.feedburner.com/blogohblog" title="Subscribe via RSS"><b>Subscribe to my blog using RSS</b></a></div>
+<div id="sidebar1">	<ul>
+	
+        <li>
+        <h2>Categories</h2>
+        {% get_categories %}   
+           
+        </li>
+      	
+        <li>
+        <h2>Archives</h2>
+           {% get_archivelist %}
+        </li>
+        
+        <li>
+        <h2>Links</h2>
+           {% get_links %}
+        </li>
+
+        
+		</ul></div>
+<div id="sidebar2">	<ul>
+	           
+             <li>
+      		  <h2>Recent Posts</h2>
+              <ul>
+              	<li><a href="http://wpthemes.blogohblog.net/?p=6" title="More About Theme">More About Theme</a></li>
+	<li><a href="http://wpthemes.blogohblog.net/?p=5" title="How About An Unordered List">How About An Unordered List</a></li>
+	<li><a href="http://wpthemes.blogohblog.net/?p=4" title="Here’s Another Test Post">Here’s Another Test Post</a></li>
+	<li><a href="http://wpthemes.blogohblog.net/?p=1" title="Hello world! Sample Post with Picture">Hello world! Sample Post with Picture</a></li>
+              </ul>
+           	 </li>
+                                       
+              
+        <li>
+        <h2>Meta</h2>
+            <ul>
+                        <li><a href="http://wpthemes.blogohblog.net/wp-login.php">Login</a></li>
+                        </ul>
+        </li>
+        
+		</ul></div>
+<div id="sidebar3">	<ul>
+	           
+            <li class="pagenav"><h2>Pages</h2><ul><li class="page_item page-item-2"><a href="http://wpthemes.blogohblog.net/?page_id=2" title="About">About</a></li>
+<li class="page_item page-item-10"><a href="http://wpthemes.blogohblog.net/?page_id=10" title="Contact">Contact</a></li>
+<li class="page_item page-item-7"><a href="http://wpthemes.blogohblog.net/?page_id=7" title="Page 1">Page 1</a></li>
+<li class="page_item page-item-8"><a href="http://wpthemes.blogohblog.net/?page_id=8" title="Pages 2">Pages 2</a></li>
+<li class="page_item page-item-9"><a href="http://wpthemes.blogohblog.net/?page_id=9" title="Pages 3">Pages 3</a></li>
+</ul></li>  
+</ul></div>
+</div>
+</div><br clear="all">
+<div id="footer">
+Powered by <a href="http://pylogs.cn">Pylogs</a> v1.01beta
+</div></div>
+
+</body></html>
