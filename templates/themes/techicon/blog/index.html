@@ -1,6 +1,7 @@
-{% extends "../base.html" %}
-{% block title %}{{ block.super }} {% endblock %}
-{% load i18n %} 
+{% load i18n themes %}
+{% theme_extends "base.html" %}
+
+{% block title %}{{ block.super }} {% endblock %} 
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
@@ -11,15 +12,16 @@
       <h2>
         <a href="{{post.get_absolute_url}}">{{post.title}}</a>
       </h2>
-    <small>Written by Sky on <abbr title="post time">{{post.pubdate|date:"Y-m-d H:i:s"}}</abbr></small><br><br>
+    <small>{% trans "Pubdate" %}: <abbr title="post time">{{post.pubdate|date:"Y-m-d H:i:s"}}</abbr></small><br><br>
 
       <div class="postbg">
         <p>
          {{post.content|truncatewords_html:"20"}}
         </p>
       </div>
-    <br>
-      <a href="{{post.get_absolute_url}}#newcomments">{% trans "Comments" %}</a> | {{post.hits}} {% trans "Views" %}<br>
+    <br/>
+    <small><img title="Comments" height="16" src="{% media_url %}/images/comment.gif" width="16" align="absmiddle">
+      <a href="{{post.get_absolute_url}}#newcomments">{% trans "Comments" %}</a> | {{post.hits}} {% trans "Views" %}</small><br>
    </div>      
     {% endfor %}
 {% endautoescape %}
