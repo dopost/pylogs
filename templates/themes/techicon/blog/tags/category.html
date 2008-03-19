@@ -1,7 +1,7 @@
-{% if links %}
+{% if cats %}
 <ul class="innerul">
-{% for link in links %}
-    <li><a href="{{link.get_absolute_url}}">{{link.link_title}}</a></li>
+{% for cat in cats %}
+    <li class="cat-item"><a href="{{cat.get_absolute_url}}">{{cat.name}}</a></li>
 {% endfor %}
 </ul>
 {% else %}
@@ -9,5 +9,6 @@
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
-{% trans "No Links Now" %}!
+{% trans "No Category Now" %}!
 {% endif %}
+

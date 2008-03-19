@@ -1,0 +1,27 @@
+{% extends "../base.html" %}
+{% block title %}{{ block.super }} {% endblock %}
+{% load i18n %} 
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% block content %}
+{% autoescape off %}
+{% for post in posts %}
+    <div class="post">
+      <h2>
+        <a href="{{post.get_absolute_url}}">{{post.title}}</a>
+      </h2>
+    <small>Written by Sky on <abbr title="post time">{{post.pubdate|date:"Y-m-d H:i:s"}}</abbr></small><br><br>
+
+      <div class="postbg">
+        <p>
+         {{post.content|truncatewords_html:"20"}}
+        </p>
+      </div>
+    <br>
+      <a href="{{post.get_absolute_url}}#newcomments">{% trans "Comments" %}</a> | {{post.hits}} {% trans "Views" %}<br>
+   </div>      
+    {% endfor %}
+{% endautoescape %}
+{% endblock %}
+

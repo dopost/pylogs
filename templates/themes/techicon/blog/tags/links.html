@@ -1,5 +1,5 @@
 {% if links %}
-<ul class="innerul">
+<ul>
 {% for link in links %}
     <li><a href="{{link.get_absolute_url}}">{{link.link_title}}</a></li>
 {% endfor %}
