@@ -1,19 +1,19 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 {% load i18n categorytags menu links archivelist themes %}
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>{% block title %}Pylogs - logging you life.{% endblock %}</title>
-{% block script %}{% endblock %}
 <script type="text/javascript" src="{% media_url %}/js/highslide.packed.js"></script>
 <link rel="stylesheet" href="{% theme_media_url %}/css/style.css" type="text/css" media="screen">
-<link rel="stylesheet" href="{% media_url %}/css/code.css" type="text/css" media="screen" charset="utf-8">
+<link rel="stylesheet" href="{% media_url %}/css/code.css" type="text/css" media="screen" >
 <link rel="stylesheet" href="{% media_url %}/css/highslide.css" type="text/css" media="screen">
 <link rel="alternate" type="application/rss+xml" title="Pylogs Rss Feed" href="/feeds/rss/">
 <link rel="alternate" type="application/rss+xml" title="Pylogs Atom Feed" href="/feeds/atom/">
+{% block script %}{% endblock %}
 </head>
 <body>
 <div id="wrapper">

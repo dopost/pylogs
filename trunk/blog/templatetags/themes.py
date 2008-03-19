@@ -48,10 +48,22 @@ def do_theme_extends(parser,token):
         parent_name_expr = parser.compile_filter(bits[1])
     nodelist = parser.parse()    
     if nodelist.get_nodes_by_type(ExtendsNode):
-        raise TemplateSyntaxError,"'ss' cannot appear more than once in the same template"
+        raise TemplateSyntaxError,"'%s' cannot appear more than once in the same template" % bits[0]
     return ThemeExtendsNode(nodelist,parent_name,parent_name_expr)
 register.tag('theme_extends',do_theme_extends)
 
+def get_theme_name():
+    """
+    get the theme name from settings.py
+    """
+    try:
+        from django.conf import settings
+        if settings.THEME_NAME == '':
+            return 'default'
+        else:
+            return settings.THEME_NAME
+    except:
+        return 'default'   
 
 def media_url():
     """
@@ -73,8 +85,9 @@ def theme_media_url():
         from django.conf import settings
     except ImportError:
         return ''
-    return settings.MEDIA_URL + '/themes/'+ settings.THEME_NAME
+    return settings.MEDIA_URL + '/themes/'+ get_theme_name()
 theme_media_url = register.simple_tag(theme_media_url)
+
 
 def theme_template_url():
     """
@@ -84,4 +97,4 @@ def theme_template_url():
         from django.conf import settings
     except ImportError:
         return ''
-    return 'themes/'+ settings.THEME_NAME
+    return 'themes/'+ get_theme_name()
