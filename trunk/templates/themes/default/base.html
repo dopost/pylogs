@@ -1,22 +1,19 @@
 ﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-{% load i18n categorytags menu links archivelist %} 
+{% load i18n categorytags menu links archivelist themes %}
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=UTF-8">   
-    <title>
-      {% block title %}Pylogs v1.01beta{% endblock %}
-    </title>    
+    <title>{% block title %}Pylogs - logging you life.{% endblock %}</title>    
     {% block script %}{% endblock %}
-    {% load media %}
-<script type="text/javascript" src="{% media_url %}js/highslide.packed.js"></script>
-<style type="text/css" media="screen">
-<!--
-@import url("{% media_url %}css/screen.css");
--->
-</style>
+    <script type="text/javascript" src="{% media_url %}/js/highslide.packed.js"></script>
+    <link rel="stylesheet" href="{% theme_media_url %}/css/screen.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="{% media_url %}/css/code.css" type="text/css" media="screen" charset="utf-8">
+    <link rel="stylesheet" href="{% media_url %}/css/highslide.css" type="text/css" media="screen">
+    <link rel="alternate" type="application/rss+xml" title="Pylogs Rss Feed" href="/feeds/rss/">
+    <link rel="alternate" type="application/rss+xml" title="Pylogs Atom Feed" href="/feeds/atom/">
   </head>
   <body>
     <div id="container">
@@ -101,8 +98,8 @@
                {% trans "Syndication" %}
             </h3>
             <div class="sbinner">
-            <a href="/feeds/rss/" rel="noindex,nofollow" ><img src="{% media_url %}images/rss2.gif" border="0"></a>&nbsp;
-            <a href="/feeds/atom/" rel="noindex,nofollow"><img src="{% media_url %}images/atom1.gif" border="0"></a><br>
+            <a href="/feeds/rss/" rel="noindex,nofollow" ><img src="{% theme_media_url %}/images/rss2.gif" border="0"></a>&nbsp;
+            <a href="/feeds/atom/" rel="noindex,nofollow"><img src="{% theme_media_url %}/images/atom1.gif" border="0"></a><br>
             </div>
           </div>
           <div class="sbbottom"></div>

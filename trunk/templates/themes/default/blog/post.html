@@ -1,27 +1,29 @@
-{% extends "base.html" %}
-{% load i18n %} 
+{% load i18n themes %}
+{% theme_extends "base.html" %}
 {% block title %}{{post.title}} - {{ block.super }} {% endblock %}
-{% block script %}
-{% load media %}
-<link rel="stylesheet" href="{% media_url %}css/code.css" type="text/css" media="screen" charset="utf-8">
-{% endblock %}    
-<!--Start of content-->
 {% block content %}
 <!--Start of prompt-->
  {% if msg %}
  <div class="message">{{msg}}</div>
  {% endif %}
  <!--End of prompt--> 
-{% load i18n %} 
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
+<!--Start of content-->
 <div class="entry">
       <h1>
         {{post.title}}
       </h1>
       <div class="byline">
-        {% trans "Pubdate" %}:{{post.pubdate|date:"Y-m-d H:i:s"}} | {{post.hits}} {% trans "Views" %}
+          {% trans "Pubdate" %}:{{post.pubdate|date:"Y-m-d H:i:s"}} | {{post.hits}} {% trans "Views" %}<br/>
+        {%trans "Categories" %}: 
+    {% for cat in post.category.all %}
+    <a href="{{cat.get_absolute_url}}">{{cat.name}}</a>
+    {% if not forloop.last %}
+    ,
+    {% endif %}
+    {% endfor %}
       </div>
       <div class="body">
         <p>
@@ -29,17 +31,21 @@
     {{post.content}}
     {% endautoescape %}    
         </p>
+        
       </div>
-     
-    </div>  
-    
-<!--Start of comments-->
-{% ifnotequal 0 post.comment_count %}
+      
+    </div>     
+
+ {% ifnotequal 0 post.comment_count %}   
+    <!--Start of comments-->    
     <div id="comments">
         <span class="commenttitle"><a name="comments"></a>{% trans "Comments" %}</span>
         <ul>
         {% for cmt in post.get_comments%}
-           <li><strong>{{cmt.comment_author}}</strong> {% trans "Post at" %} {{cmt.comment_date|date:"Y-m-d H:i:s"}}          
+           <li class="{% cycle alt1,alt2,alt3 %}">
+            <strong>{% if cmt.comment_author_url %}<a href="{{cmt.comment_author_url}}" target="_blank">{{cmt.comment_author}}</a>
+            {% else %}{{cmt.comment_author}}
+            {% endif %}</strong> <span class="byline">{% trans "Post at" %} {{cmt.comment_date|date:"Y-m-d H:i:s"}}</span>        
            <br/>
            {% autoescape off %}
             {{cmt.comment_content}}
@@ -48,11 +54,9 @@
         {% endfor %}
         </ul>
     </div>
-{% endifnotequal %} 
-    {% ifequal "open" post.comment_status %}
+ {% endifnotequal %}
         {% include "blog/comment_form.html" %}
-    {% endifequal %} 
+
     <!--End of comments-->
 {% endblock %}
 <!--End of content-->
-

@@ -1,13 +1,11 @@
-{% extends "base.html" %}
-{% load i18n %} 
+{% load i18n themes %}
+{% theme_extends "base.html" %}
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
-
 {% block title %}{{catInfo.name}} - {{ block.super }} {% endblock %}
 {% block content %}
 <!--Start of content-->
-
 {% if posts %}
 {% autoescape off %}
 {% for post in posts %}
@@ -24,7 +22,7 @@
         </p>
       </div>
       <div class="byline" style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 1em;">
-      <img title="Comments" height="16" src="/media/images/comment.gif" width="16" align="middle">
+      <img title="Comments" height="16" src="{% media_url %}/images/comment.gif" width="16" align="middle">
         <a href="{{post.get_absolute_url}}#newcomments">{% trans "Comments" %}</a> | {{post.hits}} {% trans "Views" %}
       </div>
     </div>      
