@@ -6,7 +6,7 @@ from django.utils import encoding
 from django.http import HttpResponse
 from django.shortcuts import get_object_or_404
 from django.core.paginator import ObjectPaginator, InvalidPage
-
+from pylogs.blog.templatetags.themes import theme_template_url
 PAGE_SIZE = 10
 def index(request,catname=None,catid=0):
     catid=int(catid)
@@ -28,7 +28,7 @@ def index(request,catname=None,catid=0):
             #                            post_type__iexact = 'post',
             #                            post_status__iexact = models.POST_STATUS[0][0])
             #posts = catInfo.posts_set.all()
-            t = loader.get_template('blog/category.html')
+            t = loader.get_template(theme_template_url()+ '/blog/category.html')
             
             pageid =  int(request.GET.get('page', '1'))           
             data = {'catInfo':catInfo,'posts':pagedPosts.get_page(pageid-1)}

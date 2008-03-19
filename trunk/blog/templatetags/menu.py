@@ -1,8 +1,7 @@
 #coding=utf-8
 from django.template import Library
 from pylogs.blog.models import Post
-from django.conf import settings
-
+from pylogs.blog.templatetags.themes import theme_template_url
 register = Library()
 
 def get_menus(context):
@@ -18,5 +17,5 @@ def get_menus(context):
             menus.append(page)
     return {'menus':menus}
     #return AllCategoriesNode(cats)
-register.inclusion_tag(settings.THEME_NAME + '/blog/tags/menu.html', 
+register.inclusion_tag(theme_template_url() + '/blog/tags/menu.html', 
                         takes_context=True)(get_menus)

@@ -13,7 +13,7 @@ td.code{
     border-bottom:1px solid #cccccc;
     border-top:1px solid #cccccc;
 }
-pre {
+.highlight pre {
     font-family: "Bitstream Vera Sans Mono", "Courier New", Monaco, monospace;
     font-size: 90%;
     }
