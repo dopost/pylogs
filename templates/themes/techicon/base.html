@@ -1,4 +1,4 @@
-{% load i18n categorytags menu links archivelist themes %}
+{% load i18n categorytags menu links archivelist themes config %}
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
@@ -19,50 +19,47 @@
 <div id="wrapper">
 
 <div id="topbar">
-
+<div id="topbarright">
+    <div id="topsearch">
+    <!-- SiteSearch Google -->
+        <form method="get" style="margin:0; padding:0; margin-top:-3px;" action="http://www.google.cn/custom" target="google_window">
+        <input type="text" name="q" maxlength="255" value="Search..." id="sbi" onfocus="if (this.value == 'Search...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search...';}" class="swap_value" ></input>
+        <table border="0" style="display:none;" >
+        <tr><td nowrap="nowrap" valign="top" align="left" >
+        </td>
+        <td nowrap="nowrap">
+        <input type="hidden" name="domains" value="oteam.cn"></input>
+        </td></tr>
+        <tr>
+        <td>&nbsp;</td>
+        <td nowrap="nowrap">
+        <table >
+        <tr>
+        <td>
+        <input type="radio" name="sitesearch" value="" id="ss0"></input>
+        <label for="ss0" title="搜索网络"><font size="-1" color="black">Web</font></label></td>
+        <td>
+        <input type="radio" name="sitesearch" value="oteam.cn" checked id="ss1"></input>
+        <label for="ss1" title="搜索 oteam.cn"><font size="-1" color="black">oteam.cn</font></label></td>
+        </tr>
+        </table>
+        <input type="hidden" name="client" value="pub-6437780444414942"></input>
+        <input type="hidden" name="forid" value="1"></input>
+        <input type="hidden" name="channel" value="1877657874"></input>
+        <input type="hidden" name="ie" value="UTF-8"></input>
+        <input type="hidden" name="oe" value="UTF-8"></input>
+        <input type="hidden" name="safe" value="active"></input>
+        <input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;LH:50;LW:157;L:http://pylog.struct.cn/media/themes/default/images/logo.gif;S:http://oteam.cn;FORID:1"></input>
+        <input type="hidden" name="hl" value="zh-CN"></input>
+        </td></tr></table>
+        </form>
+    <!-- SiteSearch Google -->
+    </div>
+</div>
 <div id="topbarleft">
     <div id="navigation">
         {% get_menus %}        
     </div>
-</div>
-
-<div id="topbarright">
-<div id="topsearch">
-<!-- SiteSearch Google -->
-<form method="get" style="margin:0; padding:0; margin-top:-3px;" action="http://www.google.cn/custom" target="google_window">
-<input type="text" name="q" maxlength="255" value="Search..." id="sbi" onfocus="if (this.value == 'Search...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search...';}" class="swap_value" ></input>
-<table border="0" style="display:none;" >
-<tr><td nowrap="nowrap" valign="top" align="left" >
-</td>
-<td nowrap="nowrap">
-<input type="hidden" name="domains" value="oteam.cn"></input>
-</td></tr>
-<tr>
-<td>&nbsp;</td>
-<td nowrap="nowrap">
-<table >
-<tr>
-<td>
-<input type="radio" name="sitesearch" value="" id="ss0"></input>
-<label for="ss0" title="搜索网络"><font size="-1" color="black">Web</font></label></td>
-<td>
-<input type="radio" name="sitesearch" value="oteam.cn" checked id="ss1"></input>
-<label for="ss1" title="搜索 oteam.cn"><font size="-1" color="black">oteam.cn</font></label></td>
-</tr>
-</table>
-<input type="hidden" name="client" value="pub-6437780444414942"></input>
-<input type="hidden" name="forid" value="1"></input>
-<input type="hidden" name="channel" value="1877657874"></input>
-<input type="hidden" name="ie" value="UTF-8"></input>
-<input type="hidden" name="oe" value="UTF-8"></input>
-<input type="hidden" name="safe" value="active"></input>
-<input type="hidden" name="cof" value="GALT:#008000;GL:1;DIV:#336699;VLC:663399;AH:center;BGC:FFFFFF;LBGC:336699;ALC:0000FF;LC:0000FF;T:000000;GFNT:0000FF;GIMP:0000FF;LH:50;LW:157;L:http://pylog.struct.cn/media/themes/default/images/logo.gif;S:http://oteam.cn;FORID:1"></input>
-<input type="hidden" name="hl" value="zh-CN"></input>
-</td></tr></table>
-</form>
-<!-- SiteSearch Google -->
-</div>
-
 </div>
 
 </div>
@@ -108,7 +105,7 @@
 </div>
 </div><br clear="all">
 <div id="footer">
-Powered by <a href="http://pylogs.cn">Pylogs</a> v1.01beta
+Powered by <a href="http://code.google.com/p/pylogs/" style="color:#ff9900; font-weight:bold;" >Pylogs</a><sup>{% get_version %}</sup>
 </div></div>
     <!--Start google analytics-->
     <script type="text/javascript">

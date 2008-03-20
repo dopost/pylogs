@@ -12,7 +12,7 @@ current_site = Site.objects.get_current().name
 
 global_title_template = 'blog/feeds/title.html'
 global_description_template = 'blog/feeds/description.html'
-global_item_copyright = 'Pylogs v1.0beta by Sky'
+global_item_copyright = 'Pylogs by Sky'
 global_title = _("Pylogs: Latest Posts")
 global_description = _("logging you life...")
 class RssLatestPosts(Feed):
