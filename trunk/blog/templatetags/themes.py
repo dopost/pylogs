@@ -86,8 +86,7 @@ def theme_media_url():
     except ImportError:
         return ''
     return settings.MEDIA_URL + '/themes/'+ get_theme_name()
-theme_media_url = register.simple_tag(theme_media_url)
-
+register.simple_tag(theme_media_url)
 
 def theme_template_url():
     """

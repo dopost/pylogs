@@ -26,7 +26,7 @@ h2 a:hover{color: #000000;}
 
 /**************** Entry *********************/
 .entry{ float:left;width:590px; background-color:#F0F0F0; padding-bottom:10px; }
-.entry h2{font-family:"Microsoft YaHei","黑体",helvetica,arial,sans-serif; font-size:2em; font-weight:normal; padding-bottom:6px;}
+.entry h2{font-family:helvetica,"Microsoft YaHei","黑体",arial,sans-serif; font-size:2em; font-weight:normal; padding-bottom:6px;}
 .entry p{padding:0 0 10px 0;}
 .post{padding:20px;text-align:justify; margin-bottom:10px;}
 html>body .entry ul { margin-left: 0px; padding: 0 0 0 30px; list-style: none; padding-left: 10px; text-indent: -10px; } 
@@ -44,9 +44,9 @@ a:hover{color:#000000;text-decoration:underline;}
 #menu{padding:5px; }
 #menu li{display:inline;list-style:none;}
 .page_item a:link, .page_item a:visited{color: #3333333; padding:8px;}
-.page_item a:hover { text-decoration:none;}
+.page_item a:hover{ text-decoration:none; border-top:2px #0f0 solid;}
 .current_page_item a:link, .current_page_item a:visited{color:#3333333;text-decoration:none;padding:8px;}
-.current_page_item a:hover { text-decoration:none;}
+.current_page_item a:hover {text-decoration:none; border-top:2px #0f0 solid;}
 
 /**************** Sidebars *********************/
 #subscribe {padding:10px; height:20px; border-bottom:1px solid #ffffff;}
