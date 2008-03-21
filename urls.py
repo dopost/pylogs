@@ -28,13 +28,17 @@ urlpatterns += patterns('',
                         )
 # urls for blog
 urlpatterns += patterns('',
+                        
                         (r'^feeds/(?P<url>.*)/$','django.contrib.syndication.views.feed',
                         {'feed_dict':feed_dict}),
-                        (r'^$', 'pylogs.blog.views.index'),                         
+                        (r'^$', 'pylogs.blog.views.index'),
+                        #tags
+                        (r'^tags/(?P<tagname>.*)/$','pylogs.blog.views.tags'),
                         (r'^\d{4}/\d{1,2}/\d{1,2}/(?P<postid>\d+)/$','pylogs.blog.views.post'),
-                        (r'^\d{4}/\d{1,2}/\d{1,2}/(?P<postname>[^/]+)/$','pylogs.blog.views.post'),                        
-                        (r'^category/(?P<catid>\d+)/$','pylogs.blog.category_view.index'),
-                        (r'^category/(?P<catname>[^/]+)/$','pylogs.blog.category_view.index'),                        
+                        (r'^\d{4}/\d{1,2}/\d{1,2}/(?P<postname>[^/]+)/$','pylogs.blog.views.post'),
+                        #category view
+                        (r'^category/(?P<catid>\d+)/$','pylogs.blog.views.categoryView'),
+                        (r'^category/(?P<catname>[^/]+)/$','pylogs.blog.views.categoryView'),                        
                         (r'^(?P<year>\d{4})/(?P<month>(\d{1,2})?)/?(?P<date>(\d{1,2})?)/?$','pylogs.blog.views.dateposts'),
                         (r'^(?P<pagename>\w+)/$','pylogs.blog.views.page'),
                         )

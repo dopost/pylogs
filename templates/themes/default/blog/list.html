@@ -3,9 +3,8 @@
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
-{% block title %}{{year}}{% trans "year" %}{% if month %}{{month}}{% trans "month" %}{% endif %}{% if day %}{{day}}{% trans "day" %} {% endif %} - {{ block.super }} {% endblock %}
-{% block content %}
- 
+{% block title %}{{pagetitle}} - {{ block.super }} {% endblock %}
+{% block content %} 
             {% for post in posts %}
                 <div class="entry">
       <h1>
@@ -15,13 +14,13 @@
          {% trans "Pubdate" %}:{{post.pubdate|date:"Y-m-d H:i:s"}}
       </div>
       <div class="body">
-        <p>
-         {{post.content|truncatewords_html:"20"}}
+        <p>{% autoescape off %}
+         {{post.content|truncatewords_html:"20"}}{% endautoescape %}
         </p>
       </div>
       <div class="byline" style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 1em;">
       <img title="Comments" height="16" src="{% media_url %}/images/comment.gif" width="16" align="middle">
-        <a href="{{post.get_absolute_url}}#newcomments">{% trans "Comments" %}</a> | {{post.hits}} {% trans "Views" %}
+        <a href="{{post.get_absolute_url}}#newcomments">{% trans "Comments" %}({{post.comment_count}})</a> | {{post.hits}} {% trans "Views" %}
       </div>
     </div>      
             {% endfor %}

@@ -16,25 +16,30 @@
         <a href="{{post.get_absolute_url}}">{{post.title}}</a>
       </h2>
     <small>{% trans "Pubdate" %}:<abbr title="post time">{{post.pubdate|date:"Y-m-d H:i:s"}}</abbr>
-    &nbsp;&nbsp;{%trans "Categories" %}: 
+    &nbsp;&nbsp;<!--Categories--> {%trans "Categories" %}:
     {% for cat in post.category.all %}
-    <a href="{{cat.get_absolute_url}}" rel="category tag">{{cat.name}}</a>
-    {% if not forloop.last %}
-    ,
-    {% endif %}
+    <a href="{{cat.get_absolute_url}}" rel="category tag">{{cat.name}}</a>{% if not forloop.last %},{% endif %}
+    {% endfor %}&nbsp;&nbsp;
+    {{post.hits}} {% trans "Views" %}
+    {% if post.tags.all %}
+    <!--tags-->
+    <br/>{%trans "Tags" %}:
+    {% for tag in post.tags.all %}
+    <a href="{{tag.get_absolute_url}}">{{tag.name}}</a>{% if not forloop.last %},{% endif %}
     {% endfor %}
+    {% endif %}
     </small>
     <br><br>
     
       <div class="postbg">
         <p>
           {% autoescape off %}
-            {{post.content}}
+            {{post.content|linebreaks}}
             {% endautoescape %} 
         </p>
       </div>
     <br>
-      <small><a href="{{post.get_absolute_url}}#newcomments">{% trans "Comments" %}</a> | {{post.hits}} {% trans "Views" %}<br>
+      <small><a href="{{post.get_absolute_url}}#newcomments">{% trans "Comments" %}({{post.comment_count}})</a><br>
       </small>
    </div>
  
@@ -45,13 +50,9 @@
         <ul>
         {% for cmt in post.get_comments%}
            <li class="{% cycle alt1,alt2,alt3 %}">
-            <strong>{% if cmt.comment_author_url %}<a href="{{cmt.comment_author_url}}" target="_blank">{{cmt.comment_author}}</a>
-            {% else %}{{cmt.comment_author}}
-            {% endif %}</strong> <span class="byline">{% trans "Post at" %} {{cmt.comment_date|date:"Y-m-d H:i:s"}}</span>        
-           <br/>
-           {% autoescape off %}
-            {{cmt.comment_content}}
-            {% endautoescape %}       
+            <strong>{% if cmt.comment_author_url %}<a href="{{cmt.comment_author_url}}" target="_blank">{{cmt.comment_author}}</a>{% else %}{{cmt.comment_author}}{% endif %}</strong>
+            <span class="byline">{% trans "Post at" %} {{cmt.comment_date|date:"Y-m-d H:i:s"}}</span>
+           {{cmt.comment_content|linebreaks }}             
            </li>
         {% endfor %}
         </ul>

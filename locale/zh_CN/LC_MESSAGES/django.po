@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pylogs v1.0beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-03-05 20:42+0800\n"
-"PO-Revision-Date: 2008-03-05 20:43+0800\n"
+"POT-Creation-Date: 2008-03-20 23:00+0800\n"
+"PO-Revision-Date: 2008-03-20 23:06+0800\n"
 "Last-Translator: Sky <denghaibo@gmail.com>\n"
 "Language-Team: Sky <denghaibo+pylogs@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -176,6 +176,9 @@ msgstr "链接"
 msgid "Links"
 msgstr "链接"
 
+msgid "Home"
+msgstr "首页"
+
 msgid "Comment post successful!"
 msgstr "评论发表成功，可能需要等待管理员审核！"
 
@@ -185,8 +188,11 @@ msgstr "对不起！没有这篇文章！"
 msgid "Sorry! This page not found!"
 msgstr "对不起！没有这个页面！"
 
-msgid "Title and content can not be null."
-msgstr "标题和内容不能为空"
+msgid "Leave You Comment"
+msgstr "评论这篇文章"
+
+msgid "Submit Comment"
+msgstr "发表评论"
 
 msgid "Archives"
 msgstr "存档"
@@ -203,29 +209,11 @@ msgstr "联系我"
 msgid "Views"
 msgstr "阅读"
 
-msgid "No post in this category."
-msgstr "这个分类暂时还没有文章。"
-
 msgid "Prev"
 msgstr "上一页"
 
 msgid "Next"
 msgstr "下一页"
-
-msgid "Leave You Comment"
-msgstr "评论这篇文章"
-
-msgid "Submit Comment"
-msgstr "发表评论"
-
-msgid "year"
-msgstr "年"
-
-msgid "month"
-msgstr "月"
-
-msgid "day"
-msgstr "日"
 
 msgid "Post at"
 msgstr "发表于"
@@ -238,4 +226,18 @@ msgstr "暂时没有分类"
 
 msgid "No Links Now"
 msgstr "暂时没有链接"
+
+msgid "Subscribe to my blog using RSS"
+msgstr "通过RSS订阅本站更新"
+
+#~ msgid "Title and content can not be null."
+#~ msgstr "标题和内容不能为空"
+#~ msgid "No post in this category."
+#~ msgstr "这个分类暂时还没有文章。"
+#~ msgid "year"
+#~ msgstr "年"
+#~ msgid "month"
+#~ msgstr "月"
+#~ msgid "day"
+#~ msgstr "日"
 
