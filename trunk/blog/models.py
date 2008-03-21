@@ -168,8 +168,8 @@ class Post(models.Model):
                 cat_strs += ','
             cat_strs += cat.name
         return cat_strs
-    get_cat_str.short_description = _('Post categories')
-    
+    get_cat_str.short_description = _('Post categories')    
+ 
     def get_comments(self):
         '''Get post or page approved comments'''
         comments = self.comments_set.order_by('id')
@@ -209,8 +209,8 @@ class Comments(models.Model):
     
     def save(self):
         #decode html code
-        self.comment_content = django.utils.html.escape(self.comment_content)
-        self.comment_content = html.htmlDecode(self.comment_content)                   
+        #self.comment_content = django.utils.html.escape(self.comment_content)
+        #self.comment_content = html.htmlDecode(self.comment_content)                   
         super(Comments,self).save()
         #if comment is approved,update related post comment count
         if self.comment_approved == str(COMMENT_APPROVE_STATUS[1][0]):
