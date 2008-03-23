@@ -36,18 +36,21 @@
     <br>      
    </div>
 <!--Start of comments-->
-{% ifnotequal 0 post.comment_count %}
+{% ifnotequal 0 post.comment_count %}   
+    <!--Start of comments-->    
     <div id="comments">
         <span class="commenttitle"><a name="comments"></a>{% trans "Comments" %}</span>
         <ul>
         {% for cmt in post.get_comments%}
-           <li><strong>{{cmt.comment_author}}</strong> {% trans "Post at" %} {{cmt.comment_date|date:"Y-m-d H:i:s"}}    
-            {{cmt.comment_content|linebreaks }}           
+           <li class="{% cycle alt1,alt2,alt3 %}">
+            <strong>{% if cmt.comment_author_url %}<a href="{{cmt.comment_author_url}}" target="_blank">{{cmt.comment_author}}</a>{% else %}{{cmt.comment_author}}{% endif %}</strong>
+            <span class="byline">{% trans "Post at" %} {{cmt.comment_date|date:"Y-m-d H:i:s"}}</span>
+           {{cmt.comment_content|linebreaks }}             
            </li>
         {% endfor %}
         </ul>
     </div>
-{% endifnotequal %} 
+ {% endifnotequal %}    
     {% ifequal "open" post.comment_status %}
         {% include "blog/comment_form.html" %}
     {% endifequal %} 
