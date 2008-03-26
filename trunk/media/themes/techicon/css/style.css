@@ -7,7 +7,7 @@ body{background-color:#000000;color:#333;font:12px Verdana;margin-bottom:20px; l
 #topbarright {float:right;}
 #header {width:1000px; height:100px; background:url(../images/stripe.png) repeat-x; text-align:center; }
 #header h1{padding-top:20px;}
-h2{font-size:16px; font-weight:lighter;}
+h2{font-size:16px; font-weight:lighter; line-height:2em;}
 #header h2{color:#CCCCCC; padding-top:15px; font-weight:lighter;}
 #header h1 a {font-size:40px; color:#FFFFFF; text-decoration:none; font-weight:lighter;}
 #header h1 a:hover {font-size:40px; color: #CCCCCC; text-decoration:none; font-weight:lighter;}
