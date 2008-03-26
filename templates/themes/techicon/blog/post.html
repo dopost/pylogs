@@ -31,12 +31,10 @@
     </small>
     <br><br>
     
-      <div class="postbg">
-        <p>
+      <div class="postbg">       
           {% autoescape off %}
             {{post.content|linebreaks}}
-            {% endautoescape %} 
-        </p>
+            {% endautoescape %}        
       </div>
     <br>
       <small><a href="{{post.get_absolute_url}}#newcomments">{% trans "Comments" %}({{post.comment_count}})</a><br>
