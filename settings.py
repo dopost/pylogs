@@ -50,6 +50,11 @@ STATIC_PATH = './media'
 # Examples: "http://foo.com/media/", "/media/".
 ADMIN_MEDIA_PREFIX = '/admin_media/'
 
+#Send Email settings
+EMAIL_HOST = 'smtp.sohu.com'
+EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = ''
+
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'zb2&a4g41snkt&*c92s=djl+*fcp((i85w(k&&)#$5j!+zz!!*'
 
