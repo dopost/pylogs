@@ -90,4 +90,5 @@ INSTALLED_APPS = (
     'django.contrib.admin',    
     'pylogs.blog',
     'pylogs.pyadmin',
+    'pylogs.iplocater',
 )

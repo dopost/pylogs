@@ -23,6 +23,13 @@ urlpatterns = patterns('',
     
     #(r'handler404', 'django.views.generic.simple.direct_to_template',{'template':'error/404.html'}),
 )
+# url for iplocater
+urlpatterns += patterns('',
+                        (r'^ip/$', 'django.views.generic.simple.direct_to_template',{'template':'iplocater/AjaxIp.html'}),
+                        (r'^ip/(?P<param_ip>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/$', 'pylogs.iplocater.views.searchIp'),                        
+                        )
+
+
 urlpatterns += patterns('',
                         (r'^pyadmin/', 'pylogs.pyadmin.views.index'),
                         )
