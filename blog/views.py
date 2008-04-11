@@ -12,7 +12,6 @@ from django.core.paginator import ObjectPaginator, InvalidPage
 import re
 from utils import html,codehighlight
 from pylogs.blog.templatetags.themes import theme_template_url
-from pylogs.utils.email import new_comment_mail
 #from cgi import escape
 
 PAGE_SIZE = 10
@@ -52,8 +51,6 @@ def post(request,postname=None,postid=0):
                 #escape the html code
                 #comment.comment_content = escape(comment.comment_content)
                 comment.save()
-                #send mail to admin
-                new_comment_mail(post.title,comment.comment_content)
                 msg = _('Comment post successful!')
                 form = blog_forms.CommentForm()
                 #return HttpResponseRedirect(post.get_absolute_url()+ '#comments')
@@ -65,7 +62,7 @@ def post(request,postname=None,postid=0):
         #update hits count
         post.hits = post.hits + 1
         post.save()        
-        post.content = codehighlight.highlight_code(post.content)
+        #post.content = codehighlight.highlight_code(post.content)
         #post.content = html.htmlDecode(post.content)
         return render_to_response(theme_template_url()+ '/blog/post.html',
                                   {'post':post,'form':form,'msg':msg},
@@ -96,8 +93,6 @@ def page(request,pagename):
                 #escape the html code
                 #comment.comment_content = escape(comment.comment_content)
                 comment.save()
-                #send mail to admin
-                new_comment_mail(post.title,comment.comment_content)                
                 msg = _('Comment post successful!')
                 form = blog_forms.CommentForm()                
                 #return HttpResponseRedirect(page.get_page_url()+ '#comments')
@@ -109,7 +104,7 @@ def page(request,pagename):
         #update hits count
         page.hits = page.hits + 1
         page.save()        
-        page.content = codehighlight.highlight_code(page.content)
+        #page.content = codehighlight.highlight_code(page.content)
         #page.content = html.htmlDecode(page.content)
         return render_to_response(theme_template_url()+ '/blog/page.html',
                                   {'post':page,'form':form,'msg':msg},
