@@ -239,7 +239,7 @@ class Comments(models.Model):
 
     class Admin:
         list_filter =('comment_approved',)
-        #list_display = ('title','get_cat_str','pubdate','hits')
+        list_display = ('comment_author','comment_author_email','comment_date')
         search_fields = ['comment_author']
 
 class Links(models.Model):

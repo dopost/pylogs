@@ -5,6 +5,10 @@
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <title>{% block title %}Pylogs - logging you life.{% endblock %}</title>
 <script type="text/javascript" src="{% media_url %}/js/highslide.packed.js"></script>
+<script type="text/javascript" src="{% media_url %}/js/shCore.js"></script>
+
+<script type="text/javascript" src="{% media_url %}/js/shBrushes.js"></script>
+<link rel="stylesheet" href="{% media_url %}/css/SyntaxHighlighter.css" type="text/css" media="screen" >
 <link rel="stylesheet" href="{% theme_media_url %}/css/style.css" type="text/css" media="screen">
 <link rel="stylesheet" href="{% media_url %}/css/code.css" type="text/css" media="screen" >
 <link rel="stylesheet" href="{% media_url %}/css/highslide.css" type="text/css" media="screen">
@@ -93,7 +97,7 @@
         <li>
         <h2>Meta</h2>
             <ul>
-            <li><a href="http://www.siteuptime.com/statistics.php?Id=52096&UserId=66274" target="_blank"><img width=85 height=16 border=0 alt='website uptime' src="http://btn.siteuptime.com/genbutton.php?u=66274&m=52096&c=blue&p=total"></a></li>            
+            <li><a href="http://www.siteuptime.com/statistics.php?Id=52096&UserId=66274" target="_blank"><img width=85 height=16 border=0 alt='website uptime' src="http://btn.siteuptime.com/genbutton.php?u=66274&m=52096&c=green&p=total"></a></li>            
                         <li><a href="/admin/">Login</a></li>
                         </ul>
         </li>
@@ -115,5 +119,14 @@ var pageTracker = _gat._getTracker("UA-399570-9");
 pageTracker._initData();
 pageTracker._trackPageview();
 </script>
- <!--Start google analytics-->
+ <!--END google analytics-->
+<script language="javascript">
+window.onload = function(){
+dp.SyntaxHighlighter.BloggerMode();
+dp.SyntaxHighlighter.ClipboardSwf = '/media/js/clipboard.swf';
+dp.SyntaxHighlighter.HighlightAll('code');
+}
+</script>
+
+
 </body></html>
