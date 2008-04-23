@@ -74,7 +74,6 @@ MIDDLEWARE_CLASSES = (
 )
 
 ROOT_URLCONF = 'pylogs.urls'
-SITE_URL = 'http://oteam.cn'
 TEMPLATE_DIRS = (
     "./templates",
     # Put strings here, like "/home/html/django_templates" or "C:/www/django/templates".
@@ -91,4 +90,5 @@ INSTALLED_APPS = (
     'pylogs.blog',
     'pylogs.pyadmin',
     'pylogs.iplocater',
+    'pylogs.todo',
 )

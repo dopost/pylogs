@@ -31,7 +31,7 @@ h2 a:hover{color: #000000;}
 .post{padding:20px;text-align:justify; margin-bottom:10px;}
 html>body .entry ul { margin-left: 0px; padding: 0 0 0 30px; list-style: none; padding-left: 10px; text-indent: -10px; } 
 html>body .entry li { margin: 7px 0 8px 10px; }
-.entry ul li:before{ content: "\00BB \0020"; }
+/*.entry ul li:before{ content: "\00BB \0020"; }*/
 .entry ol { padding: 0 0 0 35px; margin: 0; }
 .entry ol li { margin: 0; padding: 0; }
 
@@ -114,11 +114,12 @@ code {font-size:1.0em;color: #000}
 #comments li.alt3{border-left:5px solid #FFFFCC; background:#F6F9FE-color;}
 #commentform{clear:both;margin-top:1em;}
 .form-row {border-bottom:1px solid #EEEEEE;font-size:100%;overflow:hidden;padding:8px 12px;}
-label{display:block;float:left;padding:0pt 1em 3px 0pt;width:6em;}
+/*label{display:block;float:left;padding:0pt 1em 3px 0pt;width:6em;}
 input.button{border:1px solid #4084B5;	background:#fff;color:#4084B5;font-weight:bold;width:auto;}
 input:hover, select:hover, textarea:hover {background:#F8F8F8 none repeat scroll 0%;}
 input:focus, select:focus, textarea:focus {background:#FFFFFF none repeat scroll 0%;border-color:#7D7D7D rgb(210, 210, 210) rgb(210, 210, 210) rgb(125, 125, 125);border-style:solid;border-width:1px;}
 input,textarea,input.textbox{background:#F1F1F1 none repeat scroll 0%;border-color:#7D7D7D rgb(232, 232, 232) rgb(232, 232, 232) rgb(125, 125, 125);border-style:solid;border-width:1px;color:#333333;font-family:verdana,arial,sans-serif;font-size-adjust:none;font-stretch:normal;font-style:normal;font-variant:normal;font-weight:normal;line-height:normal;margin:1px 0pt;padding:2px 2px 3px;width:20em;}
+*/
 .short{width:10em;}
 .long{width:30em;}
 .textarea{width:30em; height:10em;}

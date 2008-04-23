@@ -23,6 +23,19 @@ urlpatterns = patterns('',
     
     #(r'handler404', 'django.views.generic.simple.direct_to_template',{'template':'error/404.html'}),
 )
+# url for todo
+urlpatterns += patterns('',
+                        (r'^todo/$', 'pylogs.todo.views.index'),
+                        (r'^todo/task/add/', 'pylogs.todo.views.task_add'),
+                        (r'^todo/task/done/','pylogs.todo.views.task_done'),
+                        (r'^todo/task/undone/','pylogs.todo.views.task_undone'),
+                        (r'^todo/task/delete/','pylogs.todo.views.task_del'),
+                        (r'^todo/project/add/', 'pylogs.todo.views.project_add'),
+                        (r'^todo/project/delete/', 'pylogs.todo.views.project_del'),
+                        (r'^todo/project/change_type/', 'pylogs.todo.views.project_chg_type'),                        
+                        )
+
+
 # url for iplocater
 urlpatterns += patterns('',
                         (r'^ip/$', 'django.views.generic.simple.direct_to_template',{'template':'iplocater/AjaxIp.html'}),
