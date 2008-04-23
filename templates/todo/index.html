@@ -1,0 +1,77 @@
+{% load i18n themes filters%}
+{% theme_extends "base.html" %}
+{% block title %}Todo - {{ block.super }} {% endblock %}
+{% block script %}
+<link rel="stylesheet" href="{% theme_media_url %}/css/todo.css" type="text/css" media="screen" >
+<script language="javascript" type="text/javascript" src="/media/js/jquery-1.2.3.pack.js" ></script>
+<script language="javascript" type="text/javascript" src="/media/js/todo.js" ></script>
+{% endblock %}
+{% block content %}
+    <div id="todo_projects" class="div_todo_projects">
+        <h2>进行中的项目</h2>
+        <ul class="todo_project">
+            {% for p in projects %}
+            <li>{{p.project_name}} <span class="small">创建于{{p.project_created|timesince}}之前</span> {% if is_authenticated %} <a class="task_delete" name="a_del_project" rel="{{p.id}}" href="javascript:void 0;">X del</a>
+            <a class="project_type" name="a_project_type" rel="{{p.id}}" href="javascript:void 0;">{% ifequal p.project_type 0 %}@ public 公共项目{% else %}@ private 私有项目{% endifequal %}</a>
+            {% endif %}     
+                <ul class="todo_tasks">
+                    {% for t in p.task_set.all %}
+                        {% ifequal t.task_completed 1%}<li class="li_done"><img align="absmiddle" alt="done" src="{% theme_media_url %}/images/check_green.gif"/>&nbsp;&nbsp;{% else %}<li>{% if is_authenticated %}<input type="checkbox" name="cbx_done_task" value="{{t.id}}" title="该任务已完成" />{% endif %} {% endifequal%}<img align="absmiddle" alt="priority" title="{{t.task_priority|priority_name}} priority" src="{% theme_media_url %}/images/bug-{{t.task_priority|priority_name}}.png"/>{{t.task_name}}
+                {% if is_authenticated %} <a class="task_delete" name="a_del_task" rel="{{t.id}}" href="javascript:void 0;">X del</a> {% ifequal t.task_completed 1%}<a class="task_undone" name="a_undone_task" href="javascript:void 0" rel="{{t.id}}">- undone</a>{% endifequal %}{% endif %}     
+                        </li>                
+                    {% endfor %}
+                    {% if is_authenticated %}
+                    <li>                        
+                        <a class="a_add_task" href="javascript:void 0;">添加新任务</a>
+                        <div style="display:none;">
+                        <input type="text"  class="text" maxlength="80" name="task_name" class="sll"/>
+                        <select title="优先级" name="priority">
+                           <option value="0">低</option>
+                            <option value="1">中</option>
+                         <option value="2">高</option>
+                        </select>                       
+                        <input type="image" alt="addnewtask" class="addbtn" name="btn_add_task"  src="{% theme_media_url %}/images/btn_task.gif"/>
+                       <input type="hidden" value="{{p.id}}" name="pid"/>
+                        </div>
+                    </li>
+                    {% endif %}
+                </ul>
+            </li>
+            {%endfor%}
+            {% if is_authenticated %}
+            <li class="li_add_project"><strong>创建新项目</strong><br/>             
+                     <input type="text" class="text" maxlength="80" name="project_name" class="sll"/>
+                <input type="checkbox" value="1" name="project_type" id="project_type" /><label for="project_type">私有项目</label>               
+               <input type="image" alt="addnewproj" class="addbtn" name="btn_add_project"  src="{% theme_media_url %}/images/btn_project.gif"/>                                     
+            </li>
+        {% endif %}
+        </ul>        
+    </div>
+    
+    <div id="todo_projects_completed" class="div_todo_projects">
+        <h2 class="completed" onclick="showCompleted()">已完成的项目</h2>
+        <div id="div_completed">
+        {% if completed_projects %}
+        <ul class="todo_project">
+            {% for p in completed_projects %}
+            <li>{{p.project_name}} <span class="small">创建于{{p.project_created|timesince}}之前</span> {% if is_authenticated %} <a class="task_delete" name="a_del_project" rel="{{p.id}}" href="javascript:void 0;">X del</a>
+            <a class="project_type" name="a_project_type" rel="{{p.id}}" href="javascript:void 0;">{% ifequal p.project_type 0 %}@ public 公共项目{% else %}@ private 私有项目{% endifequal %}</a>
+            {% endif %}     
+                <ul class="todo_tasks">
+                    {% for t in p.task_set.all %}
+                        <li><img align="absmiddle" alt="done" src="{% theme_media_url %}/images/check_green.gif"/> <img align="absmiddle" alt="priority" title="{{t.task_priority|priority_name}} priority" src="{% theme_media_url %}/images/bug-{{t.task_priority|priority_name}}.png"/>{{t.task_name}}
+                {% if is_authenticated %} <a class="task_delete" name="a_del_task" rel="{{t.id}}" href="javascript:void 0;">X del</a> <a class="task_undone" name="a_undone_task" href="javascript:void 0" rel="{{t.id}}">- undone</a>{% endif %}     
+                        </li>                
+                    {% endfor %}             
+                </ul>
+            </li>
+            {%endfor%}           
+        </ul>
+        {% else %}
+            没有已完成的项目
+        {% endif %}
+        </div>
+    </div>
+{% endblock %}
+{% block sidebar %}
+{% endblock %}

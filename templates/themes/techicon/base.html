@@ -73,22 +73,25 @@
             {% endblock %}		
             	
     </div>
-
+<!--start of sidebar-->
 <div id="sidebar">
-<div id="subscribe"><img src="{% theme_media_url %}/images/feed.png" style="padding-right: 10px;" alt="FEED" align="left"><a href="http://feed.feedsky.com/pylogs" title="Subscribe via RSS"><b>{% trans "Subscribe to my blog using RSS" %}</b></a></div>
-<div id="sidebar1">
-    <ul>	
-        <li>
-        <h2>{% trans "Categories" %}</h2>
-        {% get_categories %}          
-        </li>      	
-        <li>
-        <h2>{% trans "Archives" %}</h2>
-           {% get_archivelist %}
-        </li>
-    </ul>
-</div>
-<div id="sidebar2">
+    {% block sidebar %}
+    <div id="subscribe">
+        <img src="{% theme_media_url %}/images/feed.png" style="padding-right: 10px;" alt="FEED" align="left"><a href="http://feed.feedsky.com/pylogs" title="Subscribe via RSS"><b>{% trans "Subscribe to my blog using RSS" %}</b></a>
+    </div>
+    <div id="sidebar1">
+        <ul>	
+            <li>
+            <h2>{% trans "Categories" %}</h2>
+            {% get_categories %}          
+            </li>      	
+            <li>
+            <h2>{% trans "Archives" %}</h2>
+               {% get_archivelist %}
+            </li>
+        </ul>
+    </div>
+    <div id="sidebar2">
     <ul>
 	<li>
         <h2>{% trans "Links" %}</h2>
@@ -97,15 +100,19 @@
         <li>
         <h2>Meta</h2>
             <ul>
-            <li><a href="http://www.siteuptime.com/statistics.php?Id=52096&UserId=66274" target="_blank"><img width=85 height=16 border=0 alt='website uptime' src="http://btn.siteuptime.com/genbutton.php?u=66274&m=52096&c=green&p=total"></a></li>            
+            <li><a href="http://www.siteuptime.com/statistics.php?Id=52096&UserId=66274" target="_blank"><img width=85 height=16 border=0 alt='website uptime' src="http://btn.siteuptime.com/genbutton.php?u=66274&m=52096&c=blue&p=total"></a></li>            
                         <li><a href="/admin/">Login</a></li>
                         </ul>
         </li>
         
 		</ul></div>
 <div id="sidebar3"></div>
+    {% endblock %}
 </div>
-</div><br clear="all">
+<!--end of sidebar-->
+</div>
+
+<br clear="all">
 <div id="footer">
 Powered by <a href="http://code.google.com/p/pylogs/" style="color:#ff9900; font-weight:bold;" >Pylogs</a><sup>{% get_version %}</sup>
 </div></div>
