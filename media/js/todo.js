@@ -16,17 +16,17 @@ $(document).ready(function(){
 
 function add_task(ev)
 {
-    li =$(ev).parent("div");
-    pid = li.children("input:hidden[@name=pid]");
-    task_name = li.children("input[@name=task_name]");
+    var li =$(ev).parent("div");    
+    var pid = li.children("input[@name=pid]");    
+    var task_name = li.children("input[@name=task_name]");
     if(!task_name)
         alert('error');
     if (task_name && task_name.val() == "")
     {
         task_name.addClass('required');
         return;
-    }
-    priority = li.children("select[@name=priority]")
+    }    
+    var priority = li.children("select[@name=priority]")
     //alert('pid:'+pid.val() + 'task_name:'+task_name.val() +'priority:' + priority.val());
     $.post('/todo/task/add/',
            {pid:pid.val(),task_name:task_name.val(), priority:priority.val()},
@@ -44,9 +44,9 @@ function add_task(ev)
 };
 
 function add_project(ev){
-    li =$(ev).parent("li");
-    p_name = li.children("input[@name=project_name]");
-    p_type = li.children("input[@name=project_type]");
+    var li =$(ev).parent("li");
+    var p_name = li.children("input[@name=project_name]");
+    var p_type = li.children("input[@name=project_type]");
     if (p_name && p_name.val() == '')
     {
         p_name.addClass('required');
@@ -137,7 +137,7 @@ function del_project(obj){
 
 function chg_project_type(obj){
   obj = $(obj);
-  msg = '公共'
+  var msg = '公共'
   if(obj.html().indexOf('public')>0)
     msg = '私有'    
    if(confirm('你真的要修改该项目为'+msg+'项目吗？'))
@@ -157,7 +157,7 @@ function chg_project_type(obj){
 };
 function showCompleted()
 {
-    div = $('#div_completed');
+    var div = $('#div_completed');
     if (div && div.css('display') == 'none')
       div.slideDown('slow');
     else
