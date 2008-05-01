@@ -32,8 +32,12 @@
   <label for="id_comment_content" class="required">{% trans "Content" %}:</label> 
   {{form.comment_content}}
 </div>
+<div>
+<img src="/utils/vcode/" onclick="reload_verifycode(this)" style="cursor:pointer; vertical-align:middle;" border="0"/><input type="text" size="8" name="comment_vcode"/>请输入左边图片中的字符
+</div>
 <div class="submit-row" >
   <input type="submit" value="{% trans "Submit Comment" %}" class="button" />
+  
 </div>
 </form>
   </div> 

@@ -2,11 +2,6 @@
 {% theme_extends "base.html" %}
 {% block title %}{{post.title}} - {{ block.super }} {% endblock %}
 {% block content %}
-<!--Start of prompt-->
- {% if msg %}
- <div class="message">{{msg}}</div>
- {% endif %}
- <!--End of prompt--> 
 {% get_current_language as LANGUAGE_CODE %}
 {% get_available_languages as LANGUAGES %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}

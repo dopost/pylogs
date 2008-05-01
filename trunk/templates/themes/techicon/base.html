@@ -6,7 +6,7 @@
 <title>{% block title %}Pylogs - logging your life.{% endblock %}</title>
 <script type="text/javascript" src="{% media_url %}/js/highslide.packed.js"></script>
 <script type="text/javascript" src="{% media_url %}/js/shCore.js"></script>
-
+<script type="text/javascript" src="{% media_url %}/js/common.js"></script>
 <script type="text/javascript" src="{% media_url %}/js/shBrushes.js"></script>
 <link rel="stylesheet" href="{% media_url %}/css/SyntaxHighlighter.css" type="text/css" media="screen" >
 <link rel="stylesheet" href="{% theme_media_url %}/css/style.css" type="text/css" media="screen">
@@ -68,7 +68,15 @@
 <div id="header"><h1><a href='#'>Pylogs</a></h1><h2>Logging your life...</h2></div>
 
 <div id="main">
-    <div class="entry">	
+    <div class="entry">
+        <!--Start of prompt-->
+        {% if msg %}
+        <div class="message">{{msg}}</div>
+        {% endif %}
+         {% if error %}
+        <div class="message error">{{error}}</div>
+        {% endif %}
+        <!--End of prompt--> 
             {% block content %}
             {% endblock %}		
             	

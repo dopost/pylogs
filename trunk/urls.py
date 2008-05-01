@@ -20,7 +20,7 @@ urlpatterns = patterns('',
     (r'^admin/r/', include('django.conf.urls.shortcut')),
     (r'^media/(?P<path>.*)$', 'django.views.static.serve',
             {'document_root': settings.STATIC_PATH}),            
-    
+    (r'^utils/vcode/$', 'pylogs.utils.validatecode.get_validatecode_img'),
     #(r'handler404', 'django.views.generic.simple.direct_to_template',{'template':'error/404.html'}),
 )
 # url for todo
