@@ -130,3 +130,4 @@ input,textarea,input.textbox{background:#F1F1F1 none repeat scroll 0%;border-col
 label.required{	font-weight:bold;}
 /* prompt message */
 .message{background:#33ff66; color:#003300 font-weight:bold;}
+.error{background:#f00;color:#ff0;}

@@ -28,6 +28,7 @@ def index(request):
 def post(request,postname=None,postid=0):
     '''get post by post name'''
     msg = None
+    error = None
     if postname:
         #get by postname        
         postname = encoding.iri_to_uri(postname)
@@ -40,23 +41,26 @@ def post(request,postname=None,postid=0):
         #post back comment
         if request.method == 'POST':
             form = blog_forms.CommentForm(request.POST)
-            if form.is_valid():
-                comment = Comments(post = post,
-                           comment_author=form.cleaned_data['comment_author'],
-                           comment_author_email=form.cleaned_data['comment_author_email'],
-                           comment_author_url=form.cleaned_data['comment_author_url'],
-                           comment_author_IP=request.META['REMOTE_ADDR'],
-                           comment_content = form.cleaned_data['comment_content'],
-                           comment_approved=str(models.COMMENT_APPROVE_STATUS[0][0]),
-                           comment_agent=request.META['HTTP_USER_AGENT'])
-                #escape the html code
-                #comment.comment_content = escape(comment.comment_content)
-                comment.save()
-                #send mail to admin
-                new_comment_mail(post.title,comment.comment_content)
-                msg = _('Comment post successful!')
-                form = blog_forms.CommentForm()
-                #return HttpResponseRedirect(post.get_absolute_url()+ '#comments')
+            if request.POST.get('comment_vcode','').lower() != request.session.get('vcode',''):
+                error = 'The confirmation code you entered was incorrect!'
+            else:  
+                if form.is_valid():
+                    comment = Comments(post = post,
+                               comment_author=form.cleaned_data['comment_author'],
+                               comment_author_email=form.cleaned_data['comment_author_email'],
+                               comment_author_url=form.cleaned_data['comment_author_url'],
+                               comment_author_IP=request.META['REMOTE_ADDR'],
+                               comment_content = form.cleaned_data['comment_content'],
+                               comment_approved=str(models.COMMENT_APPROVE_STATUS[0][0]),
+                               comment_agent=request.META['HTTP_USER_AGENT'])
+                    #escape the html code
+                    #comment.comment_content = escape(comment.comment_content)
+                    comment.save()
+                    #send mail to admin
+                    new_comment_mail(post.title,comment.comment_content)
+                    msg = _('Comment post successful!')
+                    form = blog_forms.CommentForm()
+                    #return HttpResponseRedirect(post.get_absolute_url()+ '#comments')
         #if allow comment,show the comment form
         elif post.comment_status == models.POST_COMMENT_STATUS[0][0]:
             form = blog_forms.CommentForm()
@@ -70,7 +74,7 @@ def post(request,postname=None,postid=0):
         #post.content = codehighlight.highlight_code(post.content)
         #post.content = html.htmlDecode(post.content)
         return render_to_response(theme_template_url()+ '/blog/post.html',
-                                  {'post':post,'form':form,'msg':msg},
+                                  {'post':post,'form':form,'msg':msg,'error':error},
                                   context_instance=RequestContext(request))
         #return process('blog/post.html',post)
     else:
@@ -79,6 +83,7 @@ def post(request,postname=None,postid=0):
 def page(request,pagename):
     '''get page by page name'''
     msg = None
+    error = None
     if pagename:
         pagename = encoding.iri_to_uri(pagename)
         page = get_object_or_404(Post,post_name__exact=pagename,post_type__iexact='page')
@@ -86,23 +91,26 @@ def page(request,pagename):
         #post back comment
         if request.method == 'POST':
             form = blog_forms.CommentForm(request.POST)
-            if form.is_valid():
-                comment = Comments(post = page,
-                           comment_author=form.cleaned_data['comment_author'],
-                           comment_author_email=form.cleaned_data['comment_author_email'],
-                           comment_author_url=form.cleaned_data['comment_author_url'],
-                           comment_author_IP=request.META['REMOTE_ADDR'],
-                           comment_content = form.cleaned_data['comment_content'],
-                           comment_approved=str(models.COMMENT_APPROVE_STATUS[0][0]),
-                           comment_agent=request.META['HTTP_USER_AGENT'])
-                #escape the html code
-                #comment.comment_content = escape(comment.comment_content)
-                comment.save()
-                #send mail to admin
-                new_comment_mail(page.title,comment.comment_content)            
-                msg = _('Comment post successful!')
-                form = blog_forms.CommentForm()                
-                #return HttpResponseRedirect(page.get_page_url()+ '#comments')
+            if request.POST.get('comment_vcode','').lower() != request.session.get('vcode',''):
+                error = 'The confirmation code you entered was incorrect!'
+            else:                
+                if form.is_valid():
+                    comment = Comments(post = page,
+                               comment_author=form.cleaned_data['comment_author'],
+                               comment_author_email=form.cleaned_data['comment_author_email'],
+                               comment_author_url=form.cleaned_data['comment_author_url'],
+                               comment_author_IP=request.META['REMOTE_ADDR'],
+                               comment_content = form.cleaned_data['comment_content'],
+                               comment_approved=str(models.COMMENT_APPROVE_STATUS[0][0]),
+                               comment_agent=request.META['HTTP_USER_AGENT'])
+                    #escape the html code
+                    #comment.comment_content = escape(comment.comment_content)
+                    comment.save()
+                    #send mail to admin
+                    new_comment_mail(page.title,comment.comment_content)            
+                    msg = _('Comment post successful!')
+                    form = blog_forms.CommentForm()                
+                    #return HttpResponseRedirect(page.get_page_url()+ '#comments')
         #if allow comment,show the comment form
         elif page.comment_status == models.POST_COMMENT_STATUS[0][0]:
             form = blog_forms.CommentForm()
@@ -117,7 +125,7 @@ def page(request,pagename):
         #page.content = codehighlight.highlight_code(page.content)
         #page.content = html.htmlDecode(page.content)
         return render_to_response(theme_template_url()+ '/blog/page.html',
-                                  {'post':page,'form':form,'msg':msg},
+                                  {'post':page,'form':form,'msg':msg,'error':error},
                                   context_instance=RequestContext(request))
         #return process('blog/post.html',post)
     else:
