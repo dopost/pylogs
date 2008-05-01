@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.sites.models import Site
 from django.contrib.syndication.feeds import Feed
 from models import Post,Category
-from utils import html
+from pylogs.utils import html
 current_site = Site.objects.get_current().name
 
 global_title_template = 'blog/feeds/title.html'
