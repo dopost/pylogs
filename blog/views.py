@@ -99,7 +99,7 @@ def page(request,pagename):
                 #comment.comment_content = escape(comment.comment_content)
                 comment.save()
                 #send mail to admin
-                new_comment_mail(post.title,comment.comment_content)            
+                new_comment_mail(page.title,comment.comment_content)            
                 msg = _('Comment post successful!')
                 form = blog_forms.CommentForm()                
                 #return HttpResponseRedirect(page.get_page_url()+ '#comments')
