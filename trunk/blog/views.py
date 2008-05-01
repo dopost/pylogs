@@ -11,6 +11,7 @@ from django.shortcuts import get_object_or_404,get_list_or_404,render_to_respons
 from django.core.paginator import ObjectPaginator, InvalidPage
 import re
 from utils import html,codehighlight
+from pylogs.utils.email import new_comment_mail
 from pylogs.blog.templatetags.themes import theme_template_url
 #from cgi import escape
 
@@ -51,6 +52,8 @@ def post(request,postname=None,postid=0):
                 #escape the html code
                 #comment.comment_content = escape(comment.comment_content)
                 comment.save()
+                #send mail to admin
+                new_comment_mail(post.title,comment.comment_content)
                 msg = _('Comment post successful!')
                 form = blog_forms.CommentForm()
                 #return HttpResponseRedirect(post.get_absolute_url()+ '#comments')
@@ -59,9 +62,11 @@ def post(request,postname=None,postid=0):
             form = blog_forms.CommentForm()
         else:
             form = None
-        #update hits count
-        post.hits = post.hits + 1
-        post.save()        
+        if not request.session.get('post_hits_%s' % post.id):
+            #update hits count
+            post.hits = post.hits + 1
+            post.save()
+            request.session['post_hits_%s' % post.id] = True;
         #post.content = codehighlight.highlight_code(post.content)
         #post.content = html.htmlDecode(post.content)
         return render_to_response(theme_template_url()+ '/blog/post.html',
@@ -93,6 +98,8 @@ def page(request,pagename):
                 #escape the html code
                 #comment.comment_content = escape(comment.comment_content)
                 comment.save()
+                #send mail to admin
+                new_comment_mail(post.title,comment.comment_content)            
                 msg = _('Comment post successful!')
                 form = blog_forms.CommentForm()                
                 #return HttpResponseRedirect(page.get_page_url()+ '#comments')
@@ -101,9 +108,12 @@ def page(request,pagename):
             form = blog_forms.CommentForm()
         else:
             form = None
-        #update hits count
-        page.hits = page.hits + 1
-        page.save()        
+        if not request.session.get('post_hits_%s' % page.id):
+            #update hits count
+            page.hits = page.hits + 1
+            page.save()
+            request.session['post_hits_%s' % page.id] = True;
+            
         #page.content = codehighlight.highlight_code(page.content)
         #page.content = html.htmlDecode(page.content)
         return render_to_response(theme_template_url()+ '/blog/page.html',
