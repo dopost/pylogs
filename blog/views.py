@@ -10,7 +10,7 @@ from django.http import HttpResponse,HttpResponseRedirect,Http404
 from django.shortcuts import get_object_or_404,get_list_or_404,render_to_response
 from django.core.paginator import ObjectPaginator, InvalidPage
 import re
-from utils import html,codehighlight
+from pylogs.utils import html,codehighlight
 from pylogs.utils.email import new_comment_mail
 from pylogs.blog.templatetags.themes import theme_template_url
 #from cgi import escape
