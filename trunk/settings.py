@@ -21,7 +21,7 @@ DATABASE_PORT = ''             # Set to empty string for default. Not used with 
 # although not all variations may be possible on all operating systems.
 # If running in a Windows environment this must be set to the same as your
 # system time zone.
-TIME_ZONE = 'CCT'
+TIME_ZONE = 'Asia/Chongqing'
 
 # Language code for this installation. All choices can be found here:
 # http://www.w3.org/TR/REC-html40/struct/dirlang.html#langcodes
@@ -52,11 +52,14 @@ ADMIN_MEDIA_PREFIX = '/admin_media/'
 
 #Send Email settings
 EMAIL_HOST = 'smtp.sohu.com'
-EMAIL_HOST_PASSWORD = ''
-EMAIL_HOST_USER = ''
+EMAIL_HOST_PASSWORD = '456007'
+EMAIL_HOST_USER = 'bbisky'
 
 # Make this unique, and don't share it with anybody.
 SECRET_KEY = 'zb2&a4g41snkt&*c92s=djl+*fcp((i85w(k&&)#$5j!+zz!!*'
+
+#setting session expire after half a hour.
+SESSION_COOKIE_AGE =  60 * 30
 
 # List of callables that know how to import templates from various sources.
 TEMPLATE_LOADERS = (
