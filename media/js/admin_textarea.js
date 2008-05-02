@@ -3,7 +3,7 @@ tinyMCE.init({
 		//elements : "content",
 		theme : "advanced",
                 skin : "o2k7",               
-		plugins : "style,layer,table,save,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,insertcode",
+		plugins : "style,layer,table,save,advhr,advimage,advlink,emotions,iespell,insertdatetime,preview,media,searchreplace,print,contextmenu,paste,directionality,fullscreen,noneditable,visualchars,nonbreaking,xhtmlxtras,template,insertcode,inlinepopups",
                 height: "500",
                 width: "80%",
         extended_valid_elements : "pre[class|name]",
