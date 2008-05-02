@@ -8,6 +8,7 @@ from datetime import datetime
 def get_validatecode_img(request):
     IMG_W = 100
     IMG_H = 35
+    FONT_FILE = 'actionj.ttf'
     #im = Image.open(image)
     im = Image.new('RGBA',(IMG_W ,IMG_H),'#efefef')
     
@@ -19,13 +20,13 @@ def get_validatecode_img(request):
     
     img_text0 =  Image.new('RGBA',(IMG_W/4,IMG_H))   
     draw0 = ImageDraw.Draw(img_text0)
-    draw0.text((0,0), rand_str[0], font=ImageFont.truetype("ARIAL.TTF", random.randrange(25,40)),fill=(0,255,0))   
+    draw0.text((0,0), rand_str[0], font=ImageFont.truetype(FONT_FILE, random.randrange(25,40)),fill=(0,255,0))   
     del draw0
     img_text0 = img_text0.rotate(random.randrange(-45,45))    
     
     img_text1 =  Image.new('RGBA',(IMG_W/4,IMG_H))    
     draw1 = ImageDraw.Draw(img_text1)
-    draw1.text((0,0), rand_str[1], font=ImageFont.truetype("ARIAL.TTF", random.randrange(25,40)),fill=(random.randrange(0,255),random.randrange(0,255),random.randrange(0,255)))   
+    draw1.text((0,0), rand_str[1], font=ImageFont.truetype(FONT_FILE, random.randrange(25,40)),fill=(random.randrange(0,255),random.randrange(0,255),random.randrange(0,255)))   
     del draw1
     img_text1 = img_text1.rotate(random.randrange(-45,45))    
     
@@ -46,8 +47,8 @@ def get_validatecode_img(request):
     im.paste(img_text0,(0,0,img_text0.size[0],img_text0.size[1]),img_text0)
     im.paste(img_text1,(25,0,25+img_text1.size[0],img_text1.size[1]),img_text1)
     
-    draw.text((33,3), rand_str[2], font=ImageFont.truetype("ARIAL.TTF", random.randrange(25,40)),fill=(random.randrange(0,255),random.randrange(0,255),random.randrange(0,255)))   
-    draw.text((67,3), rand_str[3], font=ImageFont.truetype("ARIAL.TTF", random.randrange(25,40)),fill=(random.randrange(0,255),random.randrange(0,255),random.randrange(0,255)))   
+    draw.text((45,3), rand_str[2], font=ImageFont.truetype(FONT_FILE, random.randrange(25,40)),fill=(random.randrange(0,255),random.randrange(0,255),random.randrange(0,255)))   
+    draw.text((67,3), rand_str[3], font=ImageFont.truetype(FONT_FILE, random.randrange(25,40)),fill=(random.randrange(0,255),random.randrange(0,255),random.randrange(0,255)))   
     draw.line((random.randrange(0,x),random.randrange(0,y),random.randrange(0,x),random.randrange(0,y)), fill=(random.randrange(0,255),random.randrange(0,255),random.randrange(0,255)))
     draw.line((random.randrange(0,x),random.randrange(0,y),random.randrange(0,x),random.randrange(0,y)), fill=(random.randrange(0,255),random.randrange(0,255),random.randrange(0,255)))
     del draw   
