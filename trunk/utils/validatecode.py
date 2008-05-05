@@ -8,7 +8,7 @@ from datetime import datetime
 def get_validatecode_img(request):
     IMG_W = 100
     IMG_H = 35
-    FONT_FILE = 'actionj.ttf'
+    FONT_FILE = 'D:\\projects\\python\\pylogs\\utils\\actionj.ttf'
     #im = Image.open(image)
     im = Image.new('RGBA',(IMG_W ,IMG_H),'#efefef')
     

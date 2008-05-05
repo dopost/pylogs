@@ -10,8 +10,11 @@ def get_menus(context):
     get the top nav menus
     '''
     pages = Post.objects.filter(post_type__exact='page').order_by('menu_order')
+    #static menu    
     homepage = Post(title=_('Home'),post_name='/')
-    menus = [homepage] #{'/':'Home',}
+    todo = Post(title=_('Todo'),post_name='todo')
+    tags = Post(title=_('Tags'),post_name='tags')
+    menus = [homepage,todo,tags] #{'/':'Home',}
     if pages:
         for page in pages:
             #menus[page.post_name] = page.title
