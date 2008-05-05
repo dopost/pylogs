@@ -53,7 +53,7 @@ urlpatterns += patterns('',
                         {'feed_dict':feed_dict}),
                         (r'^$', 'pylogs.blog.views.index'),
                         #tags
-                        (r'^tags/(?P<tagname>.*)/$','pylogs.blog.views.tags'),
+                        (r'^tags/?(?P<tagname>.*)/$','pylogs.blog.views.tags'),
                         (r'^\d{4}/\d{1,2}/\d{1,2}/(?P<postid>\d+)/$','pylogs.blog.views.post'),
                         (r'^\d{4}/\d{1,2}/\d{1,2}/(?P<postname>[^/]+)/$','pylogs.blog.views.post'),
                         #category view

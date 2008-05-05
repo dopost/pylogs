@@ -183,18 +183,32 @@ def categoryView(request,catname=None,catid=0):
     else:
         return HttpResponse(_('Sorry! No such Category!'))
     
-def tags(request,tagname):
+def tags(request,tagname = None):
     '''get the tag related posts.'''
     msg = None
     if tagname:
         tagname = encoding.iri_to_uri(tagname)
-    tag = get_object_or_404(Tags,name__exact=tagname)
-    if tag:
-        pageid = int(request.GET.get('page', '1'))
-        pagedPosts = Paginator(tag.post_set.all().filter(post_type__iexact='post',
-                                                               post_status__iexact = models.POST_STATUS[0][0]),
-                                PAGE_SIZE)
-    return renderPaggedPosts(pageid,tag.name,pagedPosts)
+        tag = get_object_or_404(Tags,name__exact=tagname)
+        if tag:
+            pageid = int(request.GET.get('page', '1'))
+            pagedPosts = Paginator(tag.post_set.all().filter(post_type__iexact='post',
+                                                                   post_status__iexact = models.POST_STATUS[0][0]),
+                                    PAGE_SIZE)
+        return renderPaggedPosts(pageid,tag.name,pagedPosts)
+    else:
+        #taglist page        
+        max = Tags.objects.all().order_by('-reference_count')[:1]
+        if max:
+            max = max[0].reference_count
+        else:
+            max = 1        
+        tags = get_list_or_404(Tags)
+        for tag in tags:
+            tag.reference_count = tag.reference_count * 10/max
+        return render_to_response(theme_template_url()+ '/blog/tags.html',
+                                  {'tags':tags,'max':max},
+                                  context_instance=RequestContext(request))
+    
     
 
 def renderPaggedPosts(pageid,pageTitle,pagedPosts):
