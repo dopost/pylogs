@@ -186,9 +186,9 @@ def categoryView(request,catname=None,catid=0):
 def tags(request,tagname = None):
     '''get the tag related posts.'''
     msg = None
-    if tagname:
-        tagname = encoding.iri_to_uri(tagname)
-        tag = get_object_or_404(Tags,name__exact=tagname)
+    if tagname:        
+        tagname = encoding.iri_to_uri(tagname)        
+        tag = get_object_or_404(Tags,slug__iexact=tagname)
         if tag:
             pageid = int(request.GET.get('page', '1'))
             pagedPosts = Paginator(tag.post_set.all().filter(post_type__iexact='post',
