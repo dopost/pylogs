@@ -24,8 +24,8 @@
     {% endfor %}
 <!--Start of pagger-->
 <div class="navigation">
-        <div class="alignleft">{% if prev_page %}<a href="?page={{prev_page}}">◄{% trans "Prev" %}</a>{% endif %}
-    {% if next_page%}<a href="?page={{next_page}}">{% trans "Next" %}►</a>{% endif %} </div>
+        <div class="alignleft">{% if prev_page %}<a href="?page={{prev_page}}">&laquo;{% trans "Prev" %}</a>{% endif %}
+    {% if next_page%}<a href="?page={{next_page}}">{% trans "Next" %}&raquo;</a>{% endif %} </div>
         <div class="alignright"></div>
 </div>
 <!--End of pagger-->

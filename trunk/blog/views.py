@@ -8,7 +8,7 @@ from django.utils import encoding
 from django.template import RequestContext
 from django.http import HttpResponse,HttpResponseRedirect,Http404
 from django.shortcuts import get_object_or_404,get_list_or_404,render_to_response
-from django.core.paginator import ObjectPaginator, InvalidPage
+from django.core.paginator import Paginator, InvalidPage
 import re
 from pylogs.utils import html,codehighlight
 from pylogs.utils.email import new_comment_mail
@@ -20,7 +20,7 @@ LIST_TEMPLATE = theme_template_url()+ '/blog/list.html'
 def index(request):
     '''site index view,show 10 latest post.'''
     pageid = int(request.GET.get('page', '1'))
-    pagedPosts = ObjectPaginator(Post.objects.all().filter(post_type__iexact = 'post',
+    pagedPosts = Paginator(Post.objects.all().filter(post_type__iexact = 'post',
                                       post_status__iexact = models.POST_STATUS[0][0]),
                                  PAGE_SIZE)    
     return renderPaggedPosts(pageid,_('Home'),pagedPosts)
@@ -141,7 +141,7 @@ def dateposts(request,year,month,date):
             month =int(month)    
             if date:
                 date =int(date)
-                pagedPosts = ObjectPaginator(Post.objects.filter(
+                pagedPosts = Paginator(Post.objects.filter(
                     pubdate__year=year,
                     pubdate__month=month,
                     pubdate__day=date,
@@ -150,14 +150,14 @@ def dateposts(request,year,month,date):
                                              PAGE_SIZE)              
             else:
                 #month list
-                pagedPosts = ObjectPaginator(Post.objects.filter(pubdate__year=year,
+                pagedPosts = Paginator(Post.objects.filter(pubdate__year=year,
                                         pubdate__month=month,
                                         post_type__iexact='post',
                                         post_status__iexact = models.POST_STATUS[0][0]),
                                              PAGE_SIZE)                
         else:
             #year list
-            pagedPosts = ObjectPaginator(Post.objects.filter(pubdate__year=year,
+            pagedPosts = Paginator(Post.objects.filter(pubdate__year=year,
                                     post_type__iexact='post',
                                     post_status__iexact = models.POST_STATUS[0][0]),
                                          PAGE_SIZE)
@@ -175,7 +175,7 @@ def categoryView(request,catname=None,catid=0):
         #get by id      
         catInfo = get_object_or_404(Category,id__exact=catid)        
     if catInfo:
-            pagedPosts = ObjectPaginator(Post.objects.filter(category__id__exact=catInfo.id,
+            pagedPosts = Paginator(Post.objects.filter(category__id__exact=catInfo.id,
                                         post_type__iexact = 'post',
                                         post_status__iexact = models.POST_STATUS[0][0]),PAGE_SIZE)
             pageid =  int(request.GET.get('page', '1'))       
@@ -191,19 +191,20 @@ def tags(request,tagname):
     tag = get_object_or_404(Tags,name__exact=tagname)
     if tag:
         pageid = int(request.GET.get('page', '1'))
-        pagedPosts = ObjectPaginator(tag.post_set.all().filter(post_type__iexact='post',
+        pagedPosts = Paginator(tag.post_set.all().filter(post_type__iexact='post',
                                                                post_status__iexact = models.POST_STATUS[0][0]),
                                 PAGE_SIZE)
     return renderPaggedPosts(pageid,tag.name,pagedPosts)
     
 
 def renderPaggedPosts(pageid,pageTitle,pagedPosts):
-    if pagedPosts.hits <=0:
+    if pagedPosts.count <=0:
         raise Http404;
-    data = {'pagetitle':pageTitle,'posts':pagedPosts.get_page(pageid-1)}
-    if pagedPosts.has_next_page(pageid-1):
+    currentPage = pagedPosts.page(pageid)
+    data = {'pagetitle':pageTitle,'posts':currentPage.object_list}
+    if currentPage.has_next():
         data["next_page"] = pageid +1
-    if pagedPosts.has_previous_page(pageid-1):
+    if currentPage.has_previous():
         data["prev_page"] = pageid -1
     c = Context(data)
     t = loader.get_template(LIST_TEMPLATE)
