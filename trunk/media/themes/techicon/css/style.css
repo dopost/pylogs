@@ -132,7 +132,7 @@ label.required{	font-weight:bold;}
 .message{background:#33ff66; color:#003300 font-weight:bold;}
 .error{background:#f00;color:#ff0;}
 /*tags style*/
-A.tags{padding:5px; color:#0063dc}
+A.tags{line-height:1.5em;color:#0063dc}
 A.tags:hover{background:#369; color:#fff; text-decoration:none;}
 A.font_10{font-size:3em;}
 A.font_9{font-size:2.5em;}
