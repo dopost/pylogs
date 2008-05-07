@@ -2,17 +2,20 @@
 =更新日志(CHANGELOG)=
 
 *2008-05-05*
+
 * version: 1.10beta
  # 增加tags页，显示所有的标签，按引用次数显示不同大小
 
 
 *2008-04-23*
+
 * version: 1.10beta
  # Todo功能上线测试，使了强大的jQuery框架
  # 修正几个小错误
 
 
 *2008-04-11*
+
 * version: 1.10beta
  # 代码高亮使用js的syntaxhighlighter 替代pygments,减少pylogs对python包的依赖
  # 后台tinymce编辑器添加插入代码功能，配合syntaxhighlighter使用   
@@ -24,6 +27,7 @@
 
 
 *2008-03-20*
+
 * version: 1.10beta
  # 增加皮肤支持
  # 增加了一套新的皮肤 techicon
@@ -54,5 +58,6 @@
  # 修复几处小的错误
 
 *2008-1-10*
+
 * version: 1.0beta
  # 美化皮肤，界面更加漂亮了
