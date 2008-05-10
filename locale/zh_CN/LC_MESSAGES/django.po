@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pylogs v1.0beta\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-05-10 12:56+0800\n"
-"PO-Revision-Date: 2008-05-10 13:02+0800\n"
+"POT-Creation-Date: 2008-05-10 14:22+0800\n"
+"PO-Revision-Date: 2008-05-10 14:26+0800\n"
 "Last-Translator: deng <denghaibo@gmail.com>\n"
 "Language-Team: Sky <denghaibo+pylogs@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -369,7 +369,7 @@ msgstr "暂时没有分类"
 
 #: .\templates\themes\default\blog\tags\links.html.py:12
 #: .\templates\themes\techicon\blog\tags\links.html.py:12
-#: .\templates\themes\techicon\blog\tags\recent_comments.html.py:10
+#: .\templates\themes\techicon\blog\tags\recent_comments.html.py:11
 #: .\templates\themes\techicon\blog\tags\recent_posts.html.py:10
 msgid "No Links Now"
 msgstr "暂时没有链接"
@@ -389,6 +389,64 @@ msgstr "最新评论"
 #: .\templates\themes\techicon\blog\list.html.py:14
 msgid "Popular Posts"
 msgstr "热门文章"
+
+#: .\templates\todo\index.html.py:11
+msgid "Projects in progress"
+msgstr "进行中的项目"
+
+#: .\templates\todo\index.html.py:14
+#: .\templates\todo\index.html.py:57
+msgid "Created at"
+msgstr "创建于"
+
+#: .\templates\todo\index.html.py:15
+#: .\templates\todo\index.html.py:58
+msgid "Public Project"
+msgstr "公共项目"
+
+#: .\templates\todo\index.html.py:15
+#: .\templates\todo\index.html.py:44
+#: .\templates\todo\index.html.py:58
+msgid "Private Project"
+msgstr "私有项目"
+
+#: .\templates\todo\index.html.py:19
+msgid "This task is completed."
+msgstr "这个任务已完成"
+
+#: .\templates\todo\index.html.py:19
+#: .\templates\todo\index.html.py:28
+#, fuzzy
+msgid "Priority"
+msgstr "任务优先级"
+
+#: .\templates\todo\index.html.py:25
+msgid "Add New Task"
+msgstr "添加新任务"
+
+#: .\templates\todo\index.html.py:29
+msgid "low"
+msgstr "低"
+
+#: .\templates\todo\index.html.py:30
+msgid "medium"
+msgstr "中"
+
+#: .\templates\todo\index.html.py:31
+msgid "high"
+msgstr "高"
+
+#: .\templates\todo\index.html.py:42
+msgid "Add New Project"
+msgstr "添加新项目"
+
+#: .\templates\todo\index.html.py:52
+msgid "Completed Projects"
+msgstr "完成的项目"
+
+#: .\templates\todo\index.html.py:71
+msgid "No project is completed!"
+msgstr "没有已完成的项目"
 
 #: .\todo\models.py:18
 msgid "Project Name"
