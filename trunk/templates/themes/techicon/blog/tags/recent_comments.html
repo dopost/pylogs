@@ -1,7 +1,7 @@
 {% if comments %}
 {% load filters %} 
 {% for comment in comments %}
-    » <a title="{{comment.comment_author}}" href="{{comment.post.get_absolute_url}}#comments">{{comment.comment_content|substring:30}}</a><br/>
+    » <a title="{{comment.comment_author}}" href="{{comment.post.get_absolute_url}}#comments">{{comment.comment_content|substring:46}}</a><br/>
 {% endfor %}
 {% else %}
 {% load i18n %} 
