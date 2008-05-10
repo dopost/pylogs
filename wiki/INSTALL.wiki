@@ -1,4 +1,4 @@
-#labels Phase-Deploy,Phase-Requirements,Featured
+#labels Phase-Deploy,Phase-Requirements,Featured,安装指南
 #安装指南
 
 = 安装指南 =
