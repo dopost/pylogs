@@ -81,8 +81,9 @@ a:hover{color:#000000;text-decoration:underline;}
 
 /**************** Search *********************/
 #topsearch{  padding:5px;}
-#topsearch input[type="text"]{ border:1px solid #006699; width:15em; color: #333333;font:1em Verdana;padding:3px;background:url(../images/powered_by_google.gif) no-repeat right center;}
+#topsearch input.swap_value{ border:1px solid #006699; width:15em; color: #333333;font:1em Verdana;padding:3px;background:url(../images/powered_by_google.gif) no-repeat right center;}
 #topsearch input[type="submit"] { border:1px solid #006699;color: #333333;font:0.8em;padding:1px;}
+
 h2.search {font-weight:lighter; font-size:12px;}
 /**************** Footer *********************/
 #footer{color:#ffffff; background:url(../images/stripe.png) repeat-x;padding:5px; width:990px; margin:10px auto; text-align:right;}
