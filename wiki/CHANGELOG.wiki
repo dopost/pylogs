@@ -1,6 +1,10 @@
 #labels Featured
 =更新日志(CHANGELOG)=
 
+== 2008-05-10 _version: 1.11beta_ == 
+  # 增加最新文章，最新评论，热门文章等tags
+  # 完善todo的i18n
+  
 == 2008-05-05 _version: 1.10beta_ == 
   # 增加tags页，显示所有的标签，按引用次数显示不同大小
 
