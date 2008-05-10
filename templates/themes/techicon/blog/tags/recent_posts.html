@@ -1,6 +1,6 @@
 {% if posts %}
 {% for post in posts %}
-    » <a title="{{post.title}}" href="{{post.get_absolute_url}}">{{post.title}}</a><br/>
+    » <a title="{{post.title}}" href="{{post.get_absolute_url}}">{{post.title|substring:30}}</a><br/>
 {% endfor %}
 {% else %}
 {% load i18n %} 
