@@ -1,0 +1,11 @@
+{% if posts %}
+{% for post in posts %}
+    » <a title="{{post.title}}" href="{{post.get_absolute_url}}">{{post.title}}</a><br/>
+{% endfor %}
+{% else %}
+{% load i18n %} 
+{% get_current_language as LANGUAGE_CODE %}
+{% get_available_languages as LANGUAGES %}
+{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% trans "No Links Now" %}!
+{% endif %}

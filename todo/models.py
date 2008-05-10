@@ -53,4 +53,6 @@ class Task(models.Model):
         ordering = ['task_completed','-task_priority']
         verbose_name = _('Todo Task')
         verbose_name_plural = _('Todo Tasks')
+    class Admin:
+        list_display = ('task_project','task_name','task_lastupdated','task_priority','task_completed')
     
