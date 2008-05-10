@@ -1,4 +1,4 @@
-#labels Featured
+#labels 更新日志,Featured
 =更新日志(CHANGELOG)=
 
 == 2008-05-10 _version: 1.11beta_ == 
