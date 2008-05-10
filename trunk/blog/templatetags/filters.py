@@ -1,7 +1,7 @@
 from django import template
 from django.template.defaultfilters import striptags
 from django.utils.encoding import force_unicode
-from django.utils.translation import ugettext as _
+
 register = template.Library()
 #def substring(value, l):
 #    """
@@ -50,9 +50,9 @@ register.filter(substring)
 def priority_name(value):
     '''return priority name'''    
     if value == 2:      
-        return _('high')
+        return 'high'
     elif value == 1:
-        return _('medium')
+        return 'medium'
     else:
-        return _('low')    
+        return 'low'    
 register.filter('priority_name',priority_name)
