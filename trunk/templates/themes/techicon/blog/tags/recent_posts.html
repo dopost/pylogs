@@ -1,4 +1,4 @@
-{% if posts %}
+{% if posts %}{% load filters %} 
 {% for post in posts %}
     » <a title="{{post.title}}" href="{{post.get_absolute_url}}">{{post.title|substring:30}}</a><br/>
 {% endfor %}
