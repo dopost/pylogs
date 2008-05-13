@@ -55,4 +55,4 @@ class Task(models.Model):
         verbose_name_plural = _('Todo Tasks')
     class Admin:
         list_display = ('task_project','task_name','task_lastupdated','task_priority','task_completed')
-    
+        list_filter =('task_project',)        
