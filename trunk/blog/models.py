@@ -19,8 +19,8 @@ POST_STATUS = (
 )
 #comment approve status
 COMMENT_APPROVE_STATUS = (
-    (0,_('UnApproved')),
-    (1,_('Approved')),
+    ('0',_('UnApproved')),
+    ('1',_('Approved')),
     ('spam',_('Spam'))
 )
 #comment status
