@@ -42,10 +42,6 @@ urlpatterns += patterns('',
                         (r'^ip/(?P<param_ip>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/$', 'pylogs.iplocater.views.searchIp'),                        
                         )
 
-
-urlpatterns += patterns('',
-                        (r'^pyadmin/', 'pylogs.pyadmin.views.index'),
-                        )
 # urls for blog
 urlpatterns += patterns('',
                         
