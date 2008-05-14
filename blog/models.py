@@ -95,14 +95,6 @@ class Category(models.Model):
         list_display = ('name','desc')
         search_fields = ['name']
 
-class Author(models.Model):
-    '''
-    Blog Author Entity
-    '''
-    name = models.CharField(_('UserName'),max_length=255,unique=True)
-    password = models.CharField(_('Password'),max_length=64)
-    email = models.EmailField(_('Category'))
-    
 class Post(models.Model):    
     '''Post Entity'''
     title = models.CharField(_('Title'),max_length=255)
