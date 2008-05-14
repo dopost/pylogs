@@ -9,7 +9,7 @@ def get_menus(context):
     '''
     get the top nav menus
     '''
-    pages = Post.objects.filter(post_type__exact='page').order_by('menu_order')
+    pages = Post.objects.filter(post_type__exact='page',post_status__iexact = 'publish').order_by('menu_order')
     #static menu    
     homepage = Post(title=_('Home'),post_name='/')
     todo = Post(title=_('Todo'),post_name='todo')
