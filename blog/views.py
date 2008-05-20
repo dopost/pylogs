@@ -1,11 +1,9 @@
 #coding=utf-8
 from django.utils.translation import ugettext as _
-from pylogs.blog import models
+from pylogs.blog import models,blog_forms
 from pylogs.blog.models import Post,Comments,Tags,Category
-from pylogs.blog import blog_forms
-from django.template import loader,Context
-from django.utils import encoding
-from django.template import RequestContext
+from django.template import loader,Context,RequestContext
+from django.utils.http import urlquote
 from django.http import HttpResponse,HttpResponseRedirect,Http404
 from django.shortcuts import get_object_or_404,get_list_or_404,render_to_response
 from django.core.paginator import Paginator, InvalidPage
@@ -31,7 +29,7 @@ def post(request,postname=None,postid=0):
     error = None
     if postname:
         #get by postname        
-        postname = encoding.iri_to_uri(postname)
+        postname = urlquote(postname)
         #return HttpResponse(postname)
         post = get_object_or_404(Post,post_name__iexact=postname,post_type__iexact='post')        
     elif int(postid)>0:
@@ -85,7 +83,7 @@ def page(request,pagename):
     msg = None
     error = None
     if pagename:
-        pagename = encoding.iri_to_uri(pagename)
+        pagename = urlquote(pagename)
         page = get_object_or_404(Post,post_name__exact=pagename,post_type__iexact='page')
         #return process('blog/page.html',page)        
         #post back comment
@@ -169,7 +167,7 @@ def categoryView(request,catname=None,catid=0):
     catid=int(catid)   
     if catname:
         #get by cat name
-        catname = encoding.iri_to_uri(catname)        
+        catname = urlquote(catname)        
         catInfo = get_object_or_404(Category,enname__iexact=catname)        
     elif catid > 0:       
         #get by id      
@@ -187,7 +185,7 @@ def tags(request,tagname = None):
     '''get the tag related posts.'''
     msg = None
     if tagname:        
-        tagname = encoding.iri_to_uri(tagname)        
+        tagname = urlquote(tagname)        
         tag = get_object_or_404(Tags,slug__iexact=tagname)
         if tag:
             pageid = int(request.GET.get('page', '1'))
@@ -212,8 +210,10 @@ def tags(request,tagname = None):
     
 
 def renderPaggedPosts(pageid,pageTitle,pagedPosts,showRecent = False):
+    t = loader.get_template(LIST_TEMPLATE)
+    #no post return null obj
     if pagedPosts.count <=0:
-        raise Http404;
+        return HttpResponse(t.render(Context(None)))
     currentPage = pagedPosts.page(pageid)
     data = {'pagetitle':pageTitle,'posts':currentPage.object_list}
     if currentPage.has_next():
@@ -222,6 +222,5 @@ def renderPaggedPosts(pageid,pageTitle,pagedPosts,showRecent = False):
         data["prev_page"] = pageid -1
     if showRecent:
         data["show_recent"] = showRecent
-    c = Context(data)
-    t = loader.get_template(LIST_TEMPLATE)
+    c = Context(data)    
     return HttpResponse(t.render(c))

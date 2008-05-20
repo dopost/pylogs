@@ -2,7 +2,6 @@
 from django.utils.translation import ugettext as _
 from django.db import models
 from datetime import datetime
-from django.utils import encoding
 from django.utils.http import urlquote
 import django.utils.html
 from pylogs.utils import html
@@ -42,7 +41,7 @@ class Tags(models.Model):
             self.slug = self.name.replace(' ','-')
             self.slug = self.slug.replace(u'　','-')
             self.slug = self.slug.replace('.','')
-            self.slug = encoding.iri_to_uri(self.slug)
+            self.slug = http.urlquote(self.slug)
         super(Tags,self).save()
     
     def __unicode__(self):
@@ -73,7 +72,7 @@ class Category(models.Model):
             self.enname = self.name.replace(' ','-')
             self.enname = self.enname.replace(u'　','-')
             self.enname = self.enname.replace('.','')
-            self.enname = encoding.iri_to_uri(self.enname)            
+            self.enname = http.urlquote(self.enname)            
         super(Category,self).save()
     def __unicode__(self):
         return self.name
@@ -119,7 +118,7 @@ class Post(models.Model):
             self.post_name = self.title.replace(' ','-')
             self.post_name = self.post_name.replace(u'　','-')
             self.post_name = self.post_name.replace('.','')
-            self.post_name = encoding.iri_to_uri(self.post_name)
+            self.post_name = http.urlquote(self.post_name)
                   
         super(Post,self).save()
         #update tags reference_count
