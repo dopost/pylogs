@@ -1,7 +1,9 @@
 #!/usr/bin/env python
 #coding=utf-8
 from django.template import Library
+from blog.models import Post
 from django.db import connection
+from django.utils.dateformat import format
 from pylogs.blog.templatetags.themes import theme_template_url
 class archive:
     link = ''
@@ -12,18 +14,15 @@ def get_archivelist(context):
     '''
     get the month list which have posts
     ''' 
-    cursor = connection.cursor()
-    #cursor.execute("select distinct strftime('%%Y/%%m',pubdate) as mon from blog_post order by mon desc")
-    cursor.execute("select distinct DATE_FORMAT(pubdate,'%%Y/%%m') as mon from blog_post order by mon desc")
-    months = cursor.fetchall()
-    cursor.close()
+    months = Post.objects.dates('pubdate','month',order='DESC')
     archive_months = []
+    print len(months)
     for mon in months:
         m = archive()
-        m.link = "/" + mon[0] + "/"
-        m.title = mon[0].replace('/',u'年')
-        m.title += u'月'
-        archive_months.append(m)    
+        m.link = "/" + format(mon,'Y/m') + "/"
+        m.title = format(mon,'b,Y')
+        archive_months.append(m)
+    print connection.queries[-1:]
     return {'archive_months':archive_months}
 register.inclusion_tag(theme_template_url()+ '/blog/tags/archivelist.html', takes_context=True)(get_archivelist)
 
