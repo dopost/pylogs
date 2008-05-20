@@ -2,7 +2,6 @@
 #coding=utf-8
 from django.template import Library
 from pylogs.blog.models import Post
-from django.db import connection
 from django.utils.dateformat import format
 from pylogs.blog.templatetags.themes import theme_template_url
 class archive:
@@ -21,8 +20,7 @@ def get_archivelist(context):
         m = archive()
         m.link = "/" + format(mon,'Y/m') + "/"
         m.title = format(mon,'b,Y')
-        archive_months.append(m)
-    print connection.queries[-1:]
+        archive_months.append(m)    
     return {'archive_months':archive_months}
 register.inclusion_tag(theme_template_url()+ '/blog/tags/archivelist.html', takes_context=True)(get_archivelist)
 
