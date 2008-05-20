@@ -21,7 +21,7 @@ def index(request):
     pagedPosts = Paginator(Post.objects.all().filter(post_type__iexact = 'post',
                                       post_status__iexact = models.POST_STATUS[0][0]),
                                  PAGE_SIZE)    
-    return renderPaggedPosts(pageid,_('Home'),pagedPosts,True)
+    return renderPaggedPosts(pageid,_('Home'),pagedPosts,True,request)
 
 def post(request,postname=None,postid=0):
     '''get post by post name'''
@@ -209,7 +209,7 @@ def tags(request,tagname = None):
     
     
 
-def renderPaggedPosts(pageid,pageTitle,pagedPosts,showRecent = False):
+def renderPaggedPosts(pageid,pageTitle,pagedPosts,showRecent = False,request=None):
     t = loader.get_template(LIST_TEMPLATE)
     #no post return null obj
     if pagedPosts.count <=0:
@@ -222,5 +222,11 @@ def renderPaggedPosts(pageid,pageTitle,pagedPosts,showRecent = False):
         data["prev_page"] = pageid -1
     if showRecent:
         data["show_recent"] = showRecent
-    c = Context(data)    
-    return HttpResponse(t.render(c))
+    #c = RequestContext(data)
+    context = None
+    if request:
+        context = RequestContext(request)
+    return render_to_response(LIST_TEMPLATE,
+                              data,
+                              context_instance=context)
+    #return HttpResponse(t.render(c))
