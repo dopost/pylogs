@@ -1,6 +1,10 @@
 #labels 更新日志,Featured
 =更新日志(CHANGELOG)=
 
+== 2008-05-20 _version: 1.11beta_ == 
+  # 代码清理及bug修复
+  # 更新获取归档月份列表的方式[直接sql查询 -> objects.date()]
+  
 == 2008-05-10 _version: 1.11beta_ == 
   # 增加最新文章，最新评论，热门文章等tags
   # 完善todo的i18n
