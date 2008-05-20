@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 #coding=utf-8
 from django.template import Library
-from blog.models import Post
+from pylogs.blog.models import Post
 from django.db import connection
 from django.utils.dateformat import format
 from pylogs.blog.templatetags.themes import theme_template_url
