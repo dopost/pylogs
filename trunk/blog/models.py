@@ -41,7 +41,7 @@ class Tags(models.Model):
             self.slug = self.name.replace(' ','-')
             self.slug = self.slug.replace(u'　','-')
             self.slug = self.slug.replace('.','')
-            self.slug = http.urlquote(self.slug)
+            self.slug = urlquote(self.slug)
         super(Tags,self).save()
     
     def __unicode__(self):
@@ -72,7 +72,7 @@ class Category(models.Model):
             self.enname = self.name.replace(' ','-')
             self.enname = self.enname.replace(u'　','-')
             self.enname = self.enname.replace('.','')
-            self.enname = http.urlquote(self.enname)            
+            self.enname = urlquote(self.enname)            
         super(Category,self).save()
     def __unicode__(self):
         return self.name
@@ -118,7 +118,7 @@ class Post(models.Model):
             self.post_name = self.title.replace(' ','-')
             self.post_name = self.post_name.replace(u'　','-')
             self.post_name = self.post_name.replace('.','')
-            self.post_name = http.urlquote(self.post_name)
+            self.post_name = urlquote(self.post_name)
                   
         super(Post,self).save()
         #update tags reference_count
