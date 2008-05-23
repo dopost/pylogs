@@ -125,7 +125,7 @@ class Post(models.Model):
         if self.tags:
             all_tags =  self.tags.all()
             for tag in all_tags:
-                tag.reference_count = len(tag.post_set.all())
+                tag.reference_count = tag.post_set.count()
                 tag.save()      
     
     def __unicode__(self):
