@@ -1,6 +1,9 @@
 #labels 更新日志,Featured
 =更新日志(CHANGELOG)=
 
+== 2008-05-21 _version: 1.11beta_ ==
+  # 修正tag统计错误的bug
+  
 == 2008-05-20 _version: 1.11beta_ == 
   # 代码清理及bug修复
   # 更新获取归档月份列表的方式[直接sql查询 -> objects.date()]
