@@ -42,7 +42,7 @@ MEDIA_ROOT = ''
 # Don't set the '/' at the end
 MEDIA_URL = '/media'
 # the theme name 'techicon, default'
-THEME_NAME = 'tech_gray'
+THEME_NAME = 'techicon'
 
 STATIC_PATH = './media'
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
@@ -68,7 +68,7 @@ TEMPLATE_LOADERS = (
 #     'django.template.loaders.eggs.load_template_source',
 )
 
-MIDDLEWARE_CLASSES = (    
+MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.locale.LocaleMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -89,7 +89,7 @@ INSTALLED_APPS = (
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.sites',
-    'django.contrib.admin',    
-    'pylogs.blog',    
+    'django.contrib.admin',
+    'pylogs.blog',
     'pylogs.todo',
 )
