@@ -3,12 +3,9 @@
 {% block title %}{{post.title}} - {{ block.super }} {% endblock %}
 <!--Start of content-->
 {% block content %}
-{% get_current_language as LANGUAGE_CODE %}
-{% get_available_languages as LANGUAGES %}
-{% get_current_language_bidi as LANGUAGE_BIDI %}
 <div class="post">
       <h2>
-        {% autoescape off %}<a href="{{post.get_absolute_url}}">{{post.title}}</a>{% endautoescape %}
+        {% autoescape off %}<a href="{{post.get_page_url}}">{{post.title}}</a>{% endautoescape %}
       </h2>
     <small>{% trans "Pubdate" %}:<abbr title="post time">{{post.pubdate|date:"Y-m-d H:i:s"}}</abbr> | {{post.hits}} {% trans "Views" %}
      {% if post.tags.all %}

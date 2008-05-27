@@ -29,8 +29,7 @@ def post(request,postname=None,postid=0):
     error = None
     if postname:
         #get by postname        
-        postname = urlquote(postname)
-        #return HttpResponse(postname)
+        postname = urlquote(postname)       
         post = get_object_or_404(Post,post_name__iexact=postname,post_type__iexact='post')        
     elif int(postid)>0:
         #get by postid
@@ -50,15 +49,12 @@ def post(request,postname=None,postid=0):
                                comment_author_IP=request.META['REMOTE_ADDR'],
                                comment_content = form.cleaned_data['comment_content'],
                                comment_approved=str(models.COMMENT_APPROVE_STATUS[0][0]),
-                               comment_agent=request.META['HTTP_USER_AGENT'])
-                    #escape the html code
-                    #comment.comment_content = escape(comment.comment_content)
+                               comment_agent=request.META['HTTP_USER_AGENT'])                   
                     comment.save()
                     #send mail to admin
                     new_comment_mail(post.title,comment.comment_content)
                     msg = _('Comment post successful!')
-                    form = blog_forms.CommentForm()
-                    #return HttpResponseRedirect(post.get_absolute_url()+ '#comments')
+                    form = blog_forms.CommentForm()                  
         #if allow comment,show the comment form
         elif post.comment_status == models.POST_COMMENT_STATUS[0][0]:
             form = blog_forms.CommentForm()
@@ -68,15 +64,12 @@ def post(request,postname=None,postid=0):
             #update hits count
             post.hits = post.hits + 1
             post.save()
-            request.session['post_hits_%s' % post.id] = True;
-        #post.content = codehighlight.highlight_code(post.content)
-        #post.content = html.htmlDecode(post.content)
+            request.session['post_hits_%s' % post.id] = True;       
         return render_to_response(theme_template_url()+ '/blog/post.html',
                                   {'post':post,'form':form,'msg':msg,'error':error},
-                                  context_instance=RequestContext(request))
-        #return process('blog/post.html',post)
+                                  context_instance=RequestContext(request))       
     else:
-        return HttpResponse(_('Sorry! This post not found!'))
+        raise Http404()
 
 def page(request,pagename):
     '''get page by page name'''
@@ -84,8 +77,7 @@ def page(request,pagename):
     error = None
     if pagename:
         pagename = urlquote(pagename)
-        page = get_object_or_404(Post,post_name__exact=pagename,post_type__iexact='page')
-        #return process('blog/page.html',page)        
+        page = get_object_or_404(Post,post_name__exact=pagename,post_type__iexact='page')      
         #post back comment
         if request.method == 'POST':
             form = blog_forms.CommentForm(request.POST)
@@ -100,15 +92,12 @@ def page(request,pagename):
                                comment_author_IP=request.META['REMOTE_ADDR'],
                                comment_content = form.cleaned_data['comment_content'],
                                comment_approved=str(models.COMMENT_APPROVE_STATUS[0][0]),
-                               comment_agent=request.META['HTTP_USER_AGENT'])
-                    #escape the html code
-                    #comment.comment_content = escape(comment.comment_content)
+                               comment_agent=request.META['HTTP_USER_AGENT'])                 
                     comment.save()
                     #send mail to admin
                     new_comment_mail(page.title,comment.comment_content)            
                     msg = _('Comment post successful!')
-                    form = blog_forms.CommentForm()                
-                    #return HttpResponseRedirect(page.get_page_url()+ '#comments')
+                    form = blog_forms.CommentForm() 
         #if allow comment,show the comment form
         elif page.comment_status == models.POST_COMMENT_STATUS[0][0]:
             form = blog_forms.CommentForm()
@@ -118,20 +107,15 @@ def page(request,pagename):
             #update hits count
             page.hits = page.hits + 1
             page.save()
-            request.session['post_hits_%s' % page.id] = True;
-            
-        #page.content = codehighlight.highlight_code(page.content)
-        #page.content = html.htmlDecode(page.content)
+            request.session['post_hits_%s' % page.id] = True;       
         return render_to_response(theme_template_url()+ '/blog/page.html',
                                   {'post':page,'form':form,'msg':msg,'error':error},
-                                  context_instance=RequestContext(request))
-        #return process('blog/post.html',post)
+                                  context_instance=RequestContext(request))        
     else:
-        return HttpResponse(_('Sorry! This page not found!'))
+        raise Http404()
     
 def dateposts(request,year,month,date):
-    '''get posts by date'''
-    
+    '''get posts by date'''    
     pageid = int(request.GET.get('page', '1'))
     if year:
         year = int(year)    
@@ -160,7 +144,7 @@ def dateposts(request,year,month,date):
                                     post_status__iexact = models.POST_STATUS[0][0]),
                                          PAGE_SIZE)
     pageTitle = '-'.join([str(year),str(month),str(date)])
-    return renderPaggedPosts(pageid,pageTitle,pagedPosts)
+    return renderPaggedPosts(pageid,pageTitle,pagedPosts,False,request)
 
 def categoryView(request,catname=None,catid=0):
     'Return the posts in the category'
@@ -177,9 +161,9 @@ def categoryView(request,catname=None,catid=0):
                                         post_type__iexact = 'post',
                                         post_status__iexact = models.POST_STATUS[0][0]),PAGE_SIZE)
             pageid =  int(request.GET.get('page', '1'))       
-            return renderPaggedPosts(pageid,catInfo.name,pagedPosts)           
+            return renderPaggedPosts(pageid,catInfo.name,pagedPosts,False,request)           
     else:
-        return HttpResponse(_('Sorry! No such Category!'))
+        raise Http404()
     
 def tags(request,tagname = None):
     '''get the tag related posts.'''
@@ -192,7 +176,7 @@ def tags(request,tagname = None):
             pagedPosts = Paginator(tag.post_set.all().filter(post_type__iexact='post',
                                                                    post_status__iexact = models.POST_STATUS[0][0]),
                                     PAGE_SIZE)
-        return renderPaggedPosts(pageid,tag.name,pagedPosts)
+        return renderPaggedPosts(pageid,tag.name,pagedPosts,False,request)
     else:
         #taglist page        
         max = Tags.objects.all().order_by('-reference_count')[:1]
@@ -206,8 +190,6 @@ def tags(request,tagname = None):
         return render_to_response(theme_template_url()+ '/blog/tags.html',
                                   {'tags':tags,'max':max},
                                   context_instance=RequestContext(request))
-    
-    
 
 def renderPaggedPosts(pageid,pageTitle,pagedPosts,showRecent = False,request=None):
     t = loader.get_template(LIST_TEMPLATE)
@@ -221,12 +203,10 @@ def renderPaggedPosts(pageid,pageTitle,pagedPosts,showRecent = False,request=Non
     if currentPage.has_previous():
         data["prev_page"] = pageid -1
     if showRecent:
-        data["show_recent"] = showRecent
-    #c = RequestContext(data)
+        data["show_recent"] = showRecent    
     context = None
     if request:
         context = RequestContext(request)
     return render_to_response(LIST_TEMPLATE,
                               data,
-                              context_instance=context)
-    #return HttpResponse(t.render(c))
+                              context_instance=context) 

@@ -1,8 +1,5 @@
 {% load i18n themes recent %}
 {% theme_extends "base.html" %}
-{% get_current_language as LANGUAGE_CODE %}
-{% get_available_languages as LANGUAGES %}
-{% get_current_language_bidi as LANGUAGE_BIDI %}
 {% block title %}{{pagetitle}} - {{ block.super }} {% endblock %}
 <!-- Start of RECENT -->
 {% block recent %}
