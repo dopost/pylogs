@@ -1,0 +1,9 @@
+{% if menus %}
+{% autoescape off %}
+<ul id="menu">
+{% for menu in menus %}
+    <li class="page_item"><a href="{{menu.get_page_url}}">{{menu.title}}</a></li>
+{% endfor %}
+</ul>
+{% endautoescape %}
+{% endif %}
