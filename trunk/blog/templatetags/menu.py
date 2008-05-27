@@ -14,12 +14,10 @@ def get_menus(context):
     homepage = Post(title=_('Home'),post_name='/')
     todo = Post(title=_('Todo'),post_name='todo')
     tags = Post(title=_('Tags'),post_name='tags')
-    menus = [homepage,todo,tags] #{'/':'Home',}
+    menus = [homepage,todo,tags] 
     if pages:
-        for page in pages:
-            #menus[page.post_name] = page.title
+        for page in pages:           
             menus.append(page)
-    return {'menus':menus}
-    #return AllCategoriesNode(cats)
+    return {'menus':menus}    
 register.inclusion_tag(theme_template_url() + '/blog/tags/menu.html', 
                         takes_context=True)(get_menus)
