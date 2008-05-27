@@ -103,7 +103,7 @@ class Post(models.Model):
                                  help_text=_('Use as url'))
     post_type = models.CharField(_('Post type'),max_length=10,default='post',choices=POST_TYPES)
     post_status = models.CharField(_('Post status'),max_length=10,default='publish',choices = POST_STATUS)
-    post_parent = models.ForeignKey('self',null=True, blank=True,related_name='child_set',verbose_name=_('Parent page'))
+    post_parent = models.ForeignKey('self',null=True, blank=True,related_name='child_set',limit_choices_to = {'post_type__exact':POST_TYPES[1][0]},verbose_name=_('Parent page'))
     pubdate = models.DateTimeField(_('Pubdate'),auto_now_add=True)
     hits = models.IntegerField(_('Hits'),default=0,editable=False)
     menu_order = models.IntegerField(_('Menu order'),default=0)
