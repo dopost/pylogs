@@ -23,9 +23,9 @@
       </div>
       <div class="body">
         <p>
-          {% autoescape off %}
-    {{post.content|linebreaks}}
-    {% endautoescape %}    
+       
+    {{post.content|safe|linebreaks}}
+   
         </p>
       </div>
      

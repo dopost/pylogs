@@ -18,10 +18,8 @@
     </small>
     <br><br>
     
-      <div class="postbg">      
-          {% autoescape off %}
-            {{post.content|linebreaks}}
-            {% endautoescape %}       
+      <div class="postbg">
+            {{post.content|safe|linebreaks}}     
       </div>
     <br>      
    </div>

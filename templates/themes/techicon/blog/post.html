@@ -23,10 +23,8 @@
     </small>
     <br><br>
     
-      <div class="postbg">       
-          {% autoescape off %}
-            {{post.content}}
-            {% endautoescape %}        
+      <div class="postbg">
+            {{post.content|safe}}     
       </div>
     <br>
       <small><a href="{{post.get_absolute_url}}#newcomments">{% trans "Comments" %}({{post.comment_count}})</a><br>
