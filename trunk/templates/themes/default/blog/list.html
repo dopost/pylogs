@@ -11,8 +11,8 @@
          {% trans "Pubdate" %}:{{post.pubdate|date:"Y-m-d H:i:s"}}
       </div>
       <div class="body">
-        <p>{% autoescape off %}
-         {{post.content|truncatewords_html:"20"}}{% endautoescape %}
+        <p>
+         {{post.content|safe|truncatewords_html:"20"}}
         </p>
       </div>
       <div class="byline" style="PADDING-RIGHT: 0px; PADDING-LEFT: 0px; PADDING-BOTTOM: 1em;">

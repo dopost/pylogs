@@ -30,8 +30,8 @@
     <small>{% trans "Pubdate" %}: <abbr title="post time">{{post.pubdate|date:"Y-m-d H:i:s"}}</abbr></small><br><br>
 
       <div class="postbg">
-        <p>{% autoescape off %}
-         {{post.content|truncatewords_html:"20"}}{% endautoescape %}
+        <p>
+         {{post.content|safe|truncatewords_html:"20"}}
         </p>
       </div>
     <br/>
