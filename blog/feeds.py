@@ -8,6 +8,7 @@ from django.contrib.sites.models import Site
 from django.contrib.syndication.feeds import Feed
 from models import Post,Category
 from pylogs.utils import html
+from pylogs.blog import models
 current_site = Site.objects.get_current().name
 
 global_title_template = 'blog/feeds/title.html'
@@ -31,7 +32,7 @@ class RssLatestPosts(Feed):
         return 'Sky' #item.author.username
     
     def items(self):
-        posts = Post.objects.filter(post_type__iexact='post')[:15]
+        posts = Post.objects.filter(post_type__iexact='post',post_status__iexact = models.POST_STATUS[0][0])[:15]
         for post in posts:
             post.content = html.htmlDecode(post.content)
         return posts
@@ -62,7 +63,7 @@ class AtomLatestPosts(Feed):
         return 'Sky' #item.author.username
     
     def items(self):
-        posts = Post.objects.filter(post_type__iexact='post')[:15]
+        posts = Post.objects.filter(post_type__iexact='post',post_status__iexact = models.POST_STATUS[0][0])[:15]
         for post in posts:
             post.content = html.htmlDecode(post.content)
         return posts
