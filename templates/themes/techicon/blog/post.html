@@ -1,4 +1,4 @@
-{% load i18n themes %}
+{% load i18n themes posttags %}
 {% theme_extends "base.html" %}
 {% block title %}{{post.title}} - {{ block.super }} {% endblock %}
 {% block content %}
@@ -29,6 +29,9 @@
     <br>
       <small><a href="{{post.get_absolute_url}}#newcomments">{% trans "Comments" %}({{post.comment_count}})</a><br>
       </small>
+      <br/>
+      <h2>相关文章</h2>
+      {%get_tagged_posts post.tags.all 5 post.id%}
    </div>
  
  {% ifnotequal 0 post.comment_count %}   

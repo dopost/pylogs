@@ -35,13 +35,10 @@ urlpatterns += patterns('',
                         (r'^todo/project/change_type/', 'pylogs.todo.views.project_chg_type'),                        
                         )
 
-
-## url for iplocater
-#urlpatterns += patterns('',
-#                        (r'^ip/$', 'django.views.generic.simple.direct_to_template',{'template':'iplocater/AjaxIp.html'}),
-#                        (r'^ip/(?P<param_ip>\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3})/$', 'pylogs.iplocater.views.searchIp'),                        
-#                        )
-
+# url for filemanager
+urlpatterns += patterns('',                        
+                        (r'^filemanager/(?P<p>.*)$', 'filemanager.views.index'),                        
+                        )
 # urls for blog
 urlpatterns += patterns('',
                         
