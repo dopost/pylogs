@@ -1,6 +1,11 @@
 #labels 更新日志,Featured
 =更新日志(CHANGELOG)=
 
+== 2008-07-02 _version: 1.12beta_ ==
+  # 增加“相关文章”功能
+  # 开发tinymce上传管理插件（DFM(v0.1beta)基于django）,方便在发表文章时上传图片及文件
+  # 修复几个bug
+  
 == 2008-05-27 _version: 1.11beta_ ==
   # 修复几个bug
   # 对代码进行了进一步的整理及优化(多谢dreamingk帮我review code及提出的建议)
