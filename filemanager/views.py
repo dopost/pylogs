@@ -2,6 +2,7 @@
 from django.http import HttpResponse,HttpResponseRedirect,Http404
 from django.shortcuts import render_to_response
 from django.utils.http import urlquote
+from django.contrib.admin.views.decorators import staff_member_required  
 from models import Path
 import settings
 from django.utils.http import urlquote
@@ -14,17 +15,15 @@ ALLOW_FILE_TYPES = ('jpg','gif','png')
 if settings.ALLOW_FILE_TYPES:
     ALLOW_FILE_TYPES = settings.ALLOW_FILE_TYPES
     
-def index(request,p=None):
-    if not request.user.is_authenticated():
-        raise Http404()
+@staff_member_required
+def index(request,p=None):    
     #render path list        
     dirs,files = [],[]
     #set default path root is MEDIA_ROOT/upload
     path = os.path.join(MEDIA_ROOT,'upload')
     dir_url_prefix = '/filemanager'
     file_url_prefix = '/media/upload'
-    is_showup = False
-    
+    is_showup = False    
     if p:
         print urlquote(p)
         is_showup = True
