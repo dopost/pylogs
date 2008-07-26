@@ -3,6 +3,7 @@ from django.utils.translation import ugettext as _
 from django.db import models
 from datetime import datetime
 from django.utils.http import urlquote
+from django.core.urlresolvers import reverse
 import django.utils.html
 from pylogs.utils import html
 #post types
@@ -74,16 +75,15 @@ class Category(models.Model):
             self.enname = self.enname.replace('.','')
             self.enname = urlquote(self.enname)            
         super(Category,self).save()
+        
     def __unicode__(self):
         return self.name
-    #def __str__(self):
-    #    return self.name
     
     def get_absolute_url(self):
         if self.enname:
-            return '/category/%s/' % self.enname
+            return reverse('category_name', kwargs={'catname':self.enname})
         else:
-            return '/category/%i/' % self.id
+            return reverse('category_id', kwargs={'catid':self.id})
     
     class Meta:
         ordering=['name']
@@ -130,26 +130,23 @@ class Post(models.Model):
     
     def __unicode__(self):
         return self.title
-    #def __str__(self):
-    #    return self.title
-    def get_absolute_url(self):        
-        if self.post_name:
-            return '/%d/%d/%d/%s/' % (self.pubdate.year,
-                                      self.pubdate.month,
-                                      self.pubdate.day,
-                                      self.post_name)
+    
+    def get_absolute_url(self):
+        #if is page,return page url
+        if self.post_type == POST_TYPES[1][0]:
+            return reverse('page',kwargs={'pagename':self.post_name})
         else:
-            return '/%d/%d/%d/%i/' % (self.pubdate.year,
-                                      self.pubdate.month,
-                                      self.pubdate.day,
-                                      self.id)
-    def get_page_url(self):
-        '''if post is page,get the page url link'''
-        if str(self.post_name)=='/':
-            #if is a http:// url
-            return self.post_name
-        else:
-            return '/%s/' % urlquote(self.post_name)
+            if self.post_name:
+                return reverse('post_name',args=[self.pubdate.year,
+                                          self.pubdate.month,
+                                          self.pubdate.day],
+                               kwargs={'postname':self.post_name})
+            else:
+                return reverse('post_id',args=[self.pubdate.year,
+                                          self.pubdate.month,
+                                          self.pubdate.day],
+                               kwargs={'postid':self.id})
+            
     def get_cat_str(self):
         '''return the categories string '''
         cats = self.category.all()
@@ -163,12 +160,8 @@ class Post(models.Model):
  
     def get_comments(self):
         '''Get post or page approved comments'''
-        comments = self.comments_set.order_by('id')
-        approved_comments = []
-        for cmt in comments:
-            if cmt.comment_approved == str(COMMENT_APPROVE_STATUS[1][0]):
-                approved_comments.append(cmt)
-        return approved_comments
+        comments = self.comments_set.filter(comment_approved__iexact=COMMENT_APPROVE_STATUS[1][0]).order_by('id')       
+        return comments
     
     
     class Meta:
@@ -198,13 +191,10 @@ class Comments(models.Model):
     comment_agent = models.CharField(_('User agent info'),editable=False,max_length=255,null=True)
     user_id = models.IntegerField(_('UserId'),editable=False,null=True)
     
-    def save(self):
-        #decode html code
-        #self.comment_content = django.utils.html.escape(self.comment_content)
-        #self.comment_content = html.htmlDecode(self.comment_content)                   
+    def save(self):                     
         super(Comments,self).save()
         #if comment is approved,update related post comment count
-        if self.comment_approved == str(COMMENT_APPROVE_STATUS[1][0]):
+        if self.comment_approved == str(COMMENT_APPROVE_STATUS[1][0]):          
             self.post.comment_count = len(self.post.comments_set.all())
             self.post.save() 
         

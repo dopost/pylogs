@@ -1,8 +1,7 @@
 {% if form %}
-{% if form.errors %}
-<p class="errornote">Please correct the errors below:</p>
+{% if form.errors %}{% load i18n %} 
+<p class="errornote">{% trans "Please correct the errors below" %}:</p>
 {% endif %}
-{% load i18n %} 
 <div id="commentform">
 <span class="commenttitle"><a name="newcomments"></a>{% trans "Leave You Comment" %}</span>
 <form method="post" action="" name="comment-form">
@@ -30,7 +29,7 @@
   {{form.comment_content}}
 </div>
 <div>
-<img src="/utils/vcode/" onclick="reload_verifycode(this)" style="cursor:pointer; vertical-align:middle;" border="0"/><input type="text" size="8" name="comment_vcode"/>请输入左边图片中的字符
+<img src="{%url validate_code %}" onclick="reload_verifycode(this)" style="cursor:pointer; vertical-align:middle;" border="0"/><input type="text" size="8" name="comment_vcode"/>请输入左边图片中的字符
 </div>
 <div class="submit-row" >
   <input type="submit" value="{% trans "Submit Comment" %}" class="button" />

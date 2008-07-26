@@ -1,6 +1,7 @@
 #!/usr/bin/env python
 from django.template import Library
-from pylogs.blog.models import Post
+from pylogs.blog.models import Post,Category,Comments
+from django.utils.dateformat import format
 from pylogs.blog.templatetags.themes import theme_template_url
 
 register = Library()
@@ -16,3 +17,55 @@ def get_tagged_posts(tags,number_of_posts,exclude_id = None):
             break    
     return {'posts':posts}
 register.inclusion_tag(theme_template_url() + '/blog/tags/related_posts.html')(get_tagged_posts)
+
+class archive:
+    link = ''
+    title = ''
+    
+def get_archivelist(context):
+    '''
+    get the month list which have posts
+    ''' 
+    months = Post.objects.dates('pubdate','month',order='DESC')
+    archive_months = []
+    print len(months)
+    for mon in months:
+        m = archive()
+        m.link = "/" + format(mon,'Y/m') + "/"
+        m.title = format(mon,'b,Y')
+        archive_months.append(m)    
+    return {'archive_months':archive_months}
+register.inclusion_tag(theme_template_url()+ '/blog/tags/archivelist.html', takes_context=True)(get_archivelist)
+
+def get_categories(context):  
+    cats = Category.objects.all()
+    return {'cats':cats}   
+register.inclusion_tag(theme_template_url()+ '/blog/tags/category.html', takes_context=True)(get_categories)
+
+
+def get_latest_posts(context):
+    '''
+    get the top nav menus
+    '''
+    posts = Post.objects.filter(post_type__exact='post')[:5]    
+    return {'posts':posts}
+    #return AllCategoriesNode(cats)
+register.inclusion_tag(theme_template_url() + '/blog/tags/recent_posts.html', 
+                        takes_context=True)(get_latest_posts)
+
+def get_popular_posts(context):
+    '''
+    get the top 5 Popular posts
+    '''
+    posts = Post.objects.filter(post_type__exact='post').order_by('-hits')[:5]    
+    return {'posts':posts}
+    #return AllCategoriesNode(cats)
+register.inclusion_tag(theme_template_url() + '/blog/tags/recent_posts.html', 
+                        takes_context=True)(get_popular_posts)
+
+def get_latest_comments(context):
+    '''get the top 5 comments'''
+    comments = Comments.objects.filter(comment_approved__iexact='1')[:5]
+    return {'comments':comments}
+register.inclusion_tag(theme_template_url() + '/blog/tags/recent_comments.html', 
+                        takes_context=True)(get_latest_comments)

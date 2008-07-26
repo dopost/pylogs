@@ -1,16 +1,15 @@
-{% load i18n categorytags menu links archivelist themes config%}
-{% get_current_language as LANGUAGE_CODE %}
-{% get_available_languages as LANGUAGES %}
-{% get_current_language_bidi as LANGUAGE_BIDI %}
+{% load i18n posttags menu links themes config%}
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
     <meta http-equiv="content-type" content="text/html; charset=utf-8">   
     <title>{% block title %}Pylogs - logging your life.{% endblock %}</title>
-    <meta content="Pylogs,blog,博客,todo,python,Django" name="keywords"/>
+{% block meta %}
+    <meta content="Pylogs,blog,博客,todo,python,Django,基于Python的博客系统" name="keywords"/>
 <meta name="description" content="Pylogs是一个由Sky独立开发的个人站点，程序基于python+django.主要目的是实现一个简单的blog系统，当然不仅仅是blgo,以后将加入更多新的功能。总之，一切由简单开始！　　
 项目地址:http://code.google.com/p/pylogs
 Simple is beautiful..."/>
+{%endblock%}
     <script type="text/javascript" src="{% media_url %}/js/highslide.packed.js"></script>
     <link rel="stylesheet" href="{% theme_media_url %}/css/screen.css" type="text/css" media="screen">
     <link rel="stylesheet" href="{% media_url %}/css/code.css" type="text/css" media="screen">
@@ -23,7 +22,7 @@ Simple is beautiful..."/>
     <div id="container">
       <div id="header">
         <h1 id="logo">
-          <a href="http://pylog.struct.cn/"></a>
+          <a href="http://pylogs.cn/"></a>
         </h1>
         <div id="headmenu">
           <div style="margin-left: 2em">
@@ -102,8 +101,8 @@ Simple is beautiful..."/>
                {% trans "Syndication" %}
             </h3>
             <div class="sbinner">
-            <a href="http://feed.feedsky.com/pylogs" rel="noindex,nofollow" ><img src="{% theme_media_url %}/images/rss2.gif" border="0"></a>&nbsp;
-            <a href="http://feed.feedsky.com/pylogs_atom" rel="noindex,nofollow"><img src="{% theme_media_url %}/images/atom1.gif" border="0"></a><br>
+            <a href='{% url feeds url="rss" %}' rel="noindex,nofollow" ><img src="{% theme_media_url %}/images/rss2.gif" border="0"></a>&nbsp;
+            <a href='{% url feeds url="atom" %}' rel="noindex,nofollow"><img src="{% theme_media_url %}/images/atom1.gif" border="0"></a><br/>
             </div>
           </div>
           <div class="sbbottom"></div>

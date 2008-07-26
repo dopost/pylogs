@@ -2,7 +2,16 @@
         Pylogs更新日志(CHANGELOG)
 ******************************************
 
-2008-07-02 _version: 1.11beta
+2008-07-26 version: 1.12beta
+  1. 加入了单元测试
+  2. 合并几个tags文件
+  3. 加入简单的SEO优化
+  4. 修复几处bug,对代码进行优化
+  
+2008-07-22 _version: 1.12beta
+   1. urls.py中urlpattern使用url()命名，避免拼接url字符串，方便修改url策略
+   
+2008-07-02 _version: 1.12beta
    1. 增加“相关文章”功能
    2. 开发tinymce上传管理插件（DFM(v0.1beta)基于django）,方便在发表文章时上传图片及文件
    3. 修复几个bug

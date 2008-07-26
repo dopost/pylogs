@@ -3,6 +3,7 @@ from django.utils.translation import ugettext as _
 from pylogs.todo.models import Project,Task,TASK_PRIORITY,PROJECT_TYPE
 from django.http import HttpResponse,HttpResponseRedirect,Http404
 from django.shortcuts import get_object_or_404,get_list_or_404,render_to_response
+from django.contrib.admin.views.decorators import staff_member_required
 
 def index(request):
     '''todo homepage'''    
@@ -23,9 +24,9 @@ def index(request):
                                   {'projects':projects,'completed_projects':com_proj,'is_authenticated':is_auth})
     #return HttpResponse('this a test task page')
     
+@staff_member_required    
 def task_add(request):
-    '''add task to project'''
-    is_auth(request)
+    '''add task to project'''    
     pid = int(request.POST.get('pid',0))
     task = Task()
     task.task_name = request.POST.get('task_name')
@@ -42,10 +43,10 @@ def task_add(request):
     task.task_project.save()
     #return HttpResponseRedirect('/todo/')
     return HttpResponse('success')
-    
+
+@staff_member_required    
 def project_add(request):
     '''add todo project'''    
-    is_auth(request)
     project = Project()
     project.project_name = request.POST.get('project_name')
     project.project_type = request.POST.get('project_type',0)
@@ -56,17 +57,17 @@ def project_add(request):
     project.save()
     return HttpResponse('success')
 
+@staff_member_required 
 def project_del(request):
     '''delete project'''
-    is_auth(request)
     project_id = int(request.POST.get('project_id',0))
     project = get_object_or_404(Project,id__exact=project_id)
     project.delete()
     return HttpResponse('success')
 
+@staff_member_required 
 def project_chg_type(request):
     '''change project type'''
-    is_auth(request)
     project_id = int(request.POST.get('project_id',0))
     project = get_object_or_404(Project,id__exact=project_id)
     if project.project_type == PROJECT_TYPE['public']:
@@ -76,9 +77,9 @@ def project_chg_type(request):
     project.save()
     return HttpResponse('success')
 
+@staff_member_required 
 def task_done(request):
     '''done a task'''
-    is_auth(request)
     task_id = int(request.POST.get('task_id',0))
     task = get_object_or_404(Task,id__exact=task_id)
     task.task_completed = 1
@@ -88,9 +89,9 @@ def task_done(request):
     task.task_project.save()
     return HttpResponse('success')
 
+@staff_member_required 
 def task_undone(request):
     '''undone a task'''
-    is_auth(request)
     task_id = int(request.POST.get('task_id',0))
     task = get_object_or_404(Task,id__exact=task_id)
     task.task_completed = 0
@@ -100,9 +101,9 @@ def task_undone(request):
     task.task_project.save()
     return HttpResponse('success')
 
+@staff_member_required 
 def task_del(request):
     '''delete a task'''
-    is_auth(request)
     task_id = int(request.POST.get('task_id',0))
     task = get_object_or_404(Task,id__exact=task_id)
     task.task_project.project_tasks -= 1
@@ -112,8 +113,3 @@ def task_del(request):
     task.task_project.save()
     task.delete()
     return HttpResponse('success')
-
-def is_auth(req):
-    '''check use login status'''
-    if not req.user.is_authenticated():
-        raise Exception(u'please login first!')
