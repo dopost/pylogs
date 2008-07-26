@@ -1,10 +1,10 @@
-{% load i18n themes filters%}
+{% load i18n themes filters %}
 {% theme_extends "base.html" %}
 {% block title %}Todo - {{ block.super }} {% endblock %}
 {% block script %}
 <link rel="stylesheet" href="{% theme_media_url %}/css/todo.css" type="text/css" media="screen" >
-<script language="javascript" type="text/javascript" src="/media/js/jquery-1.2.3.pack.js" ></script>
-<script language="javascript" type="text/javascript" src="/media/js/todo.js" ></script>
+<script language="javascript" type="text/javascript" src="{%media_url%}/js/jquery-1.2.3.pack.js" ></script>
+<script language="javascript" type="text/javascript" src="{%media_url%}/js/todo.js" ></script>
 {% endblock %}
 {% block content %}
     <div id="todo_projects" class="div_todo_projects">

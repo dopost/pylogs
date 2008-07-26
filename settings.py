@@ -93,4 +93,5 @@ INSTALLED_APPS = (
     'pylogs.blog',
     'pylogs.todo',
     'pylogs.filemanager',
+    'pylogs.tests',
 )

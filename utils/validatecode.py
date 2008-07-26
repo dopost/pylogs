@@ -4,11 +4,11 @@ import md5
 import cStringIO
 import Image, ImageDraw, ImageFont, random 
 from datetime import datetime
-
+from os import path
 def get_validatecode_img(request):
     IMG_W = 100
     IMG_H = 35
-    FONT_FILE = 'D:\\projects\\python\\pylogs\\utils\\actionj.ttf'
+    FONT_FILE = path.join(path.dirname(__file__),'actionj.ttf')
     #im = Image.open(image)
     im = Image.new('RGBA',(IMG_W ,IMG_H),'#efefef')
     

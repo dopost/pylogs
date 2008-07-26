@@ -77,7 +77,8 @@ A {
 	BACKGROUND: url(../images/secondary-top-content.gif) no-repeat 50% top; 
 	PADDING-BOTTOM: 10px; 
 	WIDTH: 520px; 
-	PADDING-TOP: 10px
+	PADDING-TOP: 10px;
+	overflow:hidden;
 }
 #blogText UL LI {
 	PADDING-RIGHT: 30px; PADDING-LEFT: 14px; BACKGROUND: url(../images/bullet-green.gif) no-repeat 0px 11px; PADDING-BOTTOM: 4px; LINE-HEIGHT: 1.6em; PADDING-TOP: 4px; LIST-STYLE-TYPE: none
