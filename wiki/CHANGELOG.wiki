@@ -1,6 +1,15 @@
 #labels 更新日志,Featured
 =更新日志(CHANGELOG)=
 
+== 2008-07-26 _version: 1.12beta_ ==
+  # 加入了单元测试
+  # 合并几个tags文件
+  # 加入简单的SEO优化
+  # 修复几处bug,对代码进行优化
+
+== 2008-07-22 _version: 1.12beta_ ==
+  # urls.py中urlpattern使用url()命名，避免拼接url字符串，方便修改url策略
+  
 == 2008-07-02 _version: 1.12beta_ ==
   # 增加“相关文章”功能
   # 开发tinymce上传管理插件（DFM(v0.1beta)基于django）,方便在发表文章时上传图片及文件
