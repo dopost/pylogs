@@ -29,6 +29,7 @@ POST_COMMENT_STATUS = (
     ('closed',_('Disallow Comments')),
     ('registered',_('Allow Register Comments'))
 )
+
 class Tags(models.Model):
     '''Tag entity'''
     name = models.CharField(_('Name'),unique=True,max_length=64)
@@ -49,18 +50,17 @@ class Tags(models.Model):
         return self.name
     
     def get_absolute_url(self): 
-        return '/tags/%s/' % self.slug      
+        return reverse('tagname', kwargs={'tagname':self.slug})    
     
     class Meta:
         #ordering = ['-pubdate']
         verbose_name=_('Tag')
         verbose_name_plural = _('Tags')
-
-    class Admin:
+    
+    class Admin():
         list_display = ('name','slug','reference_count')
         search_fields = ['name']
-        #list_filter =('post_type','category')
-        
+ 
 class Category(models.Model):
     '''category entity'''    
     name = models.CharField(_('Name'),max_length=255,unique=True)
@@ -225,7 +225,7 @@ class Comments(models.Model):
 
 class Links(models.Model):
     '''Friend links entity'''
-    link_url = models.URLField(_('URL'))
+    link_url = models.URLField(_('URL'),verify_exists=False)
     link_title = models.CharField(_('Title'),unique=True,max_length=32)
     link_desc = models.CharField(_('Description'),null=True,blank=True,max_length=255)
     link_image = models.CharField(_('Image'),null=True,blank=True,max_length=255)
