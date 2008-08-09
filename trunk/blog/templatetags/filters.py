@@ -3,24 +3,26 @@ from django.template.defaultfilters import striptags
 from django.utils.encoding import force_unicode
 
 register = template.Library()
-def substring(value, length):
-    s=striptags(value)
-    us = s #unicode(s, 'utf-8')
-    gs = us.encode('gb2312')
-    n = int(length)
-    t = gs[:n]
-    while True:
-        try:
-            unicode(t, 'gbk')
-            break
-        except:
-            n -= 1
-            t = gs[:n]
-    t = t.decode('gb2312')
-    if n< len(value):
-        return t + '...'
-    else:
-        return t
+def substring(value,length):
+    '''substring'''
+    str=striptags(value)
+    str = force_unicode(str)
+    s = ''   
+    index = 0
+    len = int(length)
+    while len>0:
+        char = str[index:index+1]
+        index += 1
+        if char > u'\x80':
+            len -= 2
+        else:
+            len -= 1
+        s += char
+    #if len<0:
+    #    s = s[:-1]
+    if s != str:
+        s += '...'
+    return s
 register.filter(substring)
 
 def priority_name(value):

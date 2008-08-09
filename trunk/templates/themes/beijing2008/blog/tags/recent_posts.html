@@ -1,0 +1,10 @@
+{% if posts %}{% load filters %}
+<ul>
+{% for post in posts %}
+    <li class="page_item"><a title="{{post.title}}" href="{{post.get_absolute_url}}">{{post.title|substring:24}}</a></li>
+{% endfor %}
+</ul>
+{% else %}
+{% load i18n %} 
+{% trans "No post now" %}!
+{% endif %}

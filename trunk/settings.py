@@ -42,7 +42,7 @@ ALLOW_FILE_TYPES = ('jpg','gif','png')
 # Don't set the '/' at the end
 MEDIA_URL = '/media'
 # the theme name 'techicon, default'
-THEME_NAME = 'techicon'
+THEME_NAME = 'beijing2008'
 
 STATIC_PATH = './media'
 # URL prefix for admin media -- CSS, JavaScript and images. Make sure to use a
