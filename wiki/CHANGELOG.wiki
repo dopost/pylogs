@@ -1,6 +1,10 @@
 #labels 更新日志,Featured
 =更新日志(CHANGELOG)=
 
+== 2008-08-08 _version: 1.12beta_ ==
+  # 新增奥运主题 beijing2008 
+  # 修复几处bug
+
 == 2008-07-26 _version: 1.12beta_ ==
   # 加入了单元测试
   # 合并几个tags文件
