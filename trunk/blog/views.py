@@ -39,7 +39,7 @@ def post(request,postname=None,postid=0):
         if request.method == 'POST':
             form = blog_forms.CommentForm(request.POST)
             if request.POST.get('comment_vcode','').lower() != request.session.get('vcode',''):
-                error = 'The confirmation code you entered was incorrect!'
+                error = _('The confirmation code you entered was incorrect!')
             else:  
                 if form.is_valid():
                     comment = Comments(post = post,

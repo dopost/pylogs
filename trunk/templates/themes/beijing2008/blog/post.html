@@ -26,10 +26,6 @@
      <h2>相关文章</h2>
       {%get_tagged_posts post.tags.all 5 post.id%}
 </div></div>
-<!--<div id="pagenavi"></div>-->
-<div id="pagenavi">
-<div class="alignleft"></div>
-<div class="alignright"></div></div>
 <div id="comments">
      <div class="content" style="background:none;">
 	<h1><a name="comments"></a>{{post.comment_count}}{%trans "Comments" %}</h1>

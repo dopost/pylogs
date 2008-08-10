@@ -16,7 +16,7 @@
             {% endif %}     
                 <ul class="todo_tasks">
                     {% for t in p.task_set.all %}
-                        {% ifequal t.task_completed 1%}<li class="li_done"><img align="absmiddle" alt="done" src="{% theme_media_url %}/images/check_green.gif"/>&nbsp;&nbsp;{% else %}<li>{% if is_authenticated %}<input type="checkbox" name="cbx_done_task" value="{{t.id}}" title="{% trans 'This task is completed.' %}" />{% endif %} {% endifequal%}<img align="absmiddle" alt="priority" title="{{t.task_priority|priority_name}} {% trans 'Priority' %}" src="{% theme_media_url %}/images/bug-{{t.task_priority|priority_name}}.png"/>{{t.task_name}}
+                        {% ifequal t.task_completed 1%}<li class="li_done"><img align="absmiddle" alt="done" src="{% media_url %}/images/check_green.gif"/>&nbsp;&nbsp;{% else %}<li>{% if is_authenticated %}<input type="checkbox" name="cbx_done_task" value="{{t.id}}" title="{% trans 'This task is completed.' %}" />{% endif %} {% endifequal%}<img align="absmiddle" alt="priority" title="{{t.task_priority|priority_name}} {% trans 'Priority' %}" src="{% media_url %}/images/bug-{{t.task_priority|priority_name}}.png"/>{{t.task_name}}
                 {% if is_authenticated %} <a class="task_delete" name="a_del_task" rel="{{t.id}}" href="javascript:void 0;">X del</a> {% ifequal t.task_completed 1%}<a class="task_undone" name="a_undone_task" href="javascript:void 0" rel="{{t.id}}">- undone</a>{% endifequal %}{% endif %}     
                         </li>                
                     {% endfor %}
@@ -30,7 +30,7 @@
                             <option value="1" selected>{% trans 'medium' %}</option>
                          <option value="2">{% trans 'high' %}</option>
                         </select>                       
-                        <input type="image" alt="addnewtask" class="addbtn" name="btn_add_task"  src="{% theme_media_url %}/images/btn_task.gif"/>
+                        <input type="image" alt="addnewtask" class="addbtn" name="btn_add_task"  src="{% media_url %}/images/btn_task.gif"/>
                        <input type="hidden" value="{{p.id}}" name="pid"/>
                         </div>
                     </li>
@@ -41,8 +41,8 @@
             {% if is_authenticated %}
             <li class="li_add_project"><strong>{% trans "Add New Project" %}</strong><br/>             
                      <input type="text" class="text" maxlength="80" name="project_name" class="sll"/>
-                <input type="checkbox" value="1" name="project_type" id="project_type" /><label for="project_type">{% trans 'Private Project' %}</label>               
-               <input type="image" alt="addnewproj" class="addbtn" name="btn_add_project"  src="{% theme_media_url %}/images/btn_project.gif"/>                                     
+                <input type="checkbox" value="1" name="project_type" id="project_type" />{% trans 'Private Project' %}              
+               <input type="image" alt="addnewproj" class="addbtn" name="btn_add_project"  src="{% media_url %}/images/btn_project.gif"/>                                     
             </li>
         {% endif %}
         </ul>        
@@ -59,7 +59,7 @@
             {% endif %}     
                 <ul class="todo_tasks">
                     {% for t in p.task_set.all %}
-                        <li><img align="absmiddle" alt="done" src="{% theme_media_url %}/images/check_green.gif"/> <img align="absmiddle" alt="priority" title="{{t.task_priority|priority_name}} priority" src="{% theme_media_url %}/images/bug-{{t.task_priority|priority_name}}.png"/>{{t.task_name}}
+                        <li><img align="absmiddle" alt="done" src="{% media_url %}/images/check_green.gif"/> <img align="absmiddle" alt="priority" title="{{t.task_priority|priority_name}} priority" src="{% media_url %}/images/bug-{{t.task_priority|priority_name}}.png"/>{{t.task_name}}
                 {% if is_authenticated %} <a class="task_delete" name="a_del_task" rel="{{t.id}}" href="javascript:void 0;">X del</a> <a class="task_undone" name="a_undone_task" href="javascript:void 0" rel="{{t.id}}">- undone</a>{% endif %}     
                         </li>                
                     {% endfor %}             
