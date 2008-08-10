@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Pylogs\n"
+"Project-Id-Version: Pylogs 1.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-07-26 16:24+0800\n"
-"PO-Revision-Date: 2008-07-26 16:47+0800\n"
+"POT-Creation-Date: 2008-08-10 15:27+0800\n"
+"PO-Revision-Date: 2008-08-10 15:27+0800\n"
 "Last-Translator: Sky <denghaibo@gmail.com>\n"
 "Language-Team: Sky <denghaibo@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -18,1165 +18,345 @@ msgstr ""
 "X-Poedit-Country: CHINA\n"
 "X-Poedit-SourceCharset: utf-8\n"
 
-#: .\blog\feeds.py:17
-#: .\release\pylogs_v1.0beta\blog\feeds.py:31
-#: .\release\pylogs_v1.10beta\pylogs\blog\feeds.py:33
-#: .\release\pylogs_v1.11\pylogs\blog\feeds.py:33
-#: .\release\pylogs_v111_nocopy\pylogs\blog\feeds.py:16
 msgid "Pylogs: Latest Posts"
 msgstr "Pylogs:最新文章"
 
-#: .\blog\feeds.py:18
-#: .\release\pylogs_v1.11\pylogs\blog\feeds.py:34
-#: .\release\pylogs_v111_nocopy\pylogs\blog\feeds.py:17
 msgid "logging your life..."
 msgstr "logging your life..."
 
-#: .\blog\models.py:11
-#: .\blog\models.py:169
-#: .\blog\models.py:183
-#: .\release\pylogs_v1.0beta\blog\models.py:26
-#: .\release\pylogs_v1.0beta\blog\models.py:200
-#: .\release\pylogs_v1.0beta\blog\models.py:210
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:28
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:202
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:216
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:28
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:202
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:216
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:11
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:177
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:191
 msgid "Post"
 msgstr "文章"
 
-#: .\blog\models.py:12
-#: .\release\pylogs_v1.0beta\blog\models.py:27
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:29
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:29
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:12
 msgid "Page"
 msgstr "页面"
 
-#: .\blog\models.py:16
-#: .\release\pylogs_v1.0beta\blog\models.py:31
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:33
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:33
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:16
 msgid "Published"
 msgstr "已发布"
 
-#: .\blog\models.py:17
-#: .\release\pylogs_v1.0beta\blog\models.py:32
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:34
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:34
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:17
 msgid "Draft"
 msgstr "草稿"
 
-#: .\blog\models.py:18
-#: .\release\pylogs_v1.0beta\blog\models.py:33
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:35
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:35
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:18
 msgid "Private"
 msgstr "私人"
 
-#: .\blog\models.py:22
-#: .\release\pylogs_v1.0beta\blog\models.py:37
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:39
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:39
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:22
 msgid "UnApproved"
 msgstr "未审核"
 
-#: .\blog\models.py:23
-#: .\release\pylogs_v1.0beta\blog\models.py:38
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:40
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:40
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:23
 msgid "Approved"
 msgstr "已审核"
 
-#: .\blog\models.py:24
-#: .\release\pylogs_v1.0beta\blog\models.py:39
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:41
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:41
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:24
 msgid "Spam"
 msgstr "垃圾"
 
-#: .\blog\models.py:28
-#: .\release\pylogs_v1.0beta\blog\models.py:43
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:45
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:45
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:28
 msgid "Allow Comments"
 msgstr "允许评论"
 
-#: .\blog\models.py:29
-#: .\release\pylogs_v1.0beta\blog\models.py:44
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:46
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:46
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:29
 msgid "Disallow Comments"
 msgstr "不允许评论"
 
-#: .\blog\models.py:30
-#: .\release\pylogs_v1.0beta\blog\models.py:45
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:47
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:47
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:30
 msgid "Allow Register Comments"
 msgstr "只允许注册用户评论"
 
-#: .\blog\models.py:34
-#: .\blog\models.py:66
-#: .\release\pylogs_v1.0beta\blog\models.py:49
-#: .\release\pylogs_v1.0beta\blog\models.py:81
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:51
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:83
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:51
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:83
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:34
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:66
 msgid "Name"
 msgstr "名称"
 
-#: .\blog\models.py:35
-#: .\release\pylogs_v1.0beta\blog\models.py:50
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:52
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:52
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:35
 msgid "Slug"
 msgstr "简称"
 
-#: .\blog\models.py:35
-#: .\blog\models.py:68
-#: .\blog\models.py:103
-#: .\release\pylogs_v1.0beta\blog\models.py:50
-#: .\release\pylogs_v1.0beta\blog\models.py:83
-#: .\release\pylogs_v1.0beta\blog\models.py:127
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:52
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:85
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:129
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:52
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:85
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:129
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:35
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:68
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:104
 msgid "Use as url"
 msgstr "作为链接使用"
 
-#: .\blog\models.py:36
-#: .\release\pylogs_v1.0beta\blog\models.py:51
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:53
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:53
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:36
 msgid "Reference count"
 msgstr "引用次数"
 
-#: .\blog\models.py:56
-#: .\release\pylogs_v1.0beta\blog\models.py:71
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:73
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:73
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:56
 msgid "Tag"
 msgstr "标签"
 
-#: .\blog\models.py:57
-#: .\blog\models.py:112
-#: .\release\pylogs_v1.0beta\blog\models.py:72
-#: .\release\pylogs_v1.0beta\blog\models.py:136
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:74
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:138
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:74
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:138
-#: .\release\pylogs_v1.11\pylogs\blog\templatetags\menu.py:33
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\page.html.py:21
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\post.html.py:29
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\tags.html.py:3
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\tags.html.py:11
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\page.html.py:16
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\post.html.py:21
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\tags.html.py:3
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\tags.html.py:11
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:57
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:113
-#: .\release\pylogs_v111_nocopy\pylogs\blog\templatetags\menu.py:16
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\page.html.py:21
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\post.html.py:29
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\tags.html.py:3
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\tags.html.py:11
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\page.html.py:16
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\post.html.py:21
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\tags.html.py:3
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\tags.html.py:11
-#: .\templates\themes\default\blog\page.html.py:18
-#: .\templates\themes\default\blog\post.html.py:26
-#: .\templates\themes\default\blog\tags.html.py:3
-#: .\templates\themes\default\blog\tags.html.py:8
-#: .\templates\themes\tech_gray\blog\page.html.py:16
-#: .\templates\themes\tech_gray\blog\post.html.py:21
-#: .\templates\themes\tech_gray\blog\tags.html.py:3
-#: .\templates\themes\tech_gray\blog\tags.html.py:11
-#: .\templates\themes\techicon\blog\page.html.py:13
-#: .\templates\themes\techicon\blog\post.html.py:18
-#: .\templates\themes\techicon\blog\tags.html.py:3
-#: .\templates\themes\techicon\blog\tags.html.py:8
-#: .\templates\themes\techicon\blog\tags\menu.html.py:4
 msgid "Tags"
 msgstr "标签"
 
-#: .\blog\models.py:67
-#: .\blog\models.py:230
-#: .\release\pylogs_v1.0beta\blog\models.py:82
-#: .\release\pylogs_v1.0beta\blog\models.py:260
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:84
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:266
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:84
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:266
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:67
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:241
 msgid "Description"
 msgstr "描述"
 
-#: .\blog\models.py:68
-#: .\release\pylogs_v1.0beta\blog\models.py:83
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:85
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:85
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:68
 msgid "English name"
 msgstr "英文名"
 
-#: .\blog\models.py:90
-#: .\blog\models.py:101
-#: .\release\pylogs_v1.0beta\blog\models.py:106
-#: .\release\pylogs_v1.0beta\blog\models.py:119
-#: .\release\pylogs_v1.0beta\blog\models.py:125
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:108
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:121
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:127
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:108
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:121
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:127
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:91
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:102
 msgid "Category"
 msgstr "分类"
 
-#: .\blog\models.py:91
-#: .\release\pylogs_v1.0beta\blog\models.py:107
-#: .\release\pylogs_v1.0beta\templates\base.html.py:57
-#: .\release\pylogs_v1.0beta\templates\blog\post.html.py:19
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:109
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\base.html.py:54
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\post.html.py:20
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\base.html.py:81
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\post.html.py:19
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:109
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\base.html.py:54
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\post.html.py:20
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\base.html.py:93
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\post.html.py:14
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:92
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\base.html.py:58
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\post.html.py:20
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\base.html.py:97
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\post.html.py:14
-#: .\templates\themes\default\base.html.py:55
-#: .\templates\themes\default\blog\post.html.py:17
-#: .\templates\themes\tech_gray\base.html.py:97
-#: .\templates\themes\tech_gray\blog\post.html.py:14
-#: .\templates\themes\techicon\base.html.py:98
-#: .\templates\themes\techicon\blog\post.html.py:11
 msgid "Categories"
 msgstr "分类"
 
-#: .\blog\models.py:99
-#: .\blog\models.py:229
-#: .\release\pylogs_v1.0beta\blog\models.py:123
-#: .\release\pylogs_v1.0beta\blog\models.py:259
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:125
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:265
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:125
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:265
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:100
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:240
 msgid "Title"
 msgstr "标题"
 
-#: .\blog\models.py:100
-#: .\blog\models.py:189
-#: .\release\pylogs_v1.0beta\blog\models.py:124
-#: .\release\pylogs_v1.0beta\blog\models.py:216
-#: .\release\pylogs_v1.0beta\templates\blog\comment_form.html.py:32
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:126
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:222
-#: .\release\pylogs_v1.10beta\pylogs\templates\blog\comment_form.html.py:32
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:126
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:222
-#: .\release\pylogs_v1.11\pylogs\templates\blog\comment_form.html.py:32
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:101
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:197
-#: .\release\pylogs_v111_nocopy\pylogs\templates\blog\comment_form.html.py:32
-#: .\templates\blog\comment_form.html.py:28
 msgid "Content"
 msgstr "内容"
 
-#: .\blog\models.py:102
-#: .\release\pylogs_v1.0beta\blog\models.py:126
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:128
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:128
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:103
 msgid "Post name"
 msgstr "文章缩略名"
 
-#: .\blog\models.py:104
-#: .\release\pylogs_v1.0beta\blog\models.py:128
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:130
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:130
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:105
 msgid "Post type"
 msgstr "文章类别"
 
-#: .\blog\models.py:105
-#: .\release\pylogs_v1.0beta\blog\models.py:129
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:131
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:131
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:106
 msgid "Post status"
 msgstr "文章状态"
 
-#: .\blog\models.py:106
-#: .\release\pylogs_v1.0beta\blog\models.py:130
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:132
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:132
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:107
 msgid "Parent page"
 msgstr "上级页面"
 
-#: .\blog\models.py:107
-#: .\blog\models.py:188
-#: .\blog\models.py:233
-#: .\release\pylogs_v1.0beta\blog\models.py:131
-#: .\release\pylogs_v1.0beta\blog\models.py:215
-#: .\release\pylogs_v1.0beta\blog\models.py:263
-#: .\release\pylogs_v1.0beta\templates\blog\category.html.py:19
-#: .\release\pylogs_v1.0beta\templates\blog\datelist.html.py:15
-#: .\release\pylogs_v1.0beta\templates\blog\index.html.py:15
-#: .\release\pylogs_v1.0beta\templates\blog\page.html.py:19
-#: .\release\pylogs_v1.0beta\templates\blog\post.html.py:18
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:133
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:221
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:269
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\category.html.py:17
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\datelist.html.py:15
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\index.html.py:15
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\page.html.py:19
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\post.html.py:19
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\category.html.py:18
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\datelist.html.py:14
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\index.html.py:15
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\page.html.py:18
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\post.html.py:18
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:133
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:221
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:269
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\list.html.py:14
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\page.html.py:19
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\post.html.py:19
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\list.html.py:33
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\page.html.py:13
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\post.html.py:13
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:108
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:196
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:244
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\list.html.py:14
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\page.html.py:19
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\post.html.py:19
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\list.html.py:33
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\page.html.py:13
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\post.html.py:13
-#: .\templates\themes\default\blog\list.html.py:11
-#: .\templates\themes\default\blog\page.html.py:16
-#: .\templates\themes\default\blog\post.html.py:16
-#: .\templates\themes\tech_gray\blog\list.html.py:33
-#: .\templates\themes\tech_gray\blog\page.html.py:13
-#: .\templates\themes\tech_gray\blog\post.html.py:13
-#: .\templates\themes\techicon\blog\list.html.py:30
-#: .\templates\themes\techicon\blog\page.html.py:10
-#: .\templates\themes\techicon\blog\post.html.py:10
 msgid "Pubdate"
 msgstr "发表时间"
 
-#: .\blog\models.py:108
-#: .\release\pylogs_v1.0beta\blog\models.py:132
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:134
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:134
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:109
 msgid "Hits"
 msgstr "点击"
 
-#: .\blog\models.py:109
-#: .\release\pylogs_v1.0beta\blog\models.py:133
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:135
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:135
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:110
 msgid "Menu order"
 msgstr "菜单排序"
 
-#: .\blog\models.py:110
-#: .\release\pylogs_v1.0beta\blog\models.py:134
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:136
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:136
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:111
 msgid "Comment status"
 msgstr "评论状态"
 
-#: .\blog\models.py:111
-#: .\release\pylogs_v1.0beta\blog\models.py:135
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:137
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:137
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:112
 msgid "Comment count"
 msgstr "评论数"
 
-#: .\blog\models.py:159
-#: .\release\pylogs_v1.0beta\blog\models.py:186
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:188
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:188
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:163
 msgid "Post categories"
 msgstr "文章类别"
 
-#: .\blog\models.py:170
-#: .\release\pylogs_v1.0beta\blog\models.py:201
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:203
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:203
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:178
 msgid "Posts"
 msgstr "文章"
 
-#: .\blog\models.py:184
-#: .\release\pylogs_v1.0beta\blog\models.py:211
-#: .\release\pylogs_v1.0beta\templates\blog\comment_form.html.py:14
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:217
-#: .\release\pylogs_v1.10beta\pylogs\templates\blog\comment_form.html.py:14
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:217
-#: .\release\pylogs_v1.11\pylogs\templates\blog\comment_form.html.py:14
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:192
-#: .\release\pylogs_v111_nocopy\pylogs\templates\blog\comment_form.html.py:14
-#: .\templates\blog\comment_form.html.py:10
 msgid "Author"
 msgstr "作者"
 
-#: .\blog\models.py:185
-#: .\release\pylogs_v1.0beta\blog\models.py:212
-#: .\release\pylogs_v1.0beta\templates\blog\comment_form.html.py:20
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:218
-#: .\release\pylogs_v1.10beta\pylogs\templates\blog\comment_form.html.py:20
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:218
-#: .\release\pylogs_v1.11\pylogs\templates\blog\comment_form.html.py:20
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:193
-#: .\release\pylogs_v111_nocopy\pylogs\templates\blog\comment_form.html.py:20
-#: .\templates\blog\comment_form.html.py:16
 msgid "Email"
 msgstr "Email"
 
-#: .\blog\models.py:186
-#: .\blog\models.py:228
-#: .\release\pylogs_v1.0beta\blog\models.py:213
-#: .\release\pylogs_v1.0beta\blog\models.py:258
-#: .\release\pylogs_v1.0beta\templates\blog\comment_form.html.py:26
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:219
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:264
-#: .\release\pylogs_v1.10beta\pylogs\templates\blog\comment_form.html.py:26
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:219
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:264
-#: .\release\pylogs_v1.11\pylogs\templates\blog\comment_form.html.py:26
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:194
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:239
-#: .\release\pylogs_v111_nocopy\pylogs\templates\blog\comment_form.html.py:26
-#: .\templates\blog\comment_form.html.py:22
 msgid "URL"
 msgstr "URL"
 
-#: .\blog\models.py:187
-#: .\release\pylogs_v1.0beta\blog\models.py:214
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:220
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:220
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:195
 msgid "IP"
 msgstr "IP"
 
-#: .\blog\models.py:190
-#: .\release\pylogs_v1.0beta\blog\models.py:217
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:223
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:223
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:198
 msgid "Approve status"
 msgstr "审核状态"
 
-#: .\blog\models.py:191
-#: .\release\pylogs_v1.0beta\blog\models.py:218
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:224
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:224
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:199
 msgid "User agent info"
 msgstr "用户浏览器信息"
 
-#: .\blog\models.py:192
-#: .\release\pylogs_v1.0beta\blog\models.py:219
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:225
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:225
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:200
 msgid "UserId"
 msgstr "用户ID"
 
-#: .\blog\models.py:218
-#: .\release\pylogs_v1.0beta\blog\models.py:248
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:254
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:254
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:229
 msgid "Comment"
 msgstr "评论"
 
-#: .\blog\models.py:219
-#: .\release\pylogs_v1.0beta\blog\models.py:249
-#: .\release\pylogs_v1.0beta\templates\blog\category.html.py:28
-#: .\release\pylogs_v1.0beta\templates\blog\datelist.html.py:24
-#: .\release\pylogs_v1.0beta\templates\blog\index.html.py:24
-#: .\release\pylogs_v1.0beta\templates\blog\page.html.py:34
-#: .\release\pylogs_v1.0beta\templates\blog\post.html.py:40
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:255
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\category.html.py:26
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\datelist.html.py:24
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\index.html.py:24
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\page.html.py:34
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\post.html.py:42
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\category.html.py:26
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\datelist.html.py:22
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\index.html.py:24
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\page.html.py:34
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\post.html.py:37
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\post.html.py:44
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:255
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\list.html.py:23
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\page.html.py:40
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\post.html.py:49
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\list.html.py:42
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\page.html.py:35
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\post.html.py:35
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\post.html.py:42
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:230
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\list.html.py:23
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\page.html.py:40
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\post.html.py:49
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\list.html.py:42
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\page.html.py:35
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\post.html.py:35
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\post.html.py:42
-#: .\templates\themes\default\blog\list.html.py:20
-#: .\templates\themes\default\blog\page.html.py:37
-#: .\templates\themes\default\blog\post.html.py:46
-#: .\templates\themes\tech_gray\blog\list.html.py:42
-#: .\templates\themes\tech_gray\blog\page.html.py:35
-#: .\templates\themes\tech_gray\blog\post.html.py:35
-#: .\templates\themes\tech_gray\blog\post.html.py:42
-#: .\templates\themes\techicon\blog\list.html.py:39
-#: .\templates\themes\techicon\blog\page.html.py:30
-#: .\templates\themes\techicon\blog\post.html.py:30
-#: .\templates\themes\techicon\blog\post.html.py:40
 msgid "Comments"
 msgstr "评论"
 
-#: .\blog\models.py:231
-#: .\release\pylogs_v1.0beta\blog\models.py:261
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:267
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:267
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:242
 msgid "Image"
 msgstr "图片"
 
-#: .\blog\models.py:232
-#: .\release\pylogs_v1.0beta\blog\models.py:262
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:268
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:268
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:243
 msgid "Order"
 msgstr "排序"
 
-#: .\blog\models.py:232
-#: .\release\pylogs_v1.0beta\blog\models.py:262
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:268
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:268
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:243
 msgid "Minimal at front"
 msgstr "值小的靠前"
 
-#: .\blog\models.py:242
-#: .\release\pylogs_v1.0beta\blog\models.py:272
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:278
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:278
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:253
 msgid "Link"
 msgstr "链接"
 
-#: .\blog\models.py:243
-#: .\release\pylogs_v1.0beta\blog\models.py:273
-#: .\release\pylogs_v1.0beta\templates\base.html.py:84
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:279
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\base.html.py:81
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\base.html.py:93
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:279
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\base.html.py:81
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\base.html.py:105
-#: .\release\pylogs_v111_nocopy\pylogs\blog\models.py:254
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\base.html.py:85
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\base.html.py:109
-#: .\templates\themes\default\base.html.py:82
-#: .\templates\themes\tech_gray\base.html.py:109
-#: .\templates\themes\techicon\base.html.py:110
 msgid "Links"
 msgstr "链接"
 
-#: .\blog\views.py:24
-#: .\release\pylogs_v1.11\pylogs\blog\views.py:43
-#: .\release\pylogs_v1.11\pylogs\blog\templatetags\menu.py:31
-#: .\release\pylogs_v111_nocopy\pylogs\blog\views.py:26
-#: .\release\pylogs_v111_nocopy\pylogs\blog\templatetags\menu.py:14
-#: .\templates\themes\techicon\blog\tags\menu.html.py:2
 msgid "Home"
 msgstr "首页"
 
-#: .\blog\views.py:56
-#: .\blog\views.py:99
-#: .\release\pylogs_v1.10beta\pylogs\blog\views.py:67
-#: .\release\pylogs_v1.10beta\pylogs\blog\views.py:107
-#: .\release\pylogs_v1.11\pylogs\blog\views.py:78
-#: .\release\pylogs_v1.11\pylogs\blog\views.py:128
-#: .\release\pylogs_v111_nocopy\pylogs\blog\views.py:61
-#: .\release\pylogs_v111_nocopy\pylogs\blog\views.py:111
-#: .\tests\tests.py:130
+msgid "The confirmation code you entered was incorrect!"
+msgstr "您输入的验证码不正确！"
+
 msgid "Comment post successful!"
 msgstr "评论发表成功，可能需要等待管理员审核！"
 
-#: .\release\pylogs_v1.0beta\blog\category_view.py:57
-#: .\release\pylogs_v1.10beta\pylogs\blog\category_view.py:59
-#: .\release\pylogs_v1.11\pylogs\blog\views.py:201
-#: .\release\pylogs_v111_nocopy\pylogs\blog\views.py:184
-msgid "Sorry! No such Category!"
-msgstr "对不起！没有这个分类！"
-
-#: .\release\pylogs_v1.0beta\blog\feeds.py:32
-#: .\release\pylogs_v1.10beta\pylogs\blog\feeds.py:34
-msgid "logging you life..."
-msgstr "logging your life..."
-
-#: .\release\pylogs_v1.0beta\blog\models.py:117
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:119
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:119
-msgid "UserName"
-msgstr "用户名"
-
-#: .\release\pylogs_v1.0beta\blog\models.py:118
-#: .\release\pylogs_v1.10beta\pylogs\blog\models.py:120
-#: .\release\pylogs_v1.11\pylogs\blog\models.py:120
-msgid "Password"
-msgstr "密码"
-
-#: .\release\pylogs_v1.0beta\blog\views.py:79
-#: .\release\pylogs_v1.0beta\blog\views.py:196
-#: .\release\pylogs_v1.0beta\blog\views.py:220
-#: .\release\pylogs_v1.10beta\pylogs\blog\views.py:85
-#: .\release\pylogs_v1.10beta\pylogs\blog\views.py:182
-#: .\release\pylogs_v1.10beta\pylogs\blog\views.py:206
-#: .\release\pylogs_v1.11\pylogs\blog\views.py:98
-#: .\release\pylogs_v111_nocopy\pylogs\blog\views.py:81
-msgid "Sorry! This post not found!"
-msgstr "对不起！没有这篇文章！"
-
-#: .\release\pylogs_v1.0beta\blog\views.py:139
-#: .\release\pylogs_v1.10beta\pylogs\blog\views.py:125
-#: .\release\pylogs_v1.11\pylogs\blog\views.py:149
-#: .\release\pylogs_v111_nocopy\pylogs\blog\views.py:132
-msgid "Sorry! This page not found!"
-msgstr "对不起！没有这个页面！"
-
-#: .\release\pylogs_v1.0beta\blog\views.py:206
-#: .\release\pylogs_v1.10beta\pylogs\blog\views.py:192
-msgid "Title and content can not be null."
-msgstr "标题和内容不能为空"
-
-#: .\release\pylogs_v1.0beta\templates\base.html.py:71
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\base.html.py:68
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\base.html.py:85
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\base.html.py:68
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\base.html.py:97
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\base.html.py:72
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\base.html.py:101
-#: .\templates\themes\default\base.html.py:69
-#: .\templates\themes\tech_gray\base.html.py:101
-#: .\templates\themes\techicon\base.html.py:102
-msgid "Archives"
-msgstr "存档"
-
-#: .\release\pylogs_v1.0beta\templates\base.html.py:101
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\base.html.py:98
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\base.html.py:98
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\base.html.py:102
-#: .\templates\themes\default\base.html.py:99
-msgid "Syndication"
-msgstr "聚合"
-
-#: .\release\pylogs_v1.0beta\templates\base.html.py:118
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\base.html.py:115
-msgid "Pyblogs Project"
-msgstr "Pylogs 项目"
-
-#: .\release\pylogs_v1.0beta\templates\base.html.py:121
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\base.html.py:118
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\base.html.py:118
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\base.html.py:122
-#: .\templates\themes\default\base.html.py:119
-msgid "Contact Me"
-msgstr "联系我"
-
-#: .\release\pylogs_v1.0beta\templates\blog\category.html.py:28
-#: .\release\pylogs_v1.0beta\templates\blog\datelist.html.py:24
-#: .\release\pylogs_v1.0beta\templates\blog\index.html.py:24
-#: .\release\pylogs_v1.0beta\templates\blog\page.html.py:19
-#: .\release\pylogs_v1.0beta\templates\blog\post.html.py:18
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\category.html.py:26
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\datelist.html.py:24
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\index.html.py:24
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\page.html.py:19
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\post.html.py:19
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\category.html.py:26
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\datelist.html.py:22
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\index.html.py:24
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\page.html.py:18
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\post.html.py:37
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\list.html.py:23
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\page.html.py:19
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\post.html.py:19
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\list.html.py:42
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\page.html.py:13
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\post.html.py:18
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\list.html.py:23
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\page.html.py:19
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\post.html.py:19
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\list.html.py:42
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\page.html.py:13
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\post.html.py:18
-#: .\templates\themes\default\blog\list.html.py:20
-#: .\templates\themes\default\blog\page.html.py:16
-#: .\templates\themes\default\blog\post.html.py:16
-#: .\templates\themes\tech_gray\blog\list.html.py:42
-#: .\templates\themes\tech_gray\blog\page.html.py:13
-#: .\templates\themes\tech_gray\blog\post.html.py:18
-#: .\templates\themes\techicon\blog\list.html.py:39
-#: .\templates\themes\techicon\blog\page.html.py:10
-#: .\templates\themes\techicon\blog\post.html.py:15
-msgid "Views"
-msgstr "阅读"
-
-#: .\release\pylogs_v1.0beta\templates\blog\category.html.py:34
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\category.html.py:32
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\category.html.py:31
-msgid "No post in this category."
-msgstr "这个分类暂时还没有文章。"
-
-#: .\release\pylogs_v1.0beta\templates\blog\category.html.py:38
-#: .\release\pylogs_v1.0beta\templates\blog\datelist.html.py:30
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\category.html.py:36
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\datelist.html.py:30
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\category.html.py:35
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\datelist.html.py:28
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\list.html.py:29
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\list.html.py:47
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\list.html.py:29
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\list.html.py:47
-#: .\templates\themes\default\blog\list.html.py:26
-#: .\templates\themes\tech_gray\blog\list.html.py:47
-#: .\templates\themes\techicon\blog\list.html.py:44
-msgid "Prev"
-msgstr "上一页"
-
-#: .\release\pylogs_v1.0beta\templates\blog\category.html.py:39
-#: .\release\pylogs_v1.0beta\templates\blog\datelist.html.py:31
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\category.html.py:37
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\datelist.html.py:31
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\category.html.py:36
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\datelist.html.py:29
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\list.html.py:30
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\list.html.py:48
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\list.html.py:30
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\list.html.py:48
-#: .\templates\themes\default\blog\list.html.py:27
-#: .\templates\themes\tech_gray\blog\list.html.py:48
-#: .\templates\themes\techicon\blog\list.html.py:45
-msgid "Next"
-msgstr "下一页"
-
-#: .\release\pylogs_v1.0beta\templates\blog\comment_form.html.py:10
-#: .\release\pylogs_v1.10beta\pylogs\templates\blog\comment_form.html.py:10
-#: .\release\pylogs_v1.11\pylogs\templates\blog\comment_form.html.py:10
-#: .\release\pylogs_v111_nocopy\pylogs\templates\blog\comment_form.html.py:10
-#: .\templates\blog\comment_form.html.py:6
-msgid "Leave You Comment"
-msgstr "评论这篇文章"
-
-#: .\release\pylogs_v1.0beta\templates\blog\comment_form.html.py:36
-#: .\release\pylogs_v1.10beta\pylogs\templates\blog\comment_form.html.py:36
-#: .\release\pylogs_v1.11\pylogs\templates\blog\comment_form.html.py:39
-#: .\release\pylogs_v111_nocopy\pylogs\templates\blog\comment_form.html.py:39
-#: .\templates\blog\comment_form.html.py:35
-msgid "Submit Comment"
-msgstr "发表评论"
-
-#: .\release\pylogs_v1.0beta\templates\blog\datelist.html.py:6
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\datelist.html.py:6
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\datelist.html.py:6
-msgid "year"
-msgstr "年"
-
-#: .\release\pylogs_v1.0beta\templates\blog\datelist.html.py:6
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\datelist.html.py:6
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\datelist.html.py:6
-msgid "month"
-msgstr "月"
-
-#: .\release\pylogs_v1.0beta\templates\blog\datelist.html.py:6
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\datelist.html.py:6
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\datelist.html.py:6
-msgid "day"
-msgstr "日"
-
-#: .\release\pylogs_v1.0beta\templates\blog\page.html.py:37
-#: .\release\pylogs_v1.0beta\templates\blog\post.html.py:43
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\page.html.py:37
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\post.html.py:48
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\page.html.py:37
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\post.html.py:50
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\page.html.py:43
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\post.html.py:55
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\page.html.py:40
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\post.html.py:47
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\page.html.py:43
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\post.html.py:55
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\page.html.py:40
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\post.html.py:47
-#: .\templates\themes\default\blog\page.html.py:40
-#: .\templates\themes\default\blog\post.html.py:52
-#: .\templates\themes\tech_gray\blog\page.html.py:40
-#: .\templates\themes\tech_gray\blog\post.html.py:47
-#: .\templates\themes\techicon\blog\page.html.py:35
-#: .\templates\themes\techicon\blog\post.html.py:45
-msgid "Post at"
-msgstr "发表于"
-
-#: .\release\pylogs_v1.0beta\templates\blog\tags\archivelist.html.py:12
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\tags\archivelist.html.py:12
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\tags\archivelist.html.py:12
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\tags\archivelist.html.py:12
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\tags\archivelist.html.py:12
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\tags\archivelist.html.py:12
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\tags\archivelist.html.py:12
-#: .\templates\themes\default\blog\tags\archivelist.html.py:12
-#: .\templates\themes\tech_gray\blog\tags\archivelist.html.py:12
-#: .\templates\themes\techicon\blog\tags\archivelist.html.py:12
-msgid "No Archive Now"
-msgstr "暂时没有存档"
-
-#: .\release\pylogs_v1.0beta\templates\blog\tags\category.html.py:12
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\tags\category.html.py:12
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\tags\category.html.py:12
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\tags\category.html.py:12
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\tags\category.html.py:12
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\tags\category.html.py:12
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\tags\category.html.py:12
-#: .\templates\themes\default\blog\tags\category.html.py:12
-#: .\templates\themes\tech_gray\blog\tags\category.html.py:12
-#: .\templates\themes\techicon\blog\tags\category.html.py:12
-msgid "No Category Now"
-msgstr "暂时没有分类"
-
-#: .\release\pylogs_v1.0beta\templates\blog\tags\links.html.py:12
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\default\blog\tags\links.html.py:12
-#: .\release\pylogs_v1.10beta\pylogs\templates\themes\techicon\blog\tags\links.html.py:12
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\blog\tags\links.html.py:12
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\tags\links.html.py:12
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\tags\recent_comments.html.py:11
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\tags\recent_posts.html.py:10
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\blog\tags\links.html.py:12
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\tags\links.html.py:12
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\tags\recent_comments.html.py:11
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\tags\recent_posts.html.py:10
-#: .\templates\themes\default\blog\tags\links.html.py:12
-#: .\templates\themes\tech_gray\blog\tags\links.html.py:12
-#: .\templates\themes\tech_gray\blog\tags\recent_comments.html.py:11
-#: .\templates\themes\tech_gray\blog\tags\recent_posts.html.py:10
-#: .\templates\themes\techicon\blog\tags\links.html.py:12
-#: .\templates\themes\techicon\blog\tags\recent_comments.html.py:8
-msgid "No Links Now"
-msgstr "暂时没有链接"
-
-#: .\release\pylogs_v1.11\pylogs\blog\templatetags\menu.py:32
-#: .\release\pylogs_v111_nocopy\pylogs\blog\templatetags\menu.py:15
-#: .\templates\themes\techicon\blog\tags\menu.html.py:3
-msgid "Todo"
-msgstr "Todo"
-
-#: .\release\pylogs_v1.11\pylogs\templates\admin\base_site.html.py:3
-#: .\release\pylogs_v111_nocopy\pylogs\templates\admin\base_site.html.py:3
-#: .\templates\admin\base_site.html.py:3
 msgid "Pylogs site admin"
 msgstr "Pylogs 站点管理"
 
-#: .\release\pylogs_v1.11\pylogs\templates\admin\base_site.html.py:5
-#: .\release\pylogs_v111_nocopy\pylogs\templates\admin\base_site.html.py:5
-#: .\templates\admin\base_site.html.py:5
 msgid "Pylogs administration"
-msgstr "Pylogs管理"
+msgstr "Pylogs管理登录"
 
-#: .\release\pylogs_v1.11\pylogs\templates\themes\default\base.html.py:115
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\default\base.html.py:119
-#: .\templates\themes\default\base.html.py:116
-msgid "Pylogs Project"
-msgstr "Pylogs 项目"
-
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\base.html.py:88
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\base.html.py:92
-#: .\templates\themes\tech_gray\base.html.py:92
-#: .\templates\themes\techicon\base.html.py:93
-msgid "Subscribe to my blog using RSS"
-msgstr "通过RSS订阅本站更新"
-
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\list.html.py:12
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\list.html.py:12
-#: .\templates\themes\tech_gray\blog\list.html.py:12
-#: .\templates\themes\techicon\blog\list.html.py:9
-msgid "Latest Posts"
-msgstr "最新文章"
-
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\list.html.py:13
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\list.html.py:13
-#: .\templates\themes\tech_gray\blog\list.html.py:13
-#: .\templates\themes\techicon\blog\list.html.py:10
-msgid "Latest Comments"
-msgstr "最新评论"
-
-#: .\release\pylogs_v1.11\pylogs\templates\themes\techicon\blog\list.html.py:14
-#: .\release\pylogs_v111_nocopy\pylogs\templates\themes\techicon\blog\list.html.py:14
-#: .\templates\themes\tech_gray\blog\list.html.py:14
-#: .\templates\themes\techicon\blog\list.html.py:11
-msgid "Popular Posts"
-msgstr "热门文章"
-
-#: .\release\pylogs_v1.11\pylogs\templates\todo\index.html.py:11
-#: .\release\pylogs_v111_nocopy\pylogs\templates\todo\index.html.py:11
-#: .\templates\todo\index.html.py:11
-msgid "Projects in progress"
-msgstr "进行中的项目"
-
-#: .\release\pylogs_v1.11\pylogs\templates\todo\index.html.py:14
-#: .\release\pylogs_v1.11\pylogs\templates\todo\index.html.py:57
-#: .\release\pylogs_v111_nocopy\pylogs\templates\todo\index.html.py:14
-#: .\release\pylogs_v111_nocopy\pylogs\templates\todo\index.html.py:57
-#: .\templates\todo\index.html.py:14
-#: .\templates\todo\index.html.py:57
-msgid "Created at"
-msgstr "创建于"
-
-#: .\release\pylogs_v1.11\pylogs\templates\todo\index.html.py:15
-#: .\release\pylogs_v1.11\pylogs\templates\todo\index.html.py:58
-#: .\release\pylogs_v111_nocopy\pylogs\templates\todo\index.html.py:15
-#: .\release\pylogs_v111_nocopy\pylogs\templates\todo\index.html.py:58
-#: .\templates\todo\index.html.py:15
-#: .\templates\todo\index.html.py:58
-msgid "Public Project"
-msgstr "公共项目"
-
-#: .\release\pylogs_v1.11\pylogs\templates\todo\index.html.py:15
-#: .\release\pylogs_v1.11\pylogs\templates\todo\index.html.py:44
-#: .\release\pylogs_v1.11\pylogs\templates\todo\index.html.py:58
-#: .\release\pylogs_v111_nocopy\pylogs\templates\todo\index.html.py:15
-#: .\release\pylogs_v111_nocopy\pylogs\templates\todo\index.html.py:44
-#: .\release\pylogs_v111_nocopy\pylogs\templates\todo\index.html.py:58
-#: .\templates\todo\index.html.py:15
-#: .\templates\todo\index.html.py:44
-#: .\templates\todo\index.html.py:58
-msgid "Private Project"
-msgstr "私有项目"
-
-#: .\release\pylogs_v1.11\pylogs\templates\todo\index.html.py:19
-#: .\release\pylogs_v111_nocopy\pylogs\templates\todo\index.html.py:19
-#: .\templates\todo\index.html.py:19
-msgid "This task is completed."
-msgstr "这个任务已完成"
-
-#: .\release\pylogs_v1.11\pylogs\templates\todo\index.html.py:19
-#: .\release\pylogs_v1.11\pylogs\templates\todo\index.html.py:28
-#: .\release\pylogs_v111_nocopy\pylogs\templates\todo\index.html.py:19
-#: .\release\pylogs_v111_nocopy\pylogs\templates\todo\index.html.py:28
-#: .\templates\todo\index.html.py:19
-#: .\templates\todo\index.html.py:28
-msgid "Priority"
-msgstr "优先级"
-
-#: .\release\pylogs_v1.11\pylogs\templates\todo\index.html.py:25
-#: .\release\pylogs_v111_nocopy\pylogs\templates\todo\index.html.py:25
-#: .\templates\todo\index.html.py:25
-msgid "Add New Task"
-msgstr "添加新任务"
-
-#: .\release\pylogs_v1.11\pylogs\templates\todo\index.html.py:29
-#: .\release\pylogs_v111_nocopy\pylogs\templates\todo\index.html.py:29
-#: .\templates\todo\index.html.py:29
-msgid "low"
-msgstr "低"
-
-#: .\release\pylogs_v1.11\pylogs\templates\todo\index.html.py:30
-#: .\release\pylogs_v111_nocopy\pylogs\templates\todo\index.html.py:30
-#: .\templates\todo\index.html.py:30
-msgid "medium"
-msgstr "中"
-
-#: .\release\pylogs_v1.11\pylogs\templates\todo\index.html.py:31
-#: .\release\pylogs_v111_nocopy\pylogs\templates\todo\index.html.py:31
-#: .\templates\todo\index.html.py:31
-msgid "high"
-msgstr "高"
-
-#: .\release\pylogs_v1.11\pylogs\templates\todo\index.html.py:42
-#: .\release\pylogs_v111_nocopy\pylogs\templates\todo\index.html.py:42
-#: .\templates\todo\index.html.py:42
-msgid "Add New Project"
-msgstr "添加新项目"
-
-#: .\release\pylogs_v1.11\pylogs\templates\todo\index.html.py:52
-#: .\release\pylogs_v111_nocopy\pylogs\templates\todo\index.html.py:52
-#: .\templates\todo\index.html.py:52
-msgid "Completed Projects"
-msgstr "完成的项目"
-
-#: .\release\pylogs_v1.11\pylogs\templates\todo\index.html.py:71
-#: .\release\pylogs_v111_nocopy\pylogs\templates\todo\index.html.py:71
-#: .\templates\todo\index.html.py:71
-msgid "No project is completed!"
-msgstr "没有已完成的项目"
-
-#: .\release\pylogs_v1.11\pylogs\todo\models.py:35
-#: .\release\pylogs_v111_nocopy\pylogs\todo\models.py:18
-#: .\todo\models.py:18
-msgid "Project Name"
-msgstr "项目名称"
-
-#: .\release\pylogs_v1.11\pylogs\todo\models.py:36
-#: .\release\pylogs_v1.11\pylogs\todo\models.py:61
-#: .\release\pylogs_v111_nocopy\pylogs\todo\models.py:19
-#: .\release\pylogs_v111_nocopy\pylogs\todo\models.py:44
-#: .\todo\models.py:19
-#: .\todo\models.py:44
-msgid "Created Date"
-msgstr "建立日期"
-
-#: .\release\pylogs_v1.11\pylogs\todo\models.py:37
-#: .\release\pylogs_v1.11\pylogs\todo\models.py:62
-#: .\release\pylogs_v111_nocopy\pylogs\todo\models.py:20
-#: .\release\pylogs_v111_nocopy\pylogs\todo\models.py:45
-#: .\todo\models.py:20
-#: .\todo\models.py:45
-msgid "LastUpdated Date"
-msgstr "最后更新日期"
-
-#: .\release\pylogs_v1.11\pylogs\todo\models.py:38
-#: .\release\pylogs_v111_nocopy\pylogs\todo\models.py:21
-#: .\todo\models.py:21
-msgid "Project type"
-msgstr "项目类别"
-
-#: .\release\pylogs_v1.11\pylogs\todo\models.py:39
-#: .\release\pylogs_v111_nocopy\pylogs\todo\models.py:22
-#: .\todo\models.py:22
-msgid "Project Description"
-msgstr "项目描述"
-
-#: .\release\pylogs_v1.11\pylogs\todo\models.py:40
-#: .\release\pylogs_v111_nocopy\pylogs\todo\models.py:23
-#: .\todo\models.py:23
-msgid "Project task count"
-msgstr "项目任务数"
-
-#: .\release\pylogs_v1.11\pylogs\todo\models.py:41
-#: .\release\pylogs_v111_nocopy\pylogs\todo\models.py:24
-#: .\todo\models.py:24
-msgid "Completed task count"
-msgstr "完成的任务数"
-
-#: .\release\pylogs_v1.11\pylogs\todo\models.py:42
-#: .\release\pylogs_v111_nocopy\pylogs\todo\models.py:25
-#: .\todo\models.py:25
-msgid "Project slug"
-msgstr "项目别名"
-
-#: .\release\pylogs_v1.11\pylogs\todo\models.py:51
-#: .\release\pylogs_v111_nocopy\pylogs\todo\models.py:34
-#: .\todo\models.py:34
-msgid "Todo Project"
-msgstr "Todo项目"
-
-#: .\release\pylogs_v1.11\pylogs\todo\models.py:52
-#: .\release\pylogs_v111_nocopy\pylogs\todo\models.py:35
-#: .\todo\models.py:35
-msgid "Todo Projects"
-msgstr "Todo项目"
-
-#: .\release\pylogs_v1.11\pylogs\todo\models.py:59
-#: .\release\pylogs_v111_nocopy\pylogs\todo\models.py:42
-#: .\todo\models.py:42
-msgid "Task Name"
-msgstr "项目名称"
-
-#: .\release\pylogs_v1.11\pylogs\todo\models.py:60
-#: .\release\pylogs_v111_nocopy\pylogs\todo\models.py:43
-#: .\todo\models.py:43
-msgid "Task Project"
-msgstr "任务所在项目"
-
-#: .\release\pylogs_v1.11\pylogs\todo\models.py:63
-#: .\release\pylogs_v111_nocopy\pylogs\todo\models.py:46
-#: .\todo\models.py:46
-msgid "Task Priority"
-msgstr "任务优先级"
-
-#: .\release\pylogs_v1.11\pylogs\todo\models.py:64
-#: .\release\pylogs_v111_nocopy\pylogs\todo\models.py:47
-#: .\todo\models.py:47
-msgid "Is task completed"
-msgstr "任务完成状态"
-
-#: .\release\pylogs_v1.11\pylogs\todo\models.py:71
-#: .\release\pylogs_v111_nocopy\pylogs\todo\models.py:54
-#: .\todo\models.py:54
-msgid "Todo Task"
-msgstr "Todo任务"
-
-#: .\release\pylogs_v1.11\pylogs\todo\models.py:72
-#: .\release\pylogs_v111_nocopy\pylogs\todo\models.py:55
-#: .\todo\models.py:55
-msgid "Todo Tasks"
-msgstr "Todo任务"
-
-#: .\templates\blog\comment_form.html.py:3
 msgid "Please correct the errors below"
 msgstr "请纠正以下错误"
 
-#: .\templates\themes\techicon\blog\tags\recent_posts.html.py:7
-#: .\templates\themes\techicon\blog\tags\related_posts.html.py:7
+msgid "Leave You Comment"
+msgstr "评论这篇文章"
+
+msgid "Submit Comment"
+msgstr "发表评论"
+
+msgid "No Archive Now"
+msgstr "暂时没有存档"
+
+msgid "No Category Now"
+msgstr "暂时没有分类"
+
+msgid "No Links Now"
+msgstr "暂时没有链接"
+
+msgid "Todo"
+msgstr "Todo"
+
 msgid "No post now"
 msgstr "暂时没有文章"
+
+msgid "Django File Manager"
+msgstr "DFM文件管理员"
+
+msgid "Upload a file"
+msgstr "上传文件"
+
+msgid "Allow upload types"
+msgstr "允许上传文件类型"
+
+msgid "Upload"
+msgstr "上传"
+
+msgid "Create Directory"
+msgstr "创建目录"
+
+msgid "Size"
+msgstr "大小"
+
+msgid "Last Modified"
+msgstr "最后修改"
+
+msgid "View File"
+msgstr "查看文件"
+
+msgid "Feeds"
+msgstr "Feeds"
+
+msgid "Menu"
+msgstr "Menu"
+
+msgid "Latest Posts"
+msgstr "最新文章"
+
+msgid "Archives"
+msgstr "存档"
+
+msgid "Views"
+msgstr "阅读"
+
+msgid "Prev"
+msgstr "上一页"
+
+msgid "Next"
+msgstr "下一页"
+
+msgid "Post at"
+msgstr "发表于"
+
+msgid "Syndication"
+msgstr "聚合"
+
+msgid "Pylogs Project"
+msgstr "Pylogs 项目"
+
+msgid "Contact Me"
+msgstr "联系我"
+
+msgid "Subscribe to my blog using RSS"
+msgstr "通过RSS订阅本站更新"
+
+msgid "Latest Comments"
+msgstr "最新评论"
+
+msgid "Popular Posts"
+msgstr "热门文章"
+
+msgid "Projects in progress"
+msgstr "进行中的项目"
+
+msgid "Created at"
+msgstr "创建于"
+
+msgid "Public Project"
+msgstr "公共项目"
+
+msgid "Private Project"
+msgstr "私有项目"
+
+msgid "This task is completed."
+msgstr "这个任务已完成"
+
+msgid "Priority"
+msgstr "优先级"
+
+msgid "Add New Task"
+msgstr "添加新任务"
+
+msgid "low"
+msgstr "低"
+
+msgid "medium"
+msgstr "中"
+
+msgid "high"
+msgstr "高"
+
+msgid "Add New Project"
+msgstr "添加新项目"
+
+msgid "Completed Projects"
+msgstr "完成的项目"
+
+msgid "No project is completed!"
+msgstr "没有已完成的项目"
+
+msgid "Project Name"
+msgstr "项目名称"
+
+msgid "Created Date"
+msgstr "建立日期"
+
+msgid "LastUpdated Date"
+msgstr "最后更新日期"
+
+msgid "Project type"
+msgstr "项目类别"
+
+msgid "Project Description"
+msgstr "项目描述"
+
+msgid "Project task count"
+msgstr "项目任务数"
+
+msgid "Completed task count"
+msgstr "完成的任务数"
+
+msgid "Project slug"
+msgstr "项目别名"
+
+msgid "Todo Project"
+msgstr "Todo项目"
+
+msgid "Todo Projects"
+msgstr "Todo项目"
+
+msgid "Task Name"
+msgstr "项目名称"
+
+msgid "Task Project"
+msgstr "任务所在项目"
+
+msgid "Task Priority"
+msgstr "任务优先级"
+
+msgid "Is task completed"
+msgstr "任务完成状态"
+
+msgid "Todo Task"
+msgstr "Todo任务"
+
+msgid "Todo Tasks"
+msgstr "Todo任务"
 

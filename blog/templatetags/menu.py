@@ -16,5 +16,6 @@ def get_menus(context):
         for page in pages:           
             menus.append(page)
     return {'menus':menus}    
-register.inclusion_tag(theme_template_url() + '/blog/tags/menu.html', 
+register.inclusion_tag(['%s/blog/tags/menu.html' % theme_template_url(),
+                        'blog/tags/menu.html'],
                         takes_context=True)(get_menus)

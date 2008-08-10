@@ -16,7 +16,8 @@ def get_tagged_posts(tags,number_of_posts,exclude_id = None):
         else:
             break    
     return {'posts':posts}
-register.inclusion_tag(theme_template_url() + '/blog/tags/related_posts.html')(get_tagged_posts)
+register.inclusion_tag(['%s/blog/tags/related_posts.html' % theme_template_url(),
+                        'blog/tags/related_posts.html'])(get_tagged_posts)
 
 class archive:
     link = ''
@@ -35,12 +36,15 @@ def get_archivelist(context):
         m.title = format(mon,'b,Y')
         archive_months.append(m)    
     return {'archive_months':archive_months}
-register.inclusion_tag(theme_template_url()+ '/blog/tags/archivelist.html', takes_context=True)(get_archivelist)
+register.inclusion_tag(['%s/blog/tags/archivelist.html' % theme_template_url(),
+                        'blog/tags/archivelist.html'],
+    takes_context=True)(get_archivelist)
 
 def get_categories(context):  
     cats = Category.objects.all()
     return {'cats':cats}   
-register.inclusion_tag(theme_template_url()+ '/blog/tags/category.html', takes_context=True)(get_categories)
+register.inclusion_tag(['%s/blog/tags/category.html' % theme_template_url(),
+                        'blog/tags/category.html'], takes_context=True)(get_categories)
 
 
 def get_latest_posts(context):
@@ -50,7 +54,8 @@ def get_latest_posts(context):
     posts = Post.objects.filter(post_type__exact='post')[:5]    
     return {'posts':posts}
     #return AllCategoriesNode(cats)
-register.inclusion_tag(theme_template_url() + '/blog/tags/recent_posts.html', 
+register.inclusion_tag(['%s/blog/tags/recent_posts.html' % theme_template_url(),
+                        'blog/tags/recent_posts.html'],
                         takes_context=True)(get_latest_posts)
 
 def get_popular_posts(context):
@@ -60,12 +65,14 @@ def get_popular_posts(context):
     posts = Post.objects.filter(post_type__exact='post').order_by('-hits')[:5]    
     return {'posts':posts}
     #return AllCategoriesNode(cats)
-register.inclusion_tag(theme_template_url() + '/blog/tags/recent_posts.html', 
+register.inclusion_tag(['%s/blog/tags/recent_posts.html' % theme_template_url(),
+                        'blog/tags/recent_posts.html'], 
                         takes_context=True)(get_popular_posts)
 
 def get_latest_comments(context):
     '''get the top 5 comments'''
     comments = Comments.objects.filter(comment_approved__iexact='1')[:5]
     return {'comments':comments}
-register.inclusion_tag(theme_template_url() + '/blog/tags/recent_comments.html', 
+register.inclusion_tag(['%s/blog/tags/recent_comments.html' % theme_template_url(),
+                        'blog/tags/recent_comments.html'],
                         takes_context=True)(get_latest_comments)

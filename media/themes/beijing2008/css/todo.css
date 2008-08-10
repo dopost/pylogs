@@ -1,11 +1,24 @@
+input{background:none;
+color:#333333;
+font-family:verdana,arial,sans-serif;
+font-size-adjust:none;
+font-stretch:normal;
+font-style:normal;
+font-variant:normal;
+font-weight:normal;
+line-height:normal;
+margin:1px 0pt;
+padding:2px 2px 3px;
+width:auto;}
+label{width:auto; display:block}
 .entry{background-color:#fff; width:100%;}
 #sidebar{display:none;}
 .div_todo_projects{border-bottom:5px solid #fff;}
 .div_todo_projects h2{color:#63c; font-weight:bold;}
 .div_todo_projects h2.completed {color:#77B300; cursor:pointer;}
-.div_todo_projects a.a_add_task{background:url(../images/plus_green.gif) no-repeat left center; padding-left:20px;}
+.div_todo_projects a.a_add_task{background:url(../../../images/plus_green.gif) no-repeat left center; padding-left:20px;}
 .div_todo_projects .todo_project{list-style:none; margin:0;}
-.div_todo_projects .todo_project li{padding:0;list-style:none;background:url(../images/p.gif) no-repeat left top; padding-left:2em; font-size:1.2em; font-weight:bold;
+.div_todo_projects .todo_project li{padding:0;list-style:none;background:url(../../../images/p.gif) no-repeat left top; padding-left:2em; font-size:1.2em; font-weight:bold;
 border-bottom:1px dashed #737373; margin-bottom:1em; color:#003366; padding-bottom:1em;}
 .div_todo_projects .todo_project li.li_done{color:#999;}
 .div_todo_projects li.li_add_project{font-size:9pt; font-weight:normal;background:none;}
@@ -65,5 +78,5 @@ border-bottom-color: #3C0;
 .div_todo_projects input.required {background-color:#ff0;
 border-color:#f00;
 }
-.div_todo_projects input.addbtn{vertical-align:middle;}
+.div_todo_projects input.addbtn{vertical-align:middle; border:none;}
 #div_completed{display:none}
