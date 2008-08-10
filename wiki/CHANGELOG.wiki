@@ -1,7 +1,12 @@
 #labels 更新日志,Featured
 =更新日志(CHANGELOG)=
 
-== 2008-08-08 _version: 1.12beta_ ==
+== 2008-08-10 _version: 1.13beta_ ==
+  # 修改模板选择结构
+  # 修正几处样式错误
+  # i18n完善
+  
+== 2008-08-08 _version: 1.13beta_ ==
   # 新增奥运主题 beijing2008 
   # 修复几处bug
 
