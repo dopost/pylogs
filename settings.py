@@ -22,8 +22,8 @@ ALLOW_FILE_TYPES = ('jpg','gif','png')
 # URL that handles the media served from MEDIA_URL.
 # Don't set the '/' at the end
 MEDIA_URL = '/media'
-# the theme name 'techicon, default,beijing2008'
-THEME_NAME = 'default'
+# the theme name 'default, techicon, beijing2008'
+THEME_NAME = 'techicon'
 
 STATIC_PATH = './media'
 
