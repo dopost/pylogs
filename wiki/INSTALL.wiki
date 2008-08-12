@@ -3,19 +3,23 @@
 
 = 安装指南 =
 
- Pylogs 使用了以下模块和框架：
-    Python 2.5.2                       [http://www.python.org]
+Pylogs 使用了以下模块和框架：
 
-    Django (0.97-pre-SVN-7513 or v1.0)         [http://www.djangoproject.org]
+Python 2.5.2                       [http://www.python.org]
 
-    PIL(Python Imaging Library 1.1.6)  [http://www.pythonware.com/products/pil/]
+Django (0.97-pre-SVN-7513 or v1.0)         [http://www.djangoproject.org]
 
-    jQuery 1.2.3                       [http://jquery.com]    
+PIL(Python Imaging Library 1.1.6)  [http://www.pythonware.com/products/pil/]
+
+jQuery 1.2.3                       [http://jquery.com]    
 
 = 安装 =
 请先参考Python及Django安装方法安装好python和django.
+
 解压pylogs
+
 进入pylogs解压目录修改settings.py中的数据库类型及连接参数，并设置MEDIA_ROOT为实际media目录的绝对路径
+
 运行python manage.py syncdb同步数据库结构
 
 *使用Django v1.0alpha注意(使用v1.0之前的Django版本此处不需要修改)：
