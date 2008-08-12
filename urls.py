@@ -15,8 +15,6 @@ info_dict = {
     'queryset': Post.objects.all(),
     'date_field': 'pubdate',
 }
-
-
 urlpatterns = patterns('',
                        #admin urls for django v1.0 alpha 
                        #('^admin/(.*)', admin.site.root),

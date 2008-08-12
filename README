@@ -10,7 +10,7 @@ Pylogs官方演示:   http://pylogs.cn
 
 Pylogs 使用了以下模块和框架：
 Python 2.5.2                       http://www.python.org
-Django (0.97-pre-SVN-7513)         http://www.djangoproject.org
+Django (0.97-pre-SVN-7513 or v1.0)         http://www.djangoproject.org
 PIL(Python Imaging Library 1.1.6)  http://www.pythonware.com/products/pil/
 jQuery 1.2.3                       http://jquery.com
 
@@ -21,6 +21,16 @@ jQuery 1.2.3                       http://jquery.com
 解压pylogs
 进入pylogs解压目录修改settings.py中的数据库类型及连接参数，并设置MEDIA_ROOT为实际media目录的绝对路径
 运行python manage.py syncdb同步数据库结构
+
+*使用Django v1.0alpha注意(使用v1.0之前的Django版本此处不需要修改)：
+    请修改urls.py文件，将下面的代码行注释取消，
+        #from django.contrib import admin
+        #admin.autodiscover()
+        
+        #('^admin/(.*)', admin.site.root),
+    并注释掉：
+        (r'^admin/', include('django.contrib.admin.urls')),
+    
 运行manage.py runserver测试服务器是否能运行成功，如出错请根据错误提示修正错误。
 如果用到发表评论验证码功能，则需要安装PIL1.1.6。
 

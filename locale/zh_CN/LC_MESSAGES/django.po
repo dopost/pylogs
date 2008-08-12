@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Pylogs 1.12\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2008-08-10 15:27+0800\n"
-"PO-Revision-Date: 2008-08-10 15:27+0800\n"
+"POT-Creation-Date: 2008-08-12 14:09+0800\n"
+"PO-Revision-Date: 2008-08-12 14:10+0800\n"
 "Last-Translator: Sky <denghaibo@gmail.com>\n"
 "Language-Team: Sky <denghaibo@gmail.com>\n"
 "MIME-Version: 1.0\n"
@@ -176,6 +176,19 @@ msgstr "您输入的验证码不正确！"
 
 msgid "Comment post successful!"
 msgstr "评论发表成功，可能需要等待管理员审核！"
+
+msgid "File type is not allowed!"
+msgstr "不允许的文件类型！"
+
+#, python-format
+msgid "Upload successful,filename is %s"
+msgstr "上传成功，文件名为 %s"
+
+msgid "Create directory successful!"
+msgstr "创建目录成功"
+
+msgid "Sorry,create directory failed!"
+msgstr "对不起，创建目录失败！"
 
 msgid "Pylogs site admin"
 msgstr "Pylogs 站点管理"

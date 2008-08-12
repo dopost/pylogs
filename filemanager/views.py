@@ -1,4 +1,5 @@
 #coding=utf-8
+from django.utils.translation import ugettext as _
 from django.http import HttpResponse,HttpResponseRedirect,Http404
 from django.shortcuts import render_to_response
 from django.utils.http import urlquote
@@ -42,13 +43,13 @@ def index(request,p=None):
         if up_file:
             filename = up_file['filename']
             if not check_file_type(filename):
-                return HttpResponse('<script>alert("%s");window.location.href = window.location.href;</script>'% 'Upload this file type is not allowed!')   
+                return HttpResponse('<script>alert("%s");window.location.href = window.location.href;</script>'% _('File type is not allowed!'))   
             filename = get_safe_filename(path,filename)
             print filename
             fd = open('%s/%s' % (path, filename), 'wb')   
             fd.write(up_file['content'])   
             fd.close()   
-            msg = '上传成功，上传后的文件名为%s' % filename
+            msg = _('Upload successful,filename is %s') % filename
             return HttpResponse('<script>alert("%s");window.location.href = window.location.href;</script>'% msg)   
         if new_dirname:
             #create new dir
@@ -56,9 +57,9 @@ def index(request,p=None):
             new_dirname = os.path.join(path,new_dirname)
             try:
                 os.mkdir(new_dirname)
-                msg = '创建目录成功!'
+                msg = _('Create directory successful!')
             except:
-                msg = '新建目录出现错误.'
+                msg = _('Sorry,create directory failed!')
             return HttpResponse('<script>alert("%s");window.location.href = window.location.href;</script>'% msg)   
     list_path(path,dirs,files,file_url_prefix,dir_url_prefix)
     current_loc = p
