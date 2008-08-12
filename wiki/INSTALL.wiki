@@ -20,7 +20,7 @@ jQuery 1.2.3                       [http://jquery.com]
 
 运行python manage.py syncdb同步数据库结构
 
-*使用Django v1.0alpha注意(使用v1.0之前的Django版本此处不需要修改)：
+*使用Django v1.0alpha注意(使用v1.0之前的Django版本此处不需要修改)：*
     请修改urls.py文件，将下面的代码行注释取消，
 {{{
         #from django.contrib import admin
