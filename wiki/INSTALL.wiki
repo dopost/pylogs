@@ -1,6 +1,4 @@
 #labels Phase-Deploy,Phase-Requirements,安装指南,Featured
-#安装指南
-
 = 安装指南 =
 
 Pylogs 使用了以下模块和框架：
