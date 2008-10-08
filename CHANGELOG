@@ -1,6 +1,12 @@
 
         Pylogs更新日志(CHANGELOG)
 ******************************************
+
+2008-10-8 _version: 1.14beta
+  # 程序全部迁移至Django 1.0final
+  # 修正tags页的错误
+  # 修复几处bug
+  
 2008-08-12 _version: 1.13beta
   1. 增加Django v1.0alpha支持，修复使用Django v1.0管理界面没有model修改的错误（使用方法见README文件)
   2. i18n完善
