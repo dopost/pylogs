@@ -73,50 +73,50 @@ class ModelTest(TestCase):
         self.assertEqual(self.link.link_url,'http://oteam.cn')
     
     def test_index(self):
-        '''test index'''
+        '''Test index'''
         response = self.client.get('/')
         self.failUnlessEqual(response.status_code,200)
         self.failUnlessEqual(len(response.context[0]['posts']),1)
     
     def test_view_post_name(self):
-        '''test single post view'''
+        '''Test single post view'''
         response = self.client.get(self.post.get_absolute_url())
         self.failUnlessEqual(response.status_code,200)
         self.failUnlessEqual(response.context[0]['post'],self.post)
         
     def test_view_page(self):
-        '''test single page view'''
+        '''Test single page view'''
         response = self.client.get(self.page.get_absolute_url())
         self.failUnlessEqual(response.status_code,200)
         self.failUnlessEqual(response.context[0]['post'],self.page)
         
     def test_view_category(self):
-        '''test category list view'''
+        '''Test category list view'''
         response = self.client.get(self.category.get_absolute_url())
         self.failUnlessEqual(response.status_code,200)
         self.failUnlessEqual(len(response.context[0]['posts']),1)
     
     def test_view_tags(self):
-        '''test tags list view'''
+        '''Test tags list view'''
         response = self.client.get(self.tag.get_absolute_url())
         self.failUnlessEqual(response.status_code,200)
         self.failUnlessEqual(len(response.context[0]['posts']),1)
     
     def test_view_dateposts(self):
-        '''test dateposts list view'''
+        '''Test dateposts list view'''
         response = self.client.get('/%s/%s/%s/'%(self.now.year,self.now.month,self.now.day))
         self.failUnlessEqual(response.status_code,200)
         self.failUnlessEqual(len(response.context[0]['posts']),1)
         
     def test_feeds(self):
-        '''test feeds'''
+        '''Test feeds'''
         response = self.client.get(reverse('feeds',kwargs={'url':'rss'}))
         self.assertContains(response,'<rss version="2.0">')
         response = self.client.get(reverse('feeds',kwargs={'url':'atom'}))
         self.assertContains(response,'<feed xmlns="http://www.w3.org/2005/Atom" xml:lang="zh-cn">')
         
     def test_post_comment(self):
-        '''test comment'''
+        '''Test comment'''
         response = self.client.get(self.post.get_absolute_url())
         self.failUnlessEqual(response.status_code,200)
         #post comment

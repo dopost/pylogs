@@ -36,7 +36,7 @@ class Tags(models.Model):
     slug = models.CharField(_('Slug'),max_length=255,unique=True,blank=True,help_text=_('Use as url'))
     reference_count = models.IntegerField(_('Reference count'),default=0,editable=False)
     
-    def save(self):
+    def save(self,force_insert=False, force_update=False):
         #override save
         if not self.slug:
             #replace the special char of name as slug
@@ -44,7 +44,7 @@ class Tags(models.Model):
             self.slug = self.slug.replace(u'　','-')
             self.slug = self.slug.replace('.','')
             self.slug = urlquote(self.slug)
-        super(Tags,self).save()
+        super(Tags,self).save(force_insert,force_update)
     
     def __unicode__(self):
         return self.name
@@ -66,7 +66,7 @@ class Category(models.Model):
     name = models.CharField(_('Name'),max_length=255,unique=True)
     desc = models.CharField(_('Description'),max_length=1024)
     enname = models.CharField(_('English name'),max_length=255,unique=True,blank=True,help_text=_('Use as url'))
-    def save(self):
+    def save(self,force_insert=False, force_update=False):
         #override save
         if not self.enname:
 	    #replace the space of title
@@ -74,7 +74,7 @@ class Category(models.Model):
             self.enname = self.enname.replace(u'　','-')
             self.enname = self.enname.replace('.','')
             self.enname = urlquote(self.enname)            
-        super(Category,self).save()
+        super(Category,self).save(force_insert, force_update)
         
     def __unicode__(self):
         return self.name
@@ -111,7 +111,7 @@ class Post(models.Model):
     comment_count = models.IntegerField(_('Comment count'),default=0,editable=False)
     tags = models.ManyToManyField(Tags,null=True,blank=True,verbose_name=_('Tags'),related_name='post_set')
     
-    def save(self):
+    def save(self,force_insert=False, force_update=False):
         #override save
         if not self.post_name:
             #replace the space of title
@@ -120,7 +120,7 @@ class Post(models.Model):
             self.post_name = self.post_name.replace('.','')
             self.post_name = urlquote(self.post_name)
                   
-        super(Post,self).save()
+        super(Post,self).save(force_insert, force_update)
         #update tags reference_count
         if self.tags:
             all_tags =  self.tags.all()
@@ -191,8 +191,8 @@ class Comments(models.Model):
     comment_agent = models.CharField(_('User agent info'),editable=False,max_length=255,null=True)
     user_id = models.IntegerField(_('UserId'),editable=False,null=True)
     
-    def save(self):                     
-        super(Comments,self).save()
+    def save(self,force_insert=False, force_update=False):                     
+        super(Comments,self).save(force_insert, force_update)
         #if comment is approved,update related post comment count
         if self.comment_approved == str(COMMENT_APPROVE_STATUS[1][0]):          
             self.post.comment_count = len(self.post.comments_set.all())

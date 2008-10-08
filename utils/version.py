@@ -16,7 +16,8 @@ def get_svn_revision(path=None):
     """
     rev = None
     if path is None:
-        path = django.__path__[0]
+        path = os.path.dirname(__file__)
+        path = path.replace('utils','')
     entries_path = '%s/.svn/entries' % path
 
     if os.path.exists(entries_path):
