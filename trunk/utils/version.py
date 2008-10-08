@@ -37,4 +37,4 @@ def get_svn_revision(path=None):
 
     if rev:
         return u'SVN-%s' % rev
-    return u'SVN-unknown'
+    return u''
