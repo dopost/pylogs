@@ -1,8 +1,8 @@
 #coding=utf-8
 from django.template import Library
-from pylogs.blog.models import Post
+from blog.models import Post
 
-from pylogs.blog.templatetags.themes import theme_template_url
+from blog.templatetags.themes import theme_template_url
 from django.utils.translation import ugettext as _
 register = Library()
 

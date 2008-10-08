@@ -1,7 +1,7 @@
 #coding=utf-8
 from django.template import Library
-from pylogs.blog.models import Links
-from pylogs.blog.templatetags.themes import theme_template_url
+from blog.models import Links
+from blog.templatetags.themes import theme_template_url
 register = Library()
 def get_links(context):  
     links = Links.objects.all()

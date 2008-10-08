@@ -2,7 +2,7 @@ html, body {
 	margin: 0;
 	padding: 0;
 	font-family: Tahoma, Verdana, Arial, Helvetica, sans-serif;
-
+	text-align:center;
 	background-image: url(../images/body_bg.gif);
 	background-repeat: repeat-x;
 	background-position: top;
@@ -88,6 +88,7 @@ html, body {
 	display:inline-block;
 	width:580px;
 	float: left;
+	text-align:left;
 }
 
 #comments {
@@ -222,7 +223,7 @@ html, body {
 #searchform {
 	margin: 0px;
 	height: 35px;
-	float: left;
+	float: right;
 }
 #searchform br {
 	display: none;
@@ -236,13 +237,13 @@ html, body {
 	color: #CFD9E2;
 	font-weight: normal;
 	background-color: #fffffe;
-	background-image: url(../images/search_ico.png);
+	background-image: url(../images/powered_by_google.gif);
 	background-repeat: no-repeat;
-	background-position: left center;
+	background-position: right center;
 	padding-top: 2px;
 	padding-right: 20px;
 	padding-bottom: 0px;
-	padding-left: 25px;
+	padding-left: 5px;
 	line-height: 18px;
 	display: inline-block;
 	margin-top: 5px;
@@ -262,7 +263,7 @@ html, body {
 	font-weight: bold;
 	margin-top: 4px;
 }
-
+input#searchsubmit{float:left;}
 #sidebar {
 	font-family: Tahoma, Arial, Helvetica, sans-serif;
 	overflow:hidden;
@@ -271,6 +272,7 @@ html, body {
 	float: left;
 	margin-top: 10px;
 	margin-bottom: 10px;
+	text-align:left;
 }
 
 #sidebar img {border:0;}

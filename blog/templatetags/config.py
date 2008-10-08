@@ -1,13 +1,17 @@
 #!/usr/bin/env python
 #coding=utf-8
-#global config
 from django.template import Library
-import pylogs
+from settings import VERSION
+from utils.version import get_svn_revision
 register = Library()
 
 def get_version():
     """
-    Returns the pylogs version
-    """    
-    return pylogs.get_version()
+    Returns the version as a human-format string.
+    """
+    v = '.'.join([str(i) for i in VERSION[:-1]])
+    if VERSION[-1]: 	   
+        v = '%s%s %s' % (v, VERSION[-1],get_svn_revision())
+    return v
+
 register.simple_tag(get_version)
