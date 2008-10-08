@@ -1,17 +1,16 @@
 #coding=utf-8
 from django.utils.translation import ugettext as _
-from pylogs.blog import models,blog_forms
-from pylogs.blog.models import Post,Comments,Tags,Category
+from blog import models,blog_forms
+from blog.models import Post,Comments,Tags,Category
 from django.template import loader,Context,RequestContext
 from django.utils.http import urlquote
 from django.http import HttpResponse,HttpResponseRedirect,Http404
 from django.shortcuts import get_object_or_404,get_list_or_404,render_to_response
 from django.core.paginator import Paginator, InvalidPage
 import re
-from pylogs.utils import html,codehighlight
-from pylogs.utils.email import new_comment_mail
-from pylogs.blog.templatetags.themes import theme_template_url
-#from cgi import escape
+from utils import html,codehighlight
+from utils.email import new_comment_mail
+from blog.templatetags.themes import theme_template_url
 
 PAGE_SIZE = 10
 LIST_TEMPLATE = theme_template_url()+ '/blog/list.html'
@@ -182,7 +181,7 @@ def tags(request,tagname = None):
         max = Tags.objects.all().order_by('-reference_count')[:1]
         if max:
             max = max[0].reference_count
-        else:
+        if max <=0:
             max = 1        
         tags = get_list_or_404(Tags)
         for tag in tags:

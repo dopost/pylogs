@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 #coding=utf-8
-from django import newforms as forms
+from django import forms
 textarea_attrs = { 'class': 'textbox textarea' }
 class CommentForm(forms.Form):
     comment_author = forms.CharField(max_length=32)

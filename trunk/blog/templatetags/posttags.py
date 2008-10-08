@@ -1,8 +1,8 @@
 #!/usr/bin/env python
 from django.template import Library
-from pylogs.blog.models import Post,Category,Comments
+from blog.models import Post,Category,Comments
 from django.utils.dateformat import format
-from pylogs.blog.templatetags.themes import theme_template_url
+from blog.templatetags.themes import theme_template_url
 
 register = Library()
 def get_tagged_posts(tags,number_of_posts,exclude_id = None):
@@ -28,8 +28,7 @@ def get_archivelist(context):
     get the month list which have posts
     ''' 
     months = Post.objects.dates('pubdate','month',order='DESC')
-    archive_months = []
-    print len(months)
+    archive_months = []    
     for mon in months:
         m = archive()
         m.link = "/" + format(mon,'Y/m') + "/"

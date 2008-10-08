@@ -25,11 +25,8 @@ class Project(models.Model):
     project_slug = models.CharField(_('Project slug'),max_length=255)
     
     def __unicode__(self):
-        return self.project_name
-    
-    def get_absolute_url(self): 
-            return '/todo/%s/' % self.slug      
-        
+        return self.project_name    
+           
     class Meta:        
         verbose_name=_('Todo Project')
         verbose_name_plural = _('Todo Projects')

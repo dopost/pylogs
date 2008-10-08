@@ -25,12 +25,12 @@
     <div class="message">{{msg}}</div>
     {% endif %}{% trans "Allow upload types" %}:"
     {% for type in allow_types %}
-         .{{type}}{% if not forloop.last %},{% endif %}
+         {{type}}{% if not forloop.last %},{% endif %}
     {% endfor %}"<br/>
-    <form action="." method="post" enctype="multipart/form-data">
+    <form method="post" enctype="multipart/form-data">
     <input type="file" name="up_file" /> <input type="submit" value='{% trans "Upload" %}'/>
     </form>
-    <form action="." method="post">
+    <form method="post">
         <input type="text" class="text" name="newdir" /> <input type="submit" value='{% trans "Create Directory"%}'/>
     </form>
 </div>

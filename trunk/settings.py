@@ -18,7 +18,7 @@ USE_I18N = True
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
 MEDIA_ROOT = 'E:\projects\python\pylogs\media'
-ALLOW_FILE_TYPES = ('jpg','gif','png')
+ALLOW_FILE_TYPES = ('.jpg','.gif','.png')
 # URL that handles the media served from MEDIA_URL.
 # Don't set the '/' at the end
 MEDIA_URL = '/media'
@@ -51,7 +51,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.doc.XViewMiddleware',
 )
 
-ROOT_URLCONF = 'pylogs.urls'
+ROOT_URLCONF = 'urls'
 TEMPLATE_DIRS = (
     "./templates",
 )
@@ -62,8 +62,9 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.sites',
     'django.contrib.admin',
-    'pylogs.blog',
-    'pylogs.todo',
-    'pylogs.filemanager',
-    'pylogs.tests',
+    'blog',
+    'todo',
+    'filemanager',
+    'tests',
 )
+VERSION = (1, 14, 'beta')	

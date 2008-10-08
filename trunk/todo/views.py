@@ -1,6 +1,6 @@
 #coding=utf-8
 from django.utils.translation import ugettext as _
-from pylogs.todo.models import Project,Task,TASK_PRIORITY,PROJECT_TYPE
+from todo.models import Project,Task,TASK_PRIORITY,PROJECT_TYPE
 from django.http import HttpResponse,HttpResponseRedirect,Http404
 from django.shortcuts import get_object_or_404,get_list_or_404,render_to_response
 from django.contrib.admin.views.decorators import staff_member_required

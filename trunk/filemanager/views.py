@@ -1,54 +1,56 @@
 #coding=utf-8
-from django.utils.translation import ugettext as _
 from django.http import HttpResponse,HttpResponseRedirect,Http404
 from django.shortcuts import render_to_response
 from django.utils.http import urlquote
+from django.utils.translation import ugettext as _
 from django.contrib.admin.views.decorators import staff_member_required  
 from models import Path
 import settings
+from settings import MEDIA_ROOT,MEDIA_URL
 from django.utils.http import urlquote
 import os
-import os.path
 import re
+from django.core.urlresolvers import reverse
 from datetime import datetime
-MEDIA_ROOT = settings.MEDIA_ROOT
-ALLOW_FILE_TYPES = ('jpg','gif','png')
-if settings.ALLOW_FILE_TYPES:
+
+ALLOW_FILE_TYPES = ('.jpg','.gif','.png')
+try:
     ALLOW_FILE_TYPES = settings.ALLOW_FILE_TYPES
-    
+except:pass
+
 @staff_member_required
-def index(request,p=None):    
+def index(request,p=None):   
     #render path list        
     dirs,files = [],[]
     #set default path root is MEDIA_ROOT/upload
     path = os.path.join(MEDIA_ROOT,'upload')
-    dir_url_prefix = '/filemanager'
-    file_url_prefix = '/media/upload'
-    is_showup = False    
+    dir_url_prefix = reverse('filemanager',args=[''])
+    file_url_prefix = MEDIA_URL + 'upload/'
+    is_showup = False
+    
     if p:
-        print urlquote(p)
         is_showup = True
         path = os.path.join(path,p)
-        file_url_prefix = file_url_prefix + '/' + p
-        dir_url_prefix = dir_url_prefix + '/' + p
+        file_url_prefix += p
+        dir_url_prefix += p
     
     #check the path is exists?
     if not os.path.exists(path):
         os.makedirs(path)   
-    msg = ''
+    msg = ''    
     #upload files to this path
-    if request.method == 'POST':
-        up_file = request.FILES.get('up_file')
+    if request.method == 'POST':       
+        up_file = request.FILES.get('up_file')        
         new_dirname = request.POST.get('newdir')
-        if up_file:
-            filename = up_file['filename']
+        if up_file:            
+            filename = up_file.name
             if not check_file_type(filename):
-                return HttpResponse('<script>alert("%s");window.location.href = window.location.href;</script>'% _('File type is not allowed!'))   
-            filename = get_safe_filename(path,filename)
-            print filename
-            fd = open('%s/%s' % (path, filename), 'wb')   
-            fd.write(up_file['content'])   
-            fd.close()   
+                return HttpResponse('<script>alert("%s");window.location.href = window.location.href;</script>'% 'Upload this file type is not allowed!')   
+            filename = get_safe_filename(path,filename)            
+            #fd = open('%s/%s' % (path, filename), 'wb')   
+            #fd.write(up_file['content'])   
+            #fd.close()
+            upload_file(up_file,'%s/%s' % (path, filename))
             msg = _('Upload successful,filename is %s') % filename
             return HttpResponse('<script>alert("%s");window.location.href = window.location.href;</script>'% msg)   
         if new_dirname:
@@ -113,9 +115,17 @@ def url_join(url1,url2,isfile = False):
     return urlquote(url)
 
 def check_file_type(filename):    
-    nameinfo = os.path.splitext(filename)
-    if len(nameinfo)< 2 or nameinfo[1][1:] not in ALLOW_FILE_TYPES:
+    name,ext = os.path.splitext(filename)
+    if not ext or ext.lower() not in ALLOW_FILE_TYPES:
         return False
     else:
         return True
+    
+def upload_file(file,destination):
+    path,filename = os.path.split(destination)
+    if not os.path.exists(path):
+        os.makedirs(path)    
+    destination = open(destination, 'wb+')
+    for chunk in file.chunks():
+        destination.write(chunk)
    

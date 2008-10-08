@@ -29,13 +29,12 @@ Simple is beautiful..."/>{%endblock%}
 <div id="ing_info">
 <div id="home"><a href="/" title="Pylogs. logging your life...">
 <img alt="logo" src="{%theme_media_url%}/images/logo.gif" /></a></div>
-</div> </div>
-<div>
+</div> 
     <!-- SiteSearch Google -->
         <form method="get" id="searchform" action="http://www.google.cn/custom" target="google_window">
         <input type="text" name="q" maxlength="255" value="Search..." id="sbi" onfocus="if (this.value == 'Search...') {this.value = '';}" onblur="if (this.value == '') {this.value = 'Search...';}" class="swap_value" ></input>
         <input id="searchsubmit" type="submit" value="Search" />
-        <table border="0" style="display:none;" >
+        <table border="0" >
         <tr><td nowrap="nowrap" valign="top" align="left" >
         </td>
         <td nowrap="nowrap">
@@ -64,8 +63,8 @@ Simple is beautiful..."/>{%endblock%}
         <input type="hidden" name="hl" value="zh-CN"></input>
         </td></tr></table>
         </form>    <!-- SiteSearch Google -->
-
-</div></div></div>
+	</div>
+</div></div>
 <div id="page">
 <div id="content">
         {% if msg %}

@@ -1,10 +1,10 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
-from pylogs.blog import feeds
-from pylogs.blog.models import Post
-#IF you use Django v1.0 alpha, pls uncomment two line below
-#from django.contrib import admin
-#admin.autodiscover()
+from blog import feeds
+from blog.models import Post
+
+from django.contrib import admin
+admin.autodiscover()
 
 # Info for feeds.
 feed_dict = {    
@@ -15,13 +15,9 @@ info_dict = {
     'queryset': Post.objects.all(),
     'date_field': 'pubdate',
 }
-urlpatterns = patterns('',
-                       #admin urls for django v1.0 alpha 
-                       #('^admin/(.*)', admin.site.root),
-                       #admin urls for django v0.97pre and before
-                        (r'^admin/', include('django.contrib.admin.urls')),
-                        (r'^admin/r/', include('django.conf.urls.shortcut')),                               
-                        url(r'^utils/vcode/$', 'pylogs.utils.validatecode.get_validatecode_img',name='validate_code'),  
+urlpatterns = patterns('',                       
+                       ('^admin/(.*)', admin.site.root),                                                  
+                        url(r'^utils/vcode/$', 'utils.validatecode.get_validatecode_img',name='validate_code'),  
                         )
 
 # url for static
@@ -31,8 +27,8 @@ if settings.DEBUG:
                 {'document_root': settings.STATIC_PATH}),                    
                             )
 # url for todo
-urlpatterns += patterns('pylogs.todo.views',
-                        url(r'^todo/$', 'index',name='todo'),
+urlpatterns += patterns('todo.views',
+                        url(r'^todo/$','index',name='todo'),
                         (r'^todo/task/add/', 'task_add'),
                         (r'^todo/task/done/','task_done'),
                         (r'^todo/task/undone/','task_undone'),
@@ -44,7 +40,7 @@ urlpatterns += patterns('pylogs.todo.views',
 
 # url for filemanager
 urlpatterns += patterns('',                        
-                        (r'^filemanager/(?P<p>.*)$', 'filemanager.views.index'),                        
+                        url(r'^filemanager/(?P<p>.*)$','filemanager.views.index',name='filemanager'),                        
                         )
 #urls for feeds
 urlpatterns += patterns('',
@@ -52,7 +48,7 @@ urlpatterns += patterns('',
                         {'feed_dict':feed_dict},name='feeds'),
                         )
 # urls for blog
-urlpatterns += patterns('pylogs.blog.views',  
+urlpatterns += patterns('blog.views',  
                         (r'^$', 'index'),
                         #tags
                         url(r'^tags/$','tags',name='tags'),

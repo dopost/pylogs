@@ -5,7 +5,7 @@ from datetime import datetime
 from django.utils.http import urlquote
 from django.core.urlresolvers import reverse
 import django.utils.html
-from pylogs.utils import html
+from utils import html
 #post types
 POST_TYPES = (    
     ('post', _('Post')),
@@ -134,18 +134,18 @@ class Post(models.Model):
     def get_absolute_url(self):
         #if is page,return page url
         if self.post_type == POST_TYPES[1][0]:
-            return reverse('page',kwargs={'pagename':self.post_name})
+            return reverse('page',args=[self.post_name])
         else:
             if self.post_name:
                 return reverse('post_name',args=[self.pubdate.year,
                                           self.pubdate.month,
-                                          self.pubdate.day],
-                               kwargs={'postname':self.post_name})
+                                          self.pubdate.day,
+                                          self.post_name])
             else:
                 return reverse('post_id',args=[self.pubdate.year,
                                           self.pubdate.month,
-                                          self.pubdate.day],
-                               kwargs={'postid':self.id})
+                                          self.pubdate.day,
+                                          self.id])
             
     def get_cat_str(self):
         '''return the categories string '''
@@ -202,16 +202,7 @@ class Comments(models.Model):
         return self.comment_author_email
    
     def get_absolute_url(self):        
-        if self.post.post_name:
-            return '/%d/%d/%d/%s/#comment' % (self.post.pubdate.year,
-                                              self.post.pubdate.month,
-                                              self.post.pubdate.day,
-                                              self.post_name)
-        else:
-            return '/%d/%d/%d/%i/#comment' % (self.post.pubdate.year,
-                                              self.post.pubdate.month,
-                                              self.post.pubdate.day,
-                                              self.id)
+        return self.post.get_absolute_url() + '#comment'
     
     class Meta:
         ordering = ['-comment_date']
@@ -237,6 +228,7 @@ class Links(models.Model):
    
     def get_absolute_url(self):        
         return self.link_url
+    
     class Meta:
         ordering = ['link_order']
         verbose_name=_('Link')
