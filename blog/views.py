@@ -190,11 +190,12 @@ def tags(request,tagname = None):
                                   {'tags':tags,'max':max},
                                   context_instance=RequestContext(request))
 
-def renderPaggedPosts(pageid,pageTitle,pagedPosts,showRecent = False,request=None):
-    t = loader.get_template(LIST_TEMPLATE)
+def renderPaggedPosts(pageid,pageTitle,pagedPosts,showRecent = False,request=None):   
     #no post return only title
     if pagedPosts.count <=0:
-        return render_to_response(LIST_TEMPLATE,{'patetitle':pageTitle})
+        return render_to_response(LIST_TEMPLATE,
+                                  {'pagetitle':pageTitle},
+                                  context_instance=RequestContext(request))
     currentPage = pagedPosts.page(pageid)
     data = {'pagetitle':pageTitle,'posts':currentPage.object_list}
     if currentPage.has_next():
