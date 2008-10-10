@@ -183,7 +183,7 @@ def tags(request,tagname = None):
             max = max[0].reference_count
         if max <=0:
             max = 1        
-        tags = get_list_or_404(Tags)
+        tags = Tags.objects.all()
         for tag in tags:
             tag.reference_count = tag.reference_count * 10/max
         return render_to_response(theme_template_url()+ '/blog/tags.html',
@@ -192,9 +192,9 @@ def tags(request,tagname = None):
 
 def renderPaggedPosts(pageid,pageTitle,pagedPosts,showRecent = False,request=None):
     t = loader.get_template(LIST_TEMPLATE)
-    #no post return null obj
+    #no post return only title
     if pagedPosts.count <=0:
-        return HttpResponse(t.render(Context(None)))
+        return render_to_response(LIST_TEMPLATE,{'patetitle':pageTitle})
     currentPage = pagedPosts.page(pageid)
     data = {'pagetitle':pageTitle,'posts':currentPage.object_list}
     if currentPage.has_next():

@@ -17,7 +17,7 @@ info_dict = {
 }
 urlpatterns = patterns('',                       
                        ('^admin/(.*)', admin.site.root),                                                  
-                        url(r'^utils/vcode/$', 'utils.validatecode.get_validatecode_img',name='validate_code'),  
+                        url(r'^utils/vcode/$', 'utils.validatecode.get_validatecode_img', name='validate_code'),  
                         )
 
 # url for static
