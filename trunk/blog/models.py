@@ -1,10 +1,12 @@
 #coding=utf-8
+from datetime import datetime
+
 from django.utils.translation import ugettext as _
 from django.db import models
-from datetime import datetime
 from django.utils.http import urlquote
 from django.core.urlresolvers import reverse
 import django.utils.html
+
 from utils import html
 #post types
 POST_TYPES = (    
@@ -33,8 +35,10 @@ POST_COMMENT_STATUS = (
 class Tags(models.Model):
     '''Tag entity'''
     name = models.CharField(_('Name'),unique=True,max_length=64)
-    slug = models.CharField(_('Slug'),max_length=255,unique=True,blank=True,help_text=_('Use as url'))
-    reference_count = models.IntegerField(_('Reference count'),default=0,editable=False)
+    slug = models.CharField(_('Slug'),max_length=255,unique=True,blank=True,
+                            help_text=_('Use as url'))
+    reference_count = models.IntegerField(_('Reference count'),default=0,
+                                          editable=False)
     
     def save(self,force_insert=False, force_update=False):
         #override save
@@ -65,7 +69,8 @@ class Category(models.Model):
     '''category entity'''    
     name = models.CharField(_('Name'),max_length=255,unique=True)
     desc = models.CharField(_('Description'),max_length=1024)
-    enname = models.CharField(_('English name'),max_length=255,unique=True,blank=True,help_text=_('Use as url'))
+    enname = models.CharField(_('English name'),max_length=255,
+                              unique=True,blank=True,help_text=_('Use as url'))
     def save(self,force_insert=False, force_update=False):
         #override save
         if not self.enname:
@@ -98,18 +103,27 @@ class Post(models.Model):
     '''Post Entity'''
     title = models.CharField(_('Title'),max_length=255)
     content = models.TextField(_('Content'))
-    category = models.ManyToManyField(Category,null=True,blank=True,verbose_name=_('Category'))
-    post_name = models.CharField(_('Post name'),max_length=255,unique=True,blank=True,
-                                 help_text=_('Use as url'))
-    post_type = models.CharField(_('Post type'),max_length=10,default='post',choices=POST_TYPES)
-    post_status = models.CharField(_('Post status'),max_length=10,default='publish',choices = POST_STATUS)
-    post_parent = models.ForeignKey('self',null=True, blank=True,related_name='child_set',limit_choices_to = {'post_type__exact':POST_TYPES[1][0]},verbose_name=_('Parent page'))
+    category = models.ManyToManyField(Category,null=True,blank=True,
+                                      verbose_name=_('Category'))
+    post_name = models.CharField(_('Post name'),max_length=255,unique=True,
+                                 blank=True,help_text=_('Use as url'))
+    post_type = models.CharField(_('Post type'),max_length=10,default='post',
+                                 choices=POST_TYPES)
+    post_status = models.CharField(_('Post status'),max_length=10,default='publish',
+                                   choices = POST_STATUS)
+    post_parent = models.ForeignKey('self',null=True, blank=True,
+                                    related_name='child_set',
+                                    limit_choices_to = {'post_type__exact':POST_TYPES[1][0]},
+                                    verbose_name=_('Parent page'))
     pubdate = models.DateTimeField(_('Pubdate'),auto_now_add=True)
     hits = models.IntegerField(_('Hits'),default=0,editable=False)
     menu_order = models.IntegerField(_('Menu order'),default=0)
-    comment_status = models.CharField(_('Comment status'),default= POST_COMMENT_STATUS[0][0],max_length=10,choices = POST_COMMENT_STATUS)
+    comment_status = models.CharField(_('Comment status'),
+                                      default= POST_COMMENT_STATUS[0][0],
+                                      max_length=10,choices = POST_COMMENT_STATUS)
     comment_count = models.IntegerField(_('Comment count'),default=0,editable=False)
-    tags = models.ManyToManyField(Tags,null=True,blank=True,verbose_name=_('Tags'),related_name='post_set')
+    tags = models.ManyToManyField(Tags,null=True,blank=True,
+                                  verbose_name=_('Tags'),related_name='post_set')
     
     def save(self,force_insert=False, force_update=False):
         #override save
@@ -160,7 +174,8 @@ class Post(models.Model):
  
     def get_comments(self):
         '''Get post or page approved comments'''
-        comments = self.comments_set.filter(comment_approved__iexact=COMMENT_APPROVE_STATUS[1][0]).order_by('id')       
+        comments = self.comments_set.filter(comment_approved__iexact=
+                                            COMMENT_APPROVE_STATUS[1][0]).order_by('id')       
         return comments
     
     
@@ -180,22 +195,30 @@ class Post(models.Model):
 
 class Comments(models.Model):
     '''user comments'''
-    post = models.ForeignKey(Post,verbose_name=_('Post'),related_name='comments_set')
+    post = models.ForeignKey(Post,verbose_name=_('Post'),
+                             related_name='comments_set')
     comment_author = models.CharField(_('Author'),max_length=32)
     comment_author_email = models.EmailField(verbose_name=_('Email'))
-    comment_author_url = models.URLField(_('URL'),null=True,blank=True,verify_exists=False)
-    comment_author_IP = models.IPAddressField(verbose_name=_('IP'),null=True,editable=False)
-    comment_date = models.DateTimeField(verbose_name=_('Pubdate'),auto_now_add=True,editable=False)
+    comment_author_url = models.URLField(_('URL'),null=True,blank=True,
+                                         verify_exists=False)
+    comment_author_IP = models.IPAddressField(verbose_name=_('IP'),null=True,
+                                              editable=False)
+    comment_date = models.DateTimeField(verbose_name=_('Pubdate'),
+                                        auto_now_add=True,editable=False)
     comment_content = models.TextField(verbose_name=_('Content'))
-    comment_approved = models.CharField(_('Approve status'),max_length=32,choices=COMMENT_APPROVE_STATUS)
-    comment_agent = models.CharField(_('User agent info'),editable=False,max_length=255,null=True)
+    comment_approved = models.CharField(_('Approve status'),max_length=32,
+                                        choices=COMMENT_APPROVE_STATUS)
+    comment_agent = models.CharField(_('User agent info'),editable=False,
+                                     max_length=255,null=True)
     user_id = models.IntegerField(_('UserId'),editable=False,null=True)
     
     def save(self,force_insert=False, force_update=False):                     
         super(Comments,self).save(force_insert, force_update)
         #if comment is approved,update related post comment count
         if self.comment_approved == str(COMMENT_APPROVE_STATUS[1][0]):          
-            self.post.comment_count = len(self.post.comments_set.all())
+            self.post.comment_count = \
+            self.post.comments_set.filter( \
+            comment_approved__iexact=COMMENT_APPROVE_STATUS[1][0]).count()
             self.post.save() 
         
     def __unicode__(self):
@@ -211,17 +234,22 @@ class Comments(models.Model):
 
     class Admin:
         list_filter =('comment_approved',)
-        list_display = ('comment_author','comment_author_email','comment_date','comment_approved')
+        list_display = ('comment_author','comment_author_email',
+                        'comment_date','comment_approved')
         search_fields = ['comment_author']
 
 class Links(models.Model):
     '''Friend links entity'''
     link_url = models.URLField(_('URL'),verify_exists=False)
     link_title = models.CharField(_('Title'),unique=True,max_length=32)
-    link_desc = models.CharField(_('Description'),null=True,blank=True,max_length=255)
-    link_image = models.CharField(_('Image'),null=True,blank=True,max_length=255)
-    link_order = models.IntegerField(_('Order'),default=0,help_text=_('Minimal at front'))
-    link_updated = models.DateTimeField(_('Pubdate'),auto_now=True,editable=False)
+    link_desc = models.CharField(_('Description'),null=True,blank=True,
+                                 max_length=255)
+    link_image = models.CharField(_('Image'),null=True,blank=True,
+                                  max_length=255)
+    link_order = models.IntegerField(_('Order'),default=0,
+                                     help_text=_('Minimal at front'))
+    link_updated = models.DateTimeField(_('Pubdate'),auto_now=True,
+                                        editable=False)
     
     def __unicode__(self):
         return self.link_title

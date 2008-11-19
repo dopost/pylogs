@@ -1,6 +1,8 @@
 
         Pylogs更新日志(CHANGELOG)
 ******************************************
+2008-11-19 _version: 1.14beta
+  # 支持metaWeblog API
 
 2008-10-8 _version: 1.14beta
   # 程序全部迁移至Django 1.0final

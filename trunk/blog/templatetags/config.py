@@ -1,10 +1,12 @@
 #!/usr/bin/env python
 #coding=utf-8
 from django.template import Library
-from settings import VERSION
-from utils.version import get_svn_revision
-register = Library()
+from django.conf import settings
 
+from utils.version import get_svn_revision
+
+register = Library()
+VERSION = getattr(settings,'VERSION','unknown')
 def get_version():
     """
     Returns the version as a human-format string.

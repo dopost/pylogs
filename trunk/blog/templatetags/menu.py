@@ -1,9 +1,9 @@
 #coding=utf-8
 from django.template import Library
-from blog.models import Post
-
-from blog.templatetags.themes import theme_template_url
 from django.utils.translation import ugettext as _
+
+from blog.models import Post
+from blog.templatetags.themes import theme_template_url
 register = Library()
 
 def get_menus(context):

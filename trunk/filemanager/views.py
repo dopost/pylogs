@@ -1,17 +1,19 @@
 #coding=utf-8
+import os
+import re
+from datetime import datetime
+
 from django.http import HttpResponse,HttpResponseRedirect,Http404
 from django.shortcuts import render_to_response
 from django.utils.http import urlquote
 from django.utils.translation import ugettext as _
 from django.contrib.admin.views.decorators import staff_member_required  
+from django.utils.http import urlquote
+from django.core.urlresolvers import reverse
+
 from models import Path
 import settings
 from settings import MEDIA_ROOT,MEDIA_URL
-from django.utils.http import urlquote
-import os
-import re
-from django.core.urlresolvers import reverse
-from datetime import datetime
 
 ALLOW_FILE_TYPES = ('.jpg','.gif','.png')
 try:
@@ -45,14 +47,19 @@ def index(request,p=None):
         if up_file:            
             filename = up_file.name
             if not check_file_type(filename):
-                return HttpResponse('<script>alert("%s");window.location.href = window.location.href;</script>'% 'Upload this file type is not allowed!')   
+                return HttpResponse('<script>alert("%s");\
+                                    window.location.href = window.location.href;\
+                                    </script>'%
+                                'Upload this file type is not allowed!')   
             filename = get_safe_filename(path,filename)            
             #fd = open('%s/%s' % (path, filename), 'wb')   
             #fd.write(up_file['content'])   
             #fd.close()
             upload_file(up_file,'%s/%s' % (path, filename))
             msg = _('Upload successful,filename is %s') % filename
-            return HttpResponse('<script>alert("%s");window.location.href = window.location.href;</script>'% msg)   
+            return HttpResponse('<script>alert("%s");\
+                                window.location.href = window.location.href;\
+                                </script>'% msg)   
         if new_dirname:
             #create new dir
             msg = ''
@@ -62,16 +69,19 @@ def index(request,p=None):
                 msg = _('Create directory successful!')
             except:
                 msg = _('Sorry,create directory failed!')
-            return HttpResponse('<script>alert("%s");window.location.href = window.location.href;</script>'% msg)   
+            return HttpResponse('<script>alert("%s");\
+                                window.location.href = window.location.href;\
+                                </script>'% msg)   
     list_path(path,dirs,files,file_url_prefix,dir_url_prefix)
     current_loc = p
     for f in files:
         dirs.append(f)
-    return render_to_response('filemanager/index.html',{'dirs':dirs,
-                                                        'is_showup':is_showup,
-                                                        'current_location':current_loc,
-                                                        'msg':msg,
-                                                        'allow_types':ALLOW_FILE_TYPES})
+    return render_to_response('filemanager/index.html',
+                              {'dirs':dirs,
+                                'is_showup':is_showup,
+                                'current_location':current_loc,
+                                'msg':msg,
+                                'allow_types':ALLOW_FILE_TYPES})
 
 def get_safe_filename(path,filename):
     #get the safe filename on the server    
