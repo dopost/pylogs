@@ -1,4 +1,4 @@
-# Pylogs settings file
+from os import path
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
 
@@ -17,7 +17,7 @@ USE_I18N = True
 
 # Absolute path to the directory that holds media.
 # Example: "/home/media/media.lawrence.com/"
-MEDIA_ROOT = 'E:\projects\python\pylogs\media'
+MEDIA_ROOT = path.join(path.dirname(__file__),'media')
 ALLOW_FILE_TYPES = ('.jpg','.gif','.png')
 # URL that handles the media served from MEDIA_URL.
 MEDIA_URL = '/media'
@@ -52,7 +52,7 @@ MIDDLEWARE_CLASSES = (
 
 ROOT_URLCONF = 'urls'
 TEMPLATE_DIRS = (
-    "./templates",
+    path.join(path.dirname(__file__),'templates'),
 )
 
 INSTALLED_APPS = (

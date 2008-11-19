@@ -32,7 +32,8 @@ class RssLatestPosts(Feed):
         return 'Sky' #item.author.username
     
     def items(self):
-        posts = Post.objects.filter(post_type__iexact='post',post_status__iexact = models.POST_STATUS[0][0])[:15]
+        posts = Post.objects.filter(post_type__iexact='post',
+                                    post_status__iexact = models.POST_STATUS[0][0])[:15]
         for post in posts:
             post.content = html.htmlDecode(post.content)
         return posts
@@ -63,7 +64,8 @@ class AtomLatestPosts(Feed):
         return 'Sky' #item.author.username
     
     def items(self):
-        posts = Post.objects.filter(post_type__iexact='post',post_status__iexact = models.POST_STATUS[0][0])[:15]
+        posts = Post.objects.filter(post_type__iexact='post',
+                                    post_status__iexact = models.POST_STATUS[0][0])[:15]
         for post in posts:
             post.content = html.htmlDecode(post.content)
         return posts

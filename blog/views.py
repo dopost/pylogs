@@ -1,16 +1,18 @@
 #coding=utf-8
+import re
+
 from django.utils.translation import ugettext as _
-from blog import models,blog_forms
-from blog.models import Post,Comments,Tags,Category
 from django.template import loader,Context,RequestContext
 from django.utils.http import urlquote
 from django.http import HttpResponse,HttpResponseRedirect,Http404
 from django.shortcuts import get_object_or_404,get_list_or_404,render_to_response
 from django.core.paginator import Paginator, InvalidPage
-import re
+
 from utils import html,codehighlight
 from utils.email import new_comment_mail
 from blog.templatetags.themes import theme_template_url
+from blog import models,blog_forms
+from blog.models import Post,Comments,Tags,Category
 
 PAGE_SIZE = 10
 LIST_TEMPLATE = theme_template_url()+ '/blog/list.html'

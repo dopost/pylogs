@@ -10,7 +10,8 @@ class PostAdmin(admin.ModelAdmin):
     list_filter =('post_type','category')
     fieldsets = (
     (None, {
-        'fields': ('title', 'post_name','category', 'content','post_status','menu_order','comment_status',)
+        'fields': ('title', 'post_name','category',
+                   'content','post_status','menu_order','comment_status',)
     }),
     ('Advanced options', {
         'classes': ('collapse',),
@@ -29,7 +30,8 @@ class CategoryAdmin(admin.ModelAdmin):
 
 class CommentsAdmin(admin.ModelAdmin):
     list_filter =('comment_approved',)
-    list_display = ('comment_author','comment_author_email','comment_date','comment_approved')
+    list_display = ('comment_author','comment_author_email',
+                    'comment_date','comment_approved')
     search_fields = ['comment_author']
     
 class LinksAdmin(admin.ModelAdmin):
