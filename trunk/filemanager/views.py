@@ -13,12 +13,12 @@ from django.core.urlresolvers import reverse
 
 from models import Path
 import settings
-from settings import MEDIA_ROOT,MEDIA_URL
+from settings import MEDIA_ROOT,MEDIA_URL,ALLOW_FILE_TYPES
 
-ALLOW_FILE_TYPES = ('.jpg','.gif','.png')
-try:
-    ALLOW_FILE_TYPES = settings.ALLOW_FILE_TYPES
-except:pass
+#ALLOW_FILE_TYPES = ('.jpg','.gif','.png')
+#try:
+#    ALLOW_FILE_TYPES = settings.ALLOW_FILE_TYPES
+#except:pass
 
 @staff_member_required
 def index(request,p=None):   
@@ -27,7 +27,7 @@ def index(request,p=None):
     #set default path root is MEDIA_ROOT/upload
     path = os.path.join(MEDIA_ROOT,'upload')
     dir_url_prefix = reverse('filemanager',args=[''])
-    file_url_prefix = MEDIA_URL + 'upload/'
+    file_url_prefix = os.path.join(MEDIA_URL,'upload') + '/'
     is_showup = False
     
     if p:
