@@ -53,8 +53,7 @@ urlpatterns += patterns('blog.views',
                         (r'^$', 'index'),
                         #tags
                         url(r'^tags/$','tags',name='tags'),
-                        url(r'^tags/(?P<tagname>.*)/$','tags',name='tagname'),
-                        url(r'^(\d{4})/(\d{1,2})/(\d{1,2})/(?P<postid>\d+)/$','post',name='post_id'),
+                        url(r'^tags/(?P<tagname>.*)/$','tags',name='tagname'),                        
                         url(r'^(\d{4})/(\d{1,2})/(\d{1,2})/(?P<postname>[^/]+)/$','post',name='post_name'),
                         #category view
                         url(r'^category/(?P<catid>\d+)/$','categoryView',name="category_id"),
