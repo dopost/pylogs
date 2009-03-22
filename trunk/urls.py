@@ -1,9 +1,10 @@
 from django.conf.urls.defaults import *
 from django.conf import settings
+from django.contrib import admin
+
 from blog import feeds
 from blog.models import Post
 
-from django.contrib import admin
 admin.autodiscover()
 
 # Info for feeds.
@@ -26,6 +27,13 @@ if settings.DEBUG:
                             (r'^media/(?P<path>.*)$', 'django.views.static.serve',
                 {'document_root': settings.STATIC_PATH}),                    
                             )
+#urls for wap
+urlpatterns += patterns('',                        
+                        (r'^wap/*',include('wap.urls')),
+                        #wap pre url
+                        url(r'wap','wap.views.index',name='wap_pre'),
+                        )
+
 # url for todo
 urlpatterns += patterns('todo.views',
                         url(r'^todo/$','index',name='todo'),
