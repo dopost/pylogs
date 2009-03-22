@@ -64,6 +64,7 @@ INSTALLED_APPS = (
     'blog',
     'todo',
     'filemanager',
+    'wap',    
     #'tests',
 )
 VERSION = (1, 14, 'beta')	
