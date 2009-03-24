@@ -1,13 +1,17 @@
 
         Pylogs更新日志(CHANGELOG)
 ******************************************
+2009-3-24 _version: 1.15beta
+  1. 支持手机访问
+  2. Bug修复
+  
 2008-11-19 _version: 1.14beta
-  # 支持metaWeblog API
+  1. 支持metaWeblog API
 
 2008-10-8 _version: 1.14beta
-  # 程序全部迁移至Django 1.0final
-  # 修正tags页的错误
-  # 修复几处bug
+  1. 程序全部迁移至Django 1.0final
+  2. 修正tags页的错误
+  3. 修复几处bug
   
 2008-08-12 _version: 1.13beta
   1. 增加Django v1.0alpha支持，修复使用Django v1.0管理界面没有model修改的错误（使用方法见README文件)
