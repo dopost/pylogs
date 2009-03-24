@@ -65,6 +65,6 @@ INSTALLED_APPS = (
     'todo',
     'filemanager',
     'wap',    
-    #'tests',
+    'tests',
 )
-VERSION = (1, 14, 'beta')	
+VERSION = (1, 15, 'beta')	
