@@ -45,10 +45,14 @@ version_info = (2,0,1, "Final")
 import re
 import codecs
 import sys
+import os
 import warnings
 import logging
 from logging import DEBUG, INFO, WARN, ERROR, CRITICAL
 
+package_dir = os.path.split(__file__)[0]
+parent_dir = os.path.dirname(package_dir)
+sys.path.append(parent_dir)
 
 """
 CONSTANTS
