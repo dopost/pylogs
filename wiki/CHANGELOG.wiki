@@ -1,6 +1,19 @@
 #labels 更新日志,Featured
 =更新日志(CHANGELOG)=
 
+== 2009-6-28 _version: 1.15beta_ ==
+  # 改进rss输出,添加基于settings.py的基本rss输出相关配置项
+
+== 2009-6-19 _version: 1.15beta_ ==
+  # 增加使用markdown标记语言编辑blog post的功能
+
+== 2009-6-14 _version: 1.15beta_ ==
+  # 处理 连接名字段包含空格或中文时,前端点击该链接时出现404错误
+
+== 2009-6-12 _version: 1.15beta_ ==
+  #  处理post减少关联tag后，相关tag reference_count属性未更新问题 
+  #  处理 todo系统中添加的私有project在没有关联task时,非登录用户也能查看 问题
+
 == 2009-3-24 _version: 1.15beta_ ==
   # 支持手机访问
   # Bug修复
