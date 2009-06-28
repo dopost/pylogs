@@ -1,3 +1,4 @@
+#-*- coding:utf-8 -*-
 from os import path
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
@@ -68,3 +69,12 @@ INSTALLED_APPS = (
     'tests',
 )
 VERSION = (1, 15, 'beta')	
+
+
+#FEED CONF START
+FEED_BLOG_URL_PREFIX = "http://code.google.com/p/pylogs/"  #change to your site url
+FEED_POST_AUTHOR_NAME = "Sky"
+FEED_COPYRIGHT =  "Pylogs by Sky"
+FEED_GLOBAL_TITLE = "Pylogs: Latest Posts"
+FEED_GLOBAL_DESCRIPTION = "logging your life..."
+#FEED CONF END
