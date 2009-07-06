@@ -57,6 +57,9 @@ msgstr "不允许评论"
 msgid "Allow Register Comments"
 msgstr "只允许注册用户评论"
 
+msgid "No Need Approve"
+msgstr "评论不需审批"
+
 msgid "Name"
 msgstr "名称"
 
