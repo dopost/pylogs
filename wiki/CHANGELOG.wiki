@@ -1,6 +1,16 @@
 #labels 更新日志,Featured
 =更新日志(CHANGELOG)=
 
+== 2009-7-07 _version: 1.15beta_ ==
+  # 添加不需要审核即可发表评论的选项
+
+== 2009-7-01 _version: 1.15beta_ ==
+  # 修复编辑文章时不显示(文章，页面)类型选项的BUG
+
+== 2009-6-29 _version: 1.15beta_ ==
+  # 自动判断移动设备访问 
+  # 添加tinymce插件filemanager和insertcode的中文语言包
+
 == 2009-6-28 _version: 1.15beta_ ==
   # 改进rss输出,添加基于settings.py的基本rss输出相关配置项
 
