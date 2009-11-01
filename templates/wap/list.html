@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {% extends "wap/base.html" %}
 {% load i18n %}{% block title %}{{pagetitle}} - {{ block.super }} {% endblock %}
 {% block content %}
@@ -8,15 +7,4 @@
     {% endfor %}
        {% if prev_page %}<a href="?page={{prev_page}}"> {% trans "Prev" %}</a>{% endif %}
     {% if next_page%}<a href="?page={{next_page}}">{% trans "Next" %}</a>{% endif %}
-=======
-{% extends "wap/base.html" %}
-{% load i18n %}{% block title %}{{pagetitle}} - {{ block.super }} {% endblock %}
-{% block content %}
-{% for post in posts %}    
-        <a href="{%url wap_pre%}{{ post.get_absolute_url }}" >{{post.title}}</a>
-        <br/>     
-    {% endfor %}
-       {% if prev_page %}<a href="?page={{prev_page}}"> {% trans "Prev" %}</a>{% endif %}
-    {% if next_page%}<a href="?page={{next_page}}">{% trans "Next" %}</a>{% endif %}
->>>>>>> 1b1aba63e4e25c4d81cdc8ee168ba60582ceb029
 {% endblock %}

@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {% if links %}
 <ul>
 {% for link in links %}
@@ -11,18 +10,4 @@
 {% get_available_languages as LANGUAGES %}
 {% get_current_language_bidi as LANGUAGE_BIDI %}
 {% trans "No Links Now" %}!
-=======
-{% if links %}
-<ul>
-{% for link in links %}
-    <li><a href="{{link.get_absolute_url}}" title="{{link.link_desc}}">{{link.link_title}}</a></li>
-{% endfor %}
-</ul>
-{% else %}
-{% load i18n %} 
-{% get_current_language as LANGUAGE_CODE %}
-{% get_available_languages as LANGUAGES %}
-{% get_current_language_bidi as LANGUAGE_BIDI %}
-{% trans "No Links Now" %}!
->>>>>>> 1b1aba63e4e25c4d81cdc8ee168ba60582ceb029
 {% endif %}

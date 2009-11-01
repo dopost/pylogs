@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {% if posts %}{% load filters %} 
 {% for post in posts %}
     » <a title="{{post.title}}" href="{{post.get_absolute_url}}">{{post.title|substring:44}}</a><br/>
@@ -6,13 +5,4 @@
 {% else %}
 {% load i18n %} 
 {% trans "No post now" %}!
-=======
-{% if posts %}{% load filters %} 
-{% for post in posts %}
-    » <a title="{{post.title}}" href="{{post.get_absolute_url}}">{{post.title|substring:44}}</a><br/>
-{% endfor %}
-{% else %}
-{% load i18n %} 
-{% trans "No post now" %}!
->>>>>>> 1b1aba63e4e25c4d81cdc8ee168ba60582ceb029
 {% endif %}
