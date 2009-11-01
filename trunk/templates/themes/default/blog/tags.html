@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% load i18n themes %}
 {% theme_extends "base.html" %}
 {% block title %}{%trans "Tags" %} - {{ block.super }}{% endblock %}
@@ -18,3 +19,25 @@
 {% endblock %}
 <!--End of content-->
 
+=======
+{% load i18n themes %}
+{% theme_extends "base.html" %}
+{% block title %}{%trans "Tags" %} - {{ block.super }}{% endblock %}
+<!--Start of content-->
+{% block content %}
+<div class="entry">
+         <h1>
+        {%trans "Tags" %}
+      </h1> 
+      <div class="body">      
+    {% for tag in tags %}
+    <a href="{{tag.get_absolute_url}}" class="tags font_{{tag.reference_count}}">{{tag.name}}</a>&nbsp;&nbsp;
+    {% endfor %}
+	
+      </div>
+	<br/><br/>  
+</div>	  
+{% endblock %}
+<!--End of content-->
+
+>>>>>>> 1b1aba63e4e25c4d81cdc8ee168ba60582ceb029
