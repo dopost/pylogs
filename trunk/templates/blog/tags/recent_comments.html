@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 {% if comments %}
 {% load filters %} 
 {% for comment in comments %}
@@ -7,14 +6,4 @@
 {% else %}
 {% load i18n %} 
 {% trans "No Links Now" %}!
-=======
-{% if comments %}
-{% load filters %} 
-{% for comment in comments %}
-    » <a title="{{comment.comment_author}}" href="{{comment.post.get_absolute_url}}#comments">{{comment.comment_content|substring:44}}</a><br/>
-{% endfor %}
-{% else %}
-{% load i18n %} 
-{% trans "No Links Now" %}!
->>>>>>> 1b1aba63e4e25c4d81cdc8ee168ba60582ceb029
 {% endif %}

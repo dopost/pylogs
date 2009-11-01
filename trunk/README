@@ -1,11 +1,13 @@
 Pylogs README
 
-Pylogs是一个基于Python和Django开发的个人blog系统（至少暂时是这样:)）,本系统实现了blog的基本功能。支持皮肤，tag等blog的特性。并且集成了一个todo项目，用来管理你的待办事项。
+Pylogs是一个基于Python和Django开发的个人blog系统（至少暂时是这样:)）.
+本系统实现了blog的基本功能。支持皮肤，tag等blog的特性。并且集成了一个todo项目，用来管理你的待办事项。
 
 作者:Sky (denghaibo+pylogs@gmail.com)
-Pylogs项目主页:   http://code.google.com/p/pylogs/
-Pylogs讨论组:     http://groups.google.com/group/pylogs
-Pylogs官方演示:   http://pylogs.cn
+Pylogs项目主页:   		http://code.google.com/p/pylogs/
+Pylogs项目主页(Git):	http://github.com/bbisky/Pylogs
+Pylogs讨论组:     		http://groups.google.com/group/pylogs
+Pylogs官方演示:   		http://oteam.cn
 
 
 Pylogs 使用了以下模块和框架：

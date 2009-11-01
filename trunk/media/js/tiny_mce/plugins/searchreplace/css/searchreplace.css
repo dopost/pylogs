@@ -1,15 +1,6 @@
-<<<<<<< HEAD
 .panel_wrapper {height:85px;}
 .panel_wrapper div.current {height:85px;}
 
 /* IE */
 * html .panel_wrapper {height:100px;}
 * html .panel_wrapper div.current {height:100px;}
-=======
-.panel_wrapper {height:85px;}
-.panel_wrapper div.current {height:85px;}
-
-/* IE */
-* html .panel_wrapper {height:100px;}
-* html .panel_wrapper div.current {height:100px;}
->>>>>>> 1b1aba63e4e25c4d81cdc8ee168ba60582ceb029
