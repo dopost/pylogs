@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% extends "wap/base.html" %}{% load i18n %}
 {% block title %}{%trans "Tags" %} - {{ block.super }} {% endblock %}
 {% block content %}
@@ -8,3 +9,15 @@
     {% endfor %}
 
 {% endblock %}
+=======
+{% extends "wap/base.html" %}{% load i18n %}
+{% block title %}{%trans "Tags" %} - {{ block.super }} {% endblock %}
+{% block content %}
+<strong>{%trans "Tags" %}</strong>
+<br/>
+{% for tag in tags %}
+    <a href="{%url wap_pre%}{{tag.get_absolute_url}}" class="tags font_{{tag.reference_count}}">{{tag.name}}</a> 
+    {% endfor %}
+
+{% endblock %}
+>>>>>>> 1b1aba63e4e25c4d81cdc8ee168ba60582ceb029

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 {% if posts %}
 {% for post in posts %}
     » <a title="{{post.title}}" href="{{post.get_absolute_url}}">{{post.title}}</a><br/>
@@ -6,3 +7,13 @@
 {% load i18n %} 
 {% trans "No post now" %}!
 {% endif %}
+=======
+{% if posts %}
+{% for post in posts %}
+    » <a title="{{post.title}}" href="{{post.get_absolute_url}}">{{post.title}}</a><br/>
+{% endfor %}
+{% else %}
+{% load i18n %} 
+{% trans "No post now" %}!
+{% endif %}
+>>>>>>> 1b1aba63e4e25c4d81cdc8ee168ba60582ceb029
