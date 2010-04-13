@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<title>{% block title %}Pylogs - logging your life.{% endblock %}</title>
+<title>{% block title %}{%site_name%}-{%site_subtitle%}{% endblock %}</title>
 {%block meta %}
 <meta content="Pylogs,blog,博客,todo,python,Django,基于Python的博客系统" name="keywords"/>
 <meta name="description" content="Pylogs是一个由Sky独立开发的个人站点，程序基于python+django.主要目的是实现一个简单的blog系统，当然不仅仅是blgo,以后将加入更多新的功能。总之，一切由简单开始！　　
@@ -70,7 +70,7 @@ Simple is beautiful..."/>{%endblock%}
 
 </div>
 
-<div id="header"><h1><a href='#'>Pylogs</a></h1><h2>Logging your life...</h2></div>
+<div id="header"><h1><a href='#'>{%site_name%}</a></h1><h2>{%site_subtitle%}</h2></div>
 {% block recent %}{% endblock %}
 <div id="main">
     <div class="entry">

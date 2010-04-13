@@ -38,10 +38,8 @@
            <p>{{cmt.comment_content|linebreaks }}</p>        
            </li>
         {% endfor %}
-	</ol>
- {% ifequal "open" post.comment_status %}
+	</ol> 
         {% include "blog/comment_form.html" %}
-{% endifequal %} 
 </div>
 </div>
  
