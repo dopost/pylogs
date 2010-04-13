@@ -2,6 +2,7 @@
 from os import path
 DEBUG = True
 TEMPLATE_DEBUG = DEBUG
+#DEBUG_RPC = True
 
 DATABASE_ENGINE = 'mysql' 
 DATABASE_NAME = 'pylogs'
@@ -23,7 +24,7 @@ ALLOW_FILE_TYPES = ('.jpg','.gif','.png')
 # URL that handles the media served from MEDIA_URL.
 MEDIA_URL = '/media'
 # the theme name 'default, techicon, beijing2008'
-THEME_NAME = 'techicon'
+THEME_NAME = 'beijing2008'
 
 STATIC_PATH = './media'
 
@@ -49,6 +50,7 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.common.CommonMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.middleware.doc.XViewMiddleware',
+  #  'debug_toolbar.middleware.DebugToolbarMiddleware',
 )
 
 ROOT_URLCONF = 'urls'
@@ -67,10 +69,15 @@ INSTALLED_APPS = (
     'filemanager',
     'wap',    
     'tests',
+ #   'debug_toolbar'
 )
+
+#DEBUG_TOOLBAR_CONFIG = {'INTERCEPT_REDIRECTS': False }
+
+
 VERSION = (1, 15, 'beta')	
 
-
+#INTERNAL_IPS = ('127.0.0.1',)
 #FEED CONF START
 FEED_BLOG_URL_PREFIX = "http://code.google.com/p/pylogs/"  #change to your site url
 FEED_POST_AUTHOR_NAME = "Sky"

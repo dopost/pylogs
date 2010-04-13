@@ -62,7 +62,7 @@ def post(request,postname=None,postid=0):
                         comment_approved_status = models.COMMENT_APPROVE_STATUS[1][0]   # comment approved
                     else:
                         comment_approved_status = models.COMMENT_APPROVE_STATUS[0][0]   # comment unapproved
-                        
+                    
                     comment = Comments(post = post,
                                comment_author=form.cleaned_data['comment_author'],
                                comment_author_email=form.cleaned_data['comment_author_email'],
@@ -126,7 +126,7 @@ def page(request,pagename):
                     msg = _('Comment post successful!')
                     form = blog_forms.CommentForm() 
         #if allow comment,show the comment form
-        elif page.comment_status == models.POST_COMMENT_STATUS[0][0]:
+        elif (page.comment_status == models.POST_COMMENT_STATUS[0][0])  or (page.comment_status == models.POST_COMMENT_STATUS[3][0]) :
             form = blog_forms.CommentForm()
         else:
             form = None
@@ -273,7 +273,7 @@ def post_comment(request,postid):
                                comment_author_url=url,
                                comment_author_IP=request.META['REMOTE_ADDR'],
                                comment_content = content,
-                               comment_approved=str(models.COMMENT_APPROVE_STATUS[0][0]),
+                               comment_approved=comment_approved_status,
                                comment_agent=request.META['HTTP_USER_AGENT'])                 
         comment.save()
         new_comment_mail(post.title,comment.comment_content)   
