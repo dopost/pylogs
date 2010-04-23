@@ -17,11 +17,11 @@
 = 站点参数设置 =
 登录后台,在blog app下的"站点设置"表中添加设置项,可用的设置项:
 ||*设置名称*            ||*说明*                                  ||
-||SiteName              ||站点名称                                ||          
-||SiteSubTitle          ||站点副标题                              ||
-||Theme                 ||主题名称                                ||
-||AuthorName            ||作者名称(用于feed中显示author)          ||
-||SiteKeywords          ||站点关键字(对应head中的meta keywords)   ||
-||SiteDescription       ||站点描述(对应head中的meta description)  ||
+||!SiteName              ||站点名称                                ||          
+||!SiteSubTitle          ||站点副标题                              ||
+||!Theme                 ||主题名称                                ||
+||!AuthorName            ||作者名称(用于feed中显示author)          ||
+||!SiteKeywords          ||站点关键字(对应head中的meta keywords)   ||
+||!SiteDescription       ||站点描述(对应head中的meta description)  ||
 
 如果你在安装过程中遇到问题，请到http://groups.google.com/group/pylogs 中提出。
