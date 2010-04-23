@@ -19,7 +19,7 @@
 ||*设置名称*            ||*说明*                                  ||
 ||!SiteName              ||站点名称                                ||          
 ||!SiteSubTitle          ||站点副标题                              ||
-||!Theme                 ||主题名称                                ||
+||Theme                 ||主题名称                                ||
 ||!AuthorName            ||作者名称(用于feed中显示author)          ||
 ||!SiteKeywords          ||站点关键字(对应head中的meta keywords)   ||
 ||!SiteDescription       ||站点描述(对应head中的meta description)  ||
